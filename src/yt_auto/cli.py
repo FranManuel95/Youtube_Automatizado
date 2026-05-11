@@ -24,9 +24,11 @@ app = typer.Typer(help="Pipeline de automatización de YouTube con IA - estrateg
 niche_app = typer.Typer(help="Etapa 1 - selección y validación de nichos.")
 script_app = typer.Typer(help="Etapa 2 - ingeniería de guiones.")
 audio_app = typer.Typer(help="Etapa 3 - locución con ElevenLabs.")
+visuals_app = typer.Typer(help="Etapa 4 - generación visual (Nano Banana + Seedance).")
 app.add_typer(niche_app, name="niche")
 app.add_typer(script_app, name="script")
 app.add_typer(audio_app, name="audio")
+app.add_typer(visuals_app, name="visuals")
 
 console = Console()
 
@@ -292,13 +294,78 @@ def audio_list() -> None:
         console.print(f"  {f.relative_to(ROOT_DIR)}")
 
 
+# -------------------- visuals --------------------
+
+
+@visuals_app.command("prompt")
+def visuals_prompt(
+    script_file: Path = typer.Argument(..., help="JSON de un ScriptReport"),
+    save: bool = typer.Option(True, "--save/--no-save"),
+) -> None:
+    """Genera el prompt maestro para diseñar el plan visual (interactivo)."""
+    from yt_auto.scripts import load_report as load_script_report
+    from yt_auto.visuals import OUTPUT_DIR, VISUALS_SYSTEM, build_visuals_prompt
+
+    script_report = load_script_report(script_file)
+    body = build_visuals_prompt(script_report, script_ref=str(script_file))
+
+    console.rule("[bold cyan]System prompt")
+    console.print(VISUALS_SYSTEM)
+    console.rule("[bold cyan]User prompt")
+    console.print(body[:2000] + ("\n... (truncado, ver archivo completo)" if len(body) > 2000 else ""))
+
+    if save:
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        path = OUTPUT_DIR / "last_prompt.md"
+        path.write_text(f"# System\n\n{VISUALS_SYSTEM}\n\n# User\n\n{body}\n", "utf-8")
+        console.print(f"\n[green]Prompt guardado en[/green] {path}")
+
+
+@visuals_app.command("ingest")
+def visuals_ingest(
+    response_file: Path = typer.Argument(...),
+    archive: bool = typer.Option(False, "--archive"),
+) -> None:
+    """Parsea la respuesta JSON de Claude y exporta el plan visual completo."""
+    from yt_auto.visuals import ingest_response, save_report
+
+    raw = response_file.read_text("utf-8")
+    report = ingest_response(raw)
+    json_path, md_path, prompts_dir = save_report(report, archive=archive)
+
+    console.print(f"[green]Plan visual guardado[/green]:")
+    console.print(f"  JSON      -> {json_path}")
+    console.print(f"  MD        -> {md_path}")
+    console.print(f"  prompts/  -> {prompts_dir}")
+    if archive:
+        console.print("  [bold]Archivado en docs/visuals-archive/[/bold]")
+
+    console.print()
+    console.print(f"  Personaje:       {report.character.name}")
+    console.print(f"  Vistas:          {len(report.character.views)}")
+    console.print(f"  Shots:           {len(report.shots)}")
+    console.print(f"  Pattern interr.: {report.pattern_interrupt_count}")
+    if not report.character.has_mandatory_views():
+        console.print("  [yellow]⚠ Faltan vistas obligatorias del personaje[/yellow]")
+
+
+@visuals_app.command("list")
+def visuals_list() -> None:
+    """Lista planes visuales guardados."""
+    from yt_auto.visuals import OUTPUT_DIR
+
+    if not OUTPUT_DIR.exists():
+        console.print("[yellow]No hay planes visuales todavía.[/yellow]")
+        return
+    files = sorted(OUTPUT_DIR.glob("*.json"))
+    if not files:
+        console.print("[yellow]No hay planes visuales todavía.[/yellow]")
+        return
+    for f in files:
+        console.print(f"  {f.relative_to(ROOT_DIR)}")
+
+
 # -------------------- placeholders --------------------
-
-
-@app.command()
-def visuals(storyboard_path: str = typer.Argument(...)) -> None:
-    """Generar visuales (stub) - Nano Banana + Seedance 2.0, multi-reference."""
-    console.print(f"[yellow]TODO[/yellow] visuals.render(storyboard={storyboard_path!r})")
 
 
 @app.command()

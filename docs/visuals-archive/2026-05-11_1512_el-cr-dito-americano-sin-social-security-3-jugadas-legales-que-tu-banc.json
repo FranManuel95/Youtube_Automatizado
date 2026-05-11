@@ -1,0 +1,623 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-05-11T15:12:11.997571",
+  "script_ref": "docs/scripts-archive/2026-05-11_1458_el-cr-dito-americano-sin-social-security-3-jugadas-legales-que-tu-banc.json",
+  "script_title": "El crédito americano sin Social Security: 3 jugadas legales que tu banco oculta",
+  "character": {
+    "name": "Luis",
+    "role": "Narrador principal del canal (avatar IA consistente)",
+    "age": "38",
+    "physical_features": {
+      "etnia": "Latinoamericano (rasgos mestizos, ligero matiz mexicano)",
+      "pelo": "Negro azabache, corto, peinado lateral con raya marcada, ligeramente canoso en sienes",
+      "ojos": "Color marrón oscuro, mirada serena pero firme, leves líneas de expresión",
+      "cara": "Forma ovalada, mandíbula definida, barba corta y cuidada de 5-7mm",
+      "complexion": "Piel trigueña con leves imperfecciones naturales, poros visibles, micro-arrugas en frente",
+      "altura_construccion": "1.78m, complexión atlética media, no demasiado musculoso",
+      "marcas_distintivas": "Pequeña cicatriz casi imperceptible sobre la ceja izquierda"
+    },
+    "outfit_base": "Camisa azul marino de algodón Oxford con cuello abierto (2 botones desabrochados), pantalón chino beige, reloj analógico de pulsera de cuero marrón en muñeca izquierda. Tono formal pero accesible, NO traje completo.",
+    "accent_notes": "Hispano US-mexicano residente en Texas/Florida. Imagen aspiracional pero terrenal: el hispano que ya 'lo logró' pero recuerda de dónde viene.",
+    "views": {
+      "frontal": {
+        "camera": "Sony A7R IV, 85mm lens",
+        "f_stop": "f/1.8",
+        "iso": 400,
+        "shot_angle": "frontal symmetric, eyes to camera",
+        "lighting": "Cinematic soft lighting, 5500K, key light at 45 degrees from camera left, fill at 30% intensity from right",
+        "skin_details": "visible pores, natural skin texture, slight imperfections, subsurface scattering, no plastic look",
+        "post_processing": "color graded, high dynamic range, subtle film grain",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "subject": "Latino male 38yo named Luis, mestizo features with mexican heritage, jet black hair short with side part slightly graying at temples, dark brown eyes calm and confident gaze, oval face with defined jawline, well-groomed short beard 5-7mm, trigueña skin tone with natural imperfections, small almost invisible scar above left eyebrow, navy blue Oxford cotton shirt with collar open and two top buttons unbuttoned, beige chino pants, brown leather analog watch on left wrist. Composition: head and shoulders, centered, neutral grey studio background, looking directly at camera with serene authority"
+      },
+      "profile_left": {
+        "camera": "Sony A7R IV, 85mm lens",
+        "f_stop": "f/2.0",
+        "iso": 400,
+        "shot_angle": "left profile (subject facing right), 90 degrees",
+        "lighting": "Rembrandt lighting from front-left, soft fill",
+        "skin_details": "visible pores, natural skin texture, slight imperfections, subsurface scattering, no plastic look",
+        "post_processing": "color graded, high dynamic range, subtle film grain",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "subject": "Same Latino male Luis as in frontal reference, jet black hair side part graying temples, well-groomed short beard, navy blue Oxford shirt, beige chinos. Left side profile view showing facial structure - nose bridge, jawline curve, ear shape. Neutral grey studio background, hands not visible"
+      },
+      "three_quarter": {
+        "camera": "Sony A7R IV, 85mm lens",
+        "f_stop": "f/1.8",
+        "iso": 400,
+        "shot_angle": "three-quarter view, subject body angled 45 degrees from camera, head turned to look at lens",
+        "lighting": "Cinematic soft lighting, key from camera right, fill from left at 25%",
+        "skin_details": "visible pores, natural skin texture, slight imperfections, subsurface scattering, no plastic look",
+        "post_processing": "color graded, high dynamic range, subtle film grain",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "subject": "Same Latino male Luis, 38yo, mexican mestizo, jet black hair side part graying temples, dark brown eyes, well-groomed short beard, trigueña skin, navy blue Oxford shirt collar open, beige chinos, brown leather watch. Three-quarter view from camera right, body angled 45 degrees but head turned to make direct eye contact with lens. Neutral grey studio background"
+      },
+      "back": {
+        "camera": "Sony A7R IV, 50mm lens",
+        "f_stop": "f/2.8",
+        "iso": 400,
+        "shot_angle": "back view, subject facing away from camera",
+        "lighting": "Soft rim light from back-left highlighting hair and shoulders",
+        "skin_details": "visible pores, natural skin texture, slight imperfections, subsurface scattering, no plastic look",
+        "post_processing": "color graded, high dynamic range, subtle film grain",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "subject": "Same Latino male Luis from behind, jet black hair short with visible side part graying temples (back of head visible), back of well-groomed short beard line on cheek, navy blue Oxford shirt seen from back showing collar shape and yoke, beige chinos. Neutral grey studio background for tracking shot use"
+      }
+    }
+  },
+  "shots": [
+    {
+      "shot_id": 1,
+      "related_block": "hook",
+      "timecode_start_sec": 0,
+      "duration_sec": 8,
+      "shot_type": "Insert / Detail",
+      "description": "Split screen vertical de pantalla completa: izquierda muestra score crediticio digital '300' en rojo intenso sobre fondo negro; derecha muestra '782' en verde esmeralda sobre fondo blanco. Animación numérica progresiva: el 300 sube hasta convertirse en 782 en los últimos 2 segundos. Texto pequeño debajo: 'FICO Score - 2018' vs 'FICO Score - 2025'.",
+      "motion": "Animación numérica progresiva en counter, split frame estático",
+      "lighting": "Iluminación digital neón rojo y verde, contraste extremo",
+      "ambient": "Pantalla LED digital, sin contexto físico",
+      "nano_banana_prompt_json": {
+        "camera": "Sony A7R IV, 85mm lens",
+        "f_stop": "f/1.8",
+        "iso": 400,
+        "lighting": "Cinematic soft lighting, 4k resolution",
+        "skin_details": "visible pores, natural skin texture, slight imperfections, subsurface scattering, no plastic look",
+        "post_processing": "color graded, high dynamic range, subtle film grain",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "composition": "split screen vertical, left half red dark background with large white '300' number, right half white clean background with large green '782' number, both numbers in modern sans-serif typography",
+        "subject": "Pure digital infographic, no humans. Color blocking high contrast",
+        "style": "Editorial infographic, financial news aesthetic, like CNBC or Bloomberg digital graphics"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 8,
+        "fps": 24,
+        "motion_intensity": "low",
+        "frame_interpolation": true,
+        "motion_description": "Number counter animation: left number stays at 300, right number counts up from 300 to 782 progressively over 6 seconds, then both numbers pulse once in final 2 seconds",
+        "camera_movement": "static"
+      },
+      "requires_character": false,
+      "pattern_interrupt": true
+    },
+    {
+      "shot_id": 2,
+      "related_block": "hook",
+      "timecode_start_sec": 8,
+      "duration_sec": 20,
+      "shot_type": "Medium Shot",
+      "description": "Luis sentado en escritorio de despacho moderno con luz cenital cinematográfica. Mira directamente a cámara con expresión serena pero firme. Detrás, ligeramente desenfocado, estantería con libros, un mapa de EE.UU. enmarcado, y una taza de café humeante sobre el escritorio. Zoom in muy lento (1.05x) durante los 20 segundos.",
+      "motion": "Slow push-in (dolly in lento) hacia la cara, magnitud 5%",
+      "lighting": "Cinematic soft lighting, key light desde arriba-izquierda 45 grados, fill 25% derecha, leve backlight para separar del fondo",
+      "ambient": "Despacho personal de profesional hispano, calidad ejecutiva discreta",
+      "nano_banana_prompt_json": {
+        "camera": "Sony A7R IV, 85mm lens",
+        "f_stop": "f/1.8",
+        "iso": 400,
+        "lighting": "Cinematic soft lighting, 5500K, key light at 45 degrees from upper-left, fill light at 25% intensity from right, subtle backlight for subject separation",
+        "skin_details": "visible pores, natural skin texture, slight imperfections, subsurface scattering, no plastic look",
+        "post_processing": "color graded warm tones, high dynamic range, subtle film grain",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "subject": "Latino male 38yo named Luis, mestizo mexican features, jet black hair short with side part slightly graying at temples, dark brown eyes calm and confident gaze direct to camera, oval face with defined jawline, well-groomed short beard 5-7mm, trigueña skin tone with visible pores and natural imperfections, small almost invisible scar above left eyebrow. Wearing navy blue Oxford cotton shirt with collar open two top buttons unbuttoned, sitting at modern wooden desk",
+        "composition": "Medium shot from chest up, subject centered slightly left of frame, looking directly at camera with serene authority",
+        "background": "Soft bokeh background of modern home office: bookshelf with hardcover books, framed map of United States on wall, steaming ceramic coffee mug on desk in foreground (slightly out of focus), warm lamp light",
+        "style": "Cinematic, documentary-style, Vox or Bloomberg aesthetic"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 15,
+        "fps": 24,
+        "motion_intensity": "very_low",
+        "frame_interpolation": true,
+        "motion_description": "Very subtle slow push-in (dolly in) toward subject face, 5% zoom over the 15 seconds. Subject blinks naturally 3-4 times, makes one very small head tilt at second 8. Steam rising from coffee cup in background slowly.",
+        "camera_movement": "dolly_in_slow"
+      },
+      "requires_character": true,
+      "pattern_interrupt": false
+    },
+    {
+      "shot_id": 3,
+      "related_block": "section_1",
+      "timecode_start_sec": 28,
+      "duration_sec": 90,
+      "shot_type": "Medium Shot",
+      "description": "Luis explicando la paradoja cultural del efectivo, gesticulando con manos abiertas. Plano frontal medio, hombros y manos visibles. En la mesa frente a él, billetes de dólar y monedas dispuestos en pequeñas pilas ordenadas (visual del 'ahorro en efectivo'). Iluminación que insinúa intimidad pero mantiene autoridad.",
+      "motion": "Cámara estática con mínimas variaciones, gesticulación natural del sujeto",
+      "lighting": "Cinematic soft lighting, key desde camera-left 45 grados, leve sombra dramática en el lado derecho del rostro",
+      "ambient": "Mismo despacho que shot 2, pero ángulo ligeramente diferente",
+      "nano_banana_prompt_json": {
+        "camera": "Sony A7R IV, 50mm lens",
+        "f_stop": "f/2.0",
+        "iso": 400,
+        "lighting": "Cinematic soft lighting, key light from camera-left at 45 degrees creating subtle Rembrandt-style shadow on right side of face, low fill",
+        "skin_details": "visible pores, natural skin texture, slight imperfections, subsurface scattering, no plastic look",
+        "post_processing": "color graded warm cinematic tones, high dynamic range",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "subject": "Latino male 38yo named Luis, mestizo mexican features, jet black hair side part graying temples, dark brown eyes, oval face defined jawline, well-groomed short beard, trigueña skin with natural imperfections, navy blue Oxford shirt open collar, brown leather watch left wrist. Hands open in mid-gesture explaining something thoughtful",
+        "composition": "Medium shot, chest and hands visible, subject slightly off-center to right, hands in middle of explanatory gesture",
+        "background": "Same modern home office as previous shot but seen from slightly different angle. On the wooden desk in foreground: small neat stacks of US dollar bills and coins arranged in tidy piles, visual metaphor for cash savings",
+        "style": "Documentary cinematic, intimate but authoritative"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 15,
+        "fps": 24,
+        "motion_intensity": "medium",
+        "frame_interpolation": true,
+        "motion_description": "Subject gestures naturally with hands while speaking: opens palms upward, brings hands together, points lightly at the cash piles on the desk. Natural breathing and blinking. Camera completely static.",
+        "camera_movement": "static",
+        "note": "Need to extend with multiple 15s clips concatenated to cover 90s duration"
+      },
+      "requires_character": true,
+      "pattern_interrupt": false
+    },
+    {
+      "shot_id": 4,
+      "related_block": "section_1",
+      "timecode_start_sec": 118,
+      "duration_sec": 5,
+      "shot_type": "Insert / Detail",
+      "description": "Pattern interrupt: cifra gigante animada en pantalla completa '26.000.000' (negro sobre fondo amarillo intenso, tipografía sans-serif ultra bold). El número se ensambla letra por letra con sonido tipo timbre cortado. Subtítulo más pequeño debajo: 'adultos invisibles para el sistema · CFPB 2024'.",
+      "motion": "Animación tipográfica de ensamblaje, sin movimiento de cámara",
+      "lighting": "Iluminación digital plana, contraste alto",
+      "ambient": "Pantalla LED, sin contexto físico",
+      "nano_banana_prompt_json": {
+        "camera": "Digital infographic",
+        "lighting": "Flat digital lighting, high contrast",
+        "post_processing": "Clean vector graphic style, no film grain",
+        "subject": "Pure typographic infographic. Large number '26,000,000' in ultra bold sans-serif black typography centered on bright yellow background (#FFD60A). Below in smaller dark gray text: 'adultos invisibles para el sistema · CFPB 2024'",
+        "composition": "Centered typography, edge-to-edge background fill",
+        "style": "Vox/Bloomberg/CNBC infographic aesthetic, brutalist minimalism"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 5,
+        "fps": 24,
+        "motion_intensity": "high",
+        "frame_interpolation": true,
+        "motion_description": "Number assembles digit by digit from left to right over 2 seconds with sharp snap-in animation. Subtitle fades in below at second 2.5. Whole composition pulses once at second 4 then holds.",
+        "camera_movement": "static",
+        "sound_design_note": "Sync with crisp bell-cut sound effect"
+      },
+      "requires_character": false,
+      "pattern_interrupt": true
+    },
+    {
+      "shot_id": 5,
+      "related_block": "section_2",
+      "timecode_start_sec": 123,
+      "duration_sec": 10,
+      "shot_type": "Insert / Detail",
+      "description": "Pattern interrupt B-roll cinematográfico: formulario W-7 del IRS sobre escritorio de madera. Luz cenital suave que ilumina el papel. Una mano (la de Luis, manga azul marino visible) firma con bolígrafo Pilot G2 negro. La cámara hace un dolly lento de izquierda a derecha siguiendo la firma. Detalle de los campos del formulario claramente legibles (nombre, dirección, razón).",
+      "motion": "Dolly lateral de izquierda a derecha siguiendo el movimiento de firma",
+      "lighting": "Iluminación cenital suave, tipo desk lamp, creando contraste cálido sobre el papel blanco",
+      "ambient": "Escritorio cinematográfico, papelería oficial",
+      "nano_banana_prompt_json": {
+        "camera": "Sony A7R IV, 50mm lens",
+        "f_stop": "f/2.8",
+        "iso": 400,
+        "lighting": "Overhead soft warm desk lamp light, creating gentle highlight on white form against wooden desk",
+        "skin_details": "visible pores on hand, natural skin texture, slight veins visible, no plastic look",
+        "post_processing": "color graded warm tones, high dynamic range, subtle film grain",
+        "render_engine": "nano_banana_sampling",
+        "composition": "Top-down 45-degree angle, IRS Form W-7 centered on dark wooden desk surface, Latino male hand with navy blue Oxford shirt sleeve visible holding black Pilot G2 ballpoint pen mid-signature, hand exits left side of frame",
+        "subject": "Official IRS Form W-7 'Application for IRS Individual Taxpayer Identification Number' clearly legible with form fields visible: name, address, reason for applying. Latino hand (matching Luis character skin tone) signing the form with focus and care",
+        "style": "Documentary B-roll, intimate official paperwork aesthetic"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 10,
+        "fps": 24,
+        "motion_intensity": "low",
+        "frame_interpolation": true,
+        "motion_description": "Camera dolly slow lateral pan left to right following the hand's signing motion. Hand completes the signature naturally over 6 seconds, pen lifts off paper at second 7, camera continues slight movement until 10 seconds. Form paper has subtle natural shadow movement.",
+        "camera_movement": "dolly_lateral_left_to_right"
+      },
+      "requires_character": false,
+      "pattern_interrupt": true
+    },
+    {
+      "shot_id": 6,
+      "related_block": "section_2",
+      "timecode_start_sec": 133,
+      "duration_sec": 100,
+      "shot_type": "Full Shot",
+      "description": "Luis de pie junto a su escritorio explicando el ITIN, gesticulando hacia un gráfico animado proyectado sobre la pared lateral que muestra el flujo: Persona → IRS → Form W-7 → ITIN → Banco → FICO. La cámara está en plano amplio que muestra el entorno completo. Iluminación cinematográfica que separa al sujeto del fondo.",
+      "motion": "Cámara estática, sujeto camina ligeramente hacia el gráfico señalando",
+      "lighting": "Tres puntos cinematográficos: key desde camera-right, fill bajo desde izquierda, backlight ámbar suave",
+      "ambient": "Despacho profesional con proyección lateral, mood ejecutivo",
+      "nano_banana_prompt_json": {
+        "camera": "Sony A7R IV, 35mm lens",
+        "f_stop": "f/2.8",
+        "iso": 400,
+        "lighting": "Three-point cinematic lighting: key light from camera-right, low fill from left, amber backlight",
+        "skin_details": "visible pores, natural skin texture, slight imperfections, subsurface scattering, no plastic look",
+        "post_processing": "color graded warm cinematic, high dynamic range, subtle film grain",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "subject": "Latino male 38yo Luis, mestizo mexican features, jet black hair side part graying temples, well-groomed short beard, trigueña skin, navy blue Oxford shirt collar open, beige chino pants, brown leather watch left wrist. Standing beside wooden desk, three-quarter body angled toward camera-right, right hand gesturing toward side wall where graphic is projected",
+        "composition": "Full shot showing subject head-to-knees, room context visible. Desk on right side of frame, projection on left wall showing flowchart graphic",
+        "background": "Modern home office with bookshelf, framed US map. Left wall has projected animated graphic visualization showing 'Persona → IRS → Form W-7 → ITIN → Banco → FICO' as flowchart with arrows",
+        "style": "Cinematic documentary, executive but accessible"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 15,
+        "fps": 24,
+        "motion_intensity": "medium",
+        "frame_interpolation": true,
+        "motion_description": "Subject takes one slow step to the right toward the projected graphic, points to it explaining, turns slightly back to camera. Projected graphic animates: arrows flow from left to right element by element. Subject breathes and gestures naturally.",
+        "camera_movement": "static"
+      },
+      "requires_character": true,
+      "pattern_interrupt": false
+    },
+    {
+      "shot_id": 7,
+      "related_block": "section_3",
+      "timecode_start_sec": 233,
+      "duration_sec": 15,
+      "shot_type": "Insert / Detail",
+      "description": "Pattern interrupt: comparativa visual side-by-side. Izquierda con marca de agua roja diagonal 'NO' sobre tarjeta prepagada genérica decorada con bandera latinoamericana (estilo agresivo, marketing migrante). Derecha con marca de agua verde 'SÍ' sobre tarjeta secured tipo Capital One Platinum (diseño limpio metalizado). Texto debajo: 'Prepagada: $0 al score' vs 'Secured: +200 puntos'.",
+      "motion": "Animación de aparición: prepagada entra por izquierda con sonido cortado, secured entra por derecha con sonido nítido",
+      "lighting": "Iluminación digital plana, contraste alto cromático",
+      "ambient": "Pantalla LED",
+      "nano_banana_prompt_json": {
+        "camera": "Digital infographic with photorealistic card renderings",
+        "lighting": "Flat editorial lighting, high contrast color blocking",
+        "post_processing": "Clean editorial graphic style",
+        "composition": "Split screen 50/50 vertical. Left half: red background tint, prepaid card with generic latin american flag motif and aggressive marketing colors, large diagonal red 'NO' watermark, text below 'Prepagada: $0 al score'. Right half: green background tint, sleek metallic secured credit card design similar to Capital One Platinum aesthetic, large diagonal green 'SÍ' watermark, text below 'Secured: +200 puntos'",
+        "subject": "Two physical credit cards in comparative infographic style, no humans",
+        "style": "Editorial financial comparison, Bloomberg/CNBC aesthetic"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 15,
+        "fps": 24,
+        "motion_intensity": "medium",
+        "frame_interpolation": true,
+        "motion_description": "Left card slides in from far left over 1 second, 'NO' watermark stamps with cancellation bell sound. After 3 seconds, right card slides in from right with crisp sound, 'SÍ' stamps. Both stay visible static for remaining time with subtle reflective highlight animation on right card.",
+        "camera_movement": "static"
+      },
+      "requires_character": false,
+      "pattern_interrupt": true
+    },
+    {
+      "shot_id": 8,
+      "related_block": "section_4",
+      "timecode_start_sec": 358,
+      "duration_sec": 12,
+      "shot_type": "Insert / Detail",
+      "description": "Pattern interrupt gráfico animado: dos barras crecientes mostrando trayectoria del FICO Score a 12 meses. Barra A 'Solo tarjeta secured' crece de 0 a 650 en color azul claro. Barra B 'Tarjeta + builder loan' crece de 0 a 720 en color verde esmeralda. Subrayado amarillo dinámico aparece sobre '+70 puntos' al final. Eje X marcado en meses (0, 3, 6, 9, 12).",
+      "motion": "Animación de gráfico de barras creciente, subrayado amarillo en clímax",
+      "lighting": "Editorial digital plana",
+      "ambient": "Pantalla LED",
+      "nano_banana_prompt_json": {
+        "camera": "Digital infographic",
+        "lighting": "Editorial flat lighting, clean vector aesthetic",
+        "post_processing": "Bloomberg/Vox style chart graphic, slight depth shadow",
+        "composition": "Bar chart visualization centered on dark navy blue background. Two growing bars side by side, X-axis labeled 0/3/6/9/12 months. Bar A in light blue labeled 'Solo tarjeta secured' rising to 650. Bar B in emerald green labeled 'Tarjeta + builder loan' rising to 720. Yellow underline highlight on '+70 puntos' text",
+        "subject": "Data visualization, FICO score growth chart over 12 months",
+        "style": "Modern editorial financial infographic, premium aesthetic"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 12,
+        "fps": 24,
+        "motion_intensity": "medium",
+        "frame_interpolation": true,
+        "motion_description": "Axes draw in first 1.5 seconds. Both bars grow simultaneously from 0 over 6 seconds with smooth easing, Bar A reaches 650 and stops, Bar B keeps growing to 720. At second 9 yellow highlight underline animates left to right under '+70 puntos' text. Hold final frame.",
+        "camera_movement": "static"
+      },
+      "requires_character": false,
+      "pattern_interrupt": true
+    },
+    {
+      "shot_id": 9,
+      "related_block": "section_5",
+      "timecode_start_sec": 488,
+      "duration_sec": 70,
+      "shot_type": "Extreme Close-Up",
+      "description": "Paradoja emocional. Plano cerrado de la cara de Luis, ojos centrados en el frame, expresión seria con leve melancolía. La cámara está completamente quieta. Iluminación muy direccional (key fuerte desde un lado, casi sin fill) creando claroscuro intenso. Background completamente fuera de foco. Música ambiental baja a casi silencio durante este shot.",
+      "motion": "Cámara totalmente estática, sujeto mira a cámara con micro-expresiones controladas",
+      "lighting": "Single-source key light desde camera-left a 45 grados, sin fill light, creando sombra dramática en el lado derecho del rostro (Rembrandt extremo)",
+      "ambient": "Background completamente desenfocado, sensación de intimidad y silencio",
+      "nano_banana_prompt_json": {
+        "camera": "Sony A7R IV, 85mm lens",
+        "f_stop": "f/1.4",
+        "iso": 400,
+        "lighting": "Single-source key light at 45 degrees from camera-left, no fill, creating intense Rembrandt-style chiaroscuro shadow on right side of face",
+        "skin_details": "highly visible pores, natural skin texture, slight imperfections, subsurface scattering very pronounced, no plastic look. Every micro-wrinkle around eyes visible",
+        "post_processing": "color graded cool moody tones, high dynamic range, more visible film grain",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "subject": "Latino male 38yo Luis, extreme close-up of face only (forehead to chin). Mestizo mexican features, dark brown eyes looking directly at camera lens with serious melancholic expression, small visible micro-wrinkles around eyes, trigueña skin showing pronounced porosity in the cinematic lighting, well-groomed short beard with each hair visible, small scar above left eyebrow now visible. Half of face in shadow",
+        "composition": "Extreme close-up framing eyes at upper third, mouth at lower third, ears cropped out. Subject's left half illuminated, right half in deep shadow",
+        "background": "Completely out of focus, suggesting indoor warm light tones in distance but not identifiable",
+        "style": "Cinematic intimate portrait, Annie Leibovitz aesthetic"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 15,
+        "fps": 24,
+        "motion_intensity": "very_low",
+        "frame_interpolation": true,
+        "motion_description": "Subject blinks 2-3 times very naturally. Eye gaze shifts almost imperceptibly. One single small swallow at second 8. Otherwise completely still. Camera totally locked, no breathing motion.",
+        "camera_movement": "static_locked",
+        "extension_note": "Concatenate 5x 15s clips to reach 70s, alternating subtle micro-expressions"
+      },
+      "requires_character": true,
+      "pattern_interrupt": false
+    },
+    {
+      "shot_id": 10,
+      "related_block": "section_6",
+      "timecode_start_sec": 558,
+      "duration_sec": 30,
+      "shot_type": "Insert / Detail",
+      "description": "Pattern interrupt: timeline horizontal animado mostrando la trayectoria 90 días. De izquierda a derecha aparecen hitos numerados con iconos: Día 1 (icono de formulario W-7), Día 60 (icono ITIN + banco + tarjeta), Día 90 (icono de reporte de crédito), Día 365 (icono de casa). Línea horizontal punteada los conecta. Cada hito aparece con animación pop-in mientras Luis lo narra.",
+      "motion": "Animación secuencial de aparición de hitos sincronizada con narración",
+      "lighting": "Editorial digital",
+      "ambient": "Pantalla LED, fondo gradiente azul oscuro a azul medio",
+      "nano_banana_prompt_json": {
+        "camera": "Digital infographic timeline",
+        "lighting": "Editorial flat lighting with subtle depth shadows",
+        "post_processing": "Premium financial infographic style",
+        "composition": "Horizontal timeline centered, dark navy gradient background. Four milestone markers connected by dashed white line: Day 1 (W-7 form icon), Day 60 (combined icon showing ITIN card + bank + credit card), Day 90 (credit report icon), Day 365 (small house icon for FHA mortgage). Each milestone has number label and short text below",
+        "subject": "Animated timeline graphic, no humans",
+        "style": "Bloomberg/CNBC editorial timeline visualization"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 15,
+        "fps": 24,
+        "motion_intensity": "medium",
+        "frame_interpolation": true,
+        "motion_description": "Timeline base line draws in from left to right over 2 seconds. Each milestone marker pops in sequentially with subtle bounce: Day 1 at second 3, Day 60 at second 7, Day 90 at second 10, Day 365 at second 13. Final hold frame with subtle pulsing of last milestone.",
+        "camera_movement": "static",
+        "extension_note": "Repeat with light variation for second 15s clip to reach 30s total"
+      },
+      "requires_character": false,
+      "pattern_interrupt": true
+    },
+    {
+      "shot_id": 11,
+      "related_block": "section_6",
+      "timecode_start_sec": 588,
+      "duration_sec": 80,
+      "shot_type": "Medium Shot",
+      "description": "Luis cierra el video sentado nuevamente en su escritorio, gesticulando con calma resumiendo el plan. Iluminación más cálida y suave que en la paradoja, vuelve la sensación de cercanía esperanzada. Detrás se ve sutilmente la taza de café (mismo prop del shot 2). El plano es ligeramente más cerrado que el shot 2 (medium hacia close-medium).",
+      "motion": "Cámara estática, sujeto gesticula con manos abiertas, asiente ligeramente",
+      "lighting": "Cinematic soft warm lighting, key cálido desde upper-left 45 grados, fill 30% derecha",
+      "ambient": "Mismo despacho que shot 2/3, regreso a la familiaridad",
+      "nano_banana_prompt_json": {
+        "camera": "Sony A7R IV, 85mm lens",
+        "f_stop": "f/2.0",
+        "iso": 400,
+        "lighting": "Cinematic soft warm lighting, 5500K, key from upper-left 45 degrees, fill 30% from right",
+        "skin_details": "visible pores, natural skin texture, slight imperfections, subsurface scattering, no plastic look",
+        "post_processing": "color graded warm hopeful tones, high dynamic range, subtle film grain",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "subject": "Latino male 38yo Luis, same character as previous shots, mestizo mexican features, jet black hair side part graying temples, dark brown eyes warm and direct, well-groomed short beard, trigueña skin, navy blue Oxford shirt collar open. Sitting at modern wooden desk, hands open in gesture of summary and closure",
+        "composition": "Medium shot slightly tighter than opening shot, chest and hands visible. Subject centered slightly left",
+        "background": "Same modern home office from earlier shots, slight bokeh, ceramic coffee mug now slightly less steaming (visual cue of time passing through the video)",
+        "style": "Cinematic warm closure, hopeful authoritative"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 15,
+        "fps": 24,
+        "motion_intensity": "low",
+        "frame_interpolation": true,
+        "motion_description": "Subject gestures naturally with open hands, nods once gently around second 5, leans very slightly forward at second 10. Natural breathing and blinking throughout.",
+        "camera_movement": "static",
+        "extension_note": "Concatenate 5-6 clips of 15s to reach 80s duration"
+      },
+      "requires_character": true,
+      "pattern_interrupt": false
+    },
+    {
+      "shot_id": 12,
+      "related_block": "cta",
+      "timecode_start_sec": 668,
+      "duration_sec": 43,
+      "shot_type": "Over the Shoulder",
+      "description": "CTA. Plano por encima del hombro de Luis, mostrando su teléfono móvil (iPhone moderno) en su mano izquierda. En la pantalla del teléfono se ve un PDF llamado 'Hoja Ruta del Crédito ITIN' con tres páginas miniaturizadas visibles. La cámara está enfocada en la pantalla del teléfono mientras Luis se ve desenfocado en primer plano (su hombro y nuca a la derecha del frame).",
+      "motion": "Cámara estática, ligero ajuste de Luis mostrando el teléfono",
+      "lighting": "Iluminación cálida tipo lámpara de escritorio, contraste suave",
+      "ambient": "Mismo despacho",
+      "nano_banana_prompt_json": {
+        "camera": "Sony A7R IV, 50mm lens",
+        "f_stop": "f/2.8",
+        "iso": 400,
+        "lighting": "Warm desk lamp ambient lighting, soft contrast",
+        "skin_details": "visible pores, natural skin texture, slight imperfections, no plastic look",
+        "post_processing": "color graded warm tones, high dynamic range",
+        "render_engine": "nano_banana_sampling",
+        "subject_consistency": {
+          "facial_features": "fixed",
+          "skin_texture": "porous_natural",
+          "imperfections": [
+            "freckles",
+            "micro-creases",
+            "subsurface_scattering"
+          ]
+        },
+        "subject": "Over-the-shoulder view of Luis (back of head and right shoulder partially visible in foreground, slightly out of focus). His left hand holds modern smartphone (iPhone-style) in landscape orientation. Phone screen in sharp focus showing PDF document titled 'Hoja Ruta del Crédito ITIN' with three page thumbnails visible: page 1 shows form W-7 instructions, page 2 shows bank list by state, page 3 shows 90-day calendar",
+        "composition": "Over-the-shoulder angle, phone screen occupies center-right of frame and is the focal point, subject's shoulder soft in left foreground",
+        "background": "Same warm home office, blurred bookshelf in deep background",
+        "style": "Intimate product showcase, premium CTA aesthetic"
+      },
+      "seedance_prompt_json": {
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "duration_sec": 15,
+        "fps": 24,
+        "motion_intensity": "very_low",
+        "frame_interpolation": true,
+        "motion_description": "Subject slightly tilts phone to better show the screen at second 2. PDF pages on screen do a subtle scroll transition at second 8 to highlight page 2 (bank list). Natural micro-movements of hand.",
+        "camera_movement": "static",
+        "extension_note": "Repeat with subtle variation to reach 43s, alternating PDF page focus"
+      },
+      "requires_character": true,
+      "pattern_interrupt": false
+    }
+  ],
+  "thumbnail": {
+    "title_overlay": "SIN SOCIAL ¿CRÉDITO?",
+    "face_element": "Plano cerrado de Luis con expresión de intriga controlada (cejas ligeramente levantadas, mirada directa a cámara con media sonrisa de revelación). Ocupa el tercio izquierdo del frame. Iluminación cinematográfica dramática.",
+    "object_element": "Tarjeta de crédito metalizada flotando ligeramente inclinada a la derecha de Luis, con un rayo de luz rojo cortándola diagonalmente (simboliza la barrera del 'no SSN'). La tarjeta tiene el número 'ITIN ****' visible en lugar del clásico número de tarjeta.",
+    "pattern_interrupt_strategy": "El nicho hispano de finanzas en YouTube está saturado de miniaturas barrocas con flechas amarillas, billetes apilados y caras gritando. Aquí vamos a minimalismo cinematográfico tipo Netflix: fondo limpio gris oscuro degradado, una sola cara seria, una sola tarjeta con rayo rojo. Disruptivo por contraste estético.",
+    "color_strategy": "Fondo: degradado gris oscuro / casi negro (#1a1a1a → #2d2d2d). Sujeto: piel natural cálida, camisa azul marino que aporta el primer punto de color. SACO ROJO: el rayo de luz rojo (#E63946) que corta la tarjeta es el ÚNICO elemento de alto contraste cromático, dirige la mirada inmediatamente. Texto blanco (#FFFFFF) en sans-serif ultra bold.",
+    "resolution": "4K",
+    "aspect_ratio": "16:9",
+    "nano_banana_prompt_json": {
+      "resolution": "3840x2160",
+      "aspect_ratio": "16:9",
+      "camera": "Sony A7R IV, 85mm lens",
+      "f_stop": "f/1.4",
+      "iso": 200,
+      "lighting": "Cinematic soft lighting, dramatic contrast, key light from camera-left at 30 degrees, subtle red rim light from right side to motivate the red ray",
+      "skin_details": "visible pores, natural skin texture, slight imperfections, subsurface scattering, no plastic look",
+      "post_processing": "color graded cinematic, high dynamic range, slight film grain, premium Netflix-aesthetic finish",
+      "render_engine": "nano_banana_sampling",
+      "subject_consistency": {
+        "facial_features": "fixed",
+        "skin_texture": "porous_natural",
+        "imperfections": [
+          "freckles",
+          "micro-creases",
+          "subsurface_scattering"
+        ]
+      },
+      "composition": "Rule of thirds. Subject Luis occupies left third of frame from chest up. Credit card object floats in center-right of frame at slight 15-degree tilt. Negative space on right reserved for text overlay (text will be added in CapCut, NOT generated here). Subject and card both perfectly in focus, background out of focus with bokeh",
+      "subject": "Latino male 38yo Luis (same character reference sheet), mestizo mexican features, jet black hair side part graying temples, well-groomed short beard, dark brown eyes looking directly at camera with intrigued curious expression (eyebrows slightly raised, hint of knowing half-smile), trigueña skin with natural pores and imperfections. Wearing navy blue Oxford cotton shirt with collar open. Head and shoulders visible, no hands. Cinematic close-up from chest up",
+      "object": "Photorealistic metallic-finish credit card floating at 15-degree tilt to right of subject. Card design is sleek minimal (similar to Apple Card or Chase Sapphire aesthetic) but with 'ITIN ****' visible where account number would be. A sharp diagonal red laser ray (#E63946) cuts across the card from upper-right to lower-left, suggesting boundary or restriction",
+      "background": "Dark gradient gray from #1a1a1a to #2d2d2d, completely out of focus, no identifiable elements, premium minimalist editorial",
+      "text_overlay_note": "NO text in this generation. Text 'SIN SOCIAL ¿CRÉDITO?' will be added in post-production with CapCut in white sans-serif ultra bold occupying right third of composition",
+      "style": "Cinematic editorial poster, Netflix documentary aesthetic, minimalist financial premium"
+    }
+  },
+  "model_used": "claude-opus-4-7",
+  "mode": "interactive",
+  "notes": "Plan visual representativo con 12 shots clave (hook + 6 secciones + CTA, 1 shot por sección + 5 pattern interrupts). Se puede expandir a 18-22 shots si se quieren cubrir todas las micro-transiciones del guion. Mantener la consistencia del personaje 'Luis' usando la Reference Sheet como Multi-reference en Seedance 2.0 + la imagen del outfit base. Para B-roll documental (formularios IRS, logos de burós) generar imágenes independientes sin requires_character."
+}
