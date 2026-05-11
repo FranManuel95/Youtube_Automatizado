@@ -23,8 +23,10 @@ from yt_auto.config import ROOT_DIR, get_settings
 app = typer.Typer(help="Pipeline de automatización de YouTube con IA - estrategia 2026.")
 niche_app = typer.Typer(help="Etapa 1 - selección y validación de nichos.")
 script_app = typer.Typer(help="Etapa 2 - ingeniería de guiones.")
+audio_app = typer.Typer(help="Etapa 3 - locución con ElevenLabs.")
 app.add_typer(niche_app, name="niche")
 app.add_typer(script_app, name="script")
+app.add_typer(audio_app, name="audio")
 
 console = Console()
 
@@ -239,13 +241,58 @@ def script_list() -> None:
         console.print(f"  {f.relative_to(ROOT_DIR)}")
 
 
+# -------------------- audio --------------------
+
+
+@audio_app.command("plan")
+def audio_plan(
+    script_file: Path = typer.Argument(..., help="JSON de un ScriptReport"),
+    archive: bool = typer.Option(False, "--archive"),
+) -> None:
+    """Genera un plan de locución por bloques a partir de un guion."""
+    from yt_auto.audio import build_report, save_report
+    from yt_auto.scripts import load_report as load_script_report
+
+    script_report = load_script_report(script_file)
+    audio_report = build_report(script_report, script_ref=str(script_file))
+    json_path, md_path, blocks_dir = save_report(audio_report, archive=archive)
+
+    p = audio_report.plan
+    console.print(f"[green]Plan de audio creado[/green]:")
+    console.print(f"  JSON     -> {json_path}")
+    console.print(f"  MD       -> {md_path}")
+    console.print(f"  blocks/  -> {blocks_dir}")
+    if archive:
+        console.print("  [bold]Archivado en docs/audio-archive/[/bold]")
+
+    fits_color = "green" if audio_report.eleven_free_tier_fits else "yellow"
+    fits_label = "cabe en Free" if audio_report.eleven_free_tier_fits else "NO cabe en Free"
+    console.print()
+    console.print(f"  Bloques:       {len(p.blocks)}")
+    console.print(f"  Palabras:      {p.total_words}")
+    console.print(f"  Caracteres:    {p.total_chars} [{fits_color}]({fits_label})[/{fits_color}]")
+    console.print(f"  Duración est.: {p.estimated_duration_sec}s")
+    if audio_report.notes:
+        console.print(f"\n[yellow]Nota:[/yellow] {audio_report.notes}")
+
+
+@audio_app.command("list")
+def audio_list() -> None:
+    """Lista planes de audio guardados."""
+    from yt_auto.audio import OUTPUT_DIR
+
+    if not OUTPUT_DIR.exists():
+        console.print("[yellow]No hay planes de audio todavía.[/yellow]")
+        return
+    files = sorted(OUTPUT_DIR.glob("*.json"))
+    if not files:
+        console.print("[yellow]No hay planes de audio todavía.[/yellow]")
+        return
+    for f in files:
+        console.print(f"  {f.relative_to(ROOT_DIR)}")
+
+
 # -------------------- placeholders --------------------
-
-
-@app.command()
-def audio(script_path: str = typer.Argument(...)) -> None:
-    """Sintetizar locución (stub) - ElevenLabs Multilingual v2."""
-    console.print(f"[yellow]TODO[/yellow] audio.synthesize(script={script_path!r})")
 
 
 @app.command()
