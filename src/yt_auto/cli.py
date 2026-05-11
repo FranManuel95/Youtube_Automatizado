@@ -401,6 +401,7 @@ def audio_synth(
     from yt_auto.audio.client import ElevenLabsClient, ElevenLabsError
 
     report = load_report(plan_file)
+    plan_file = plan_file.resolve()
     output_base = plan_file.parent / plan_file.stem
 
     s = get_settings()
