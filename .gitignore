@@ -1,0 +1,48 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.key
+credentials.json
+token.json
+client_secret*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+.python-version
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+build/
+dist/
+
+# Generated assets / outputs
+output/**
+!output/.gitkeep
+assets/characters/**
+!assets/characters/.gitkeep
+assets/storyboards/**
+!assets/storyboards/.gitkeep
+assets/outfits/**
+!assets/outfits/.gitkeep
+*.mp4
+*.mp3
+*.wav
+*.mov
+*.webm
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Notebooks
+.ipynb_checkpoints/
