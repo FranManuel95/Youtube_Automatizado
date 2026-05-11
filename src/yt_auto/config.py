@@ -44,8 +44,10 @@ class Settings(BaseSettings):
     # Proyecto
     project_name: str = "canal_demo"
     default_language: str = "es"
-    target_markets: str = "US-Hispanic,ES,LATAM"
+    target_markets: str = "US-Hispanic,EN-US"
     default_niche: str = ""
+    content_format: str = "long_form"  # long_form | masterclass | shorts | mixed
+    target_duration_min: int = 12
 
     @property
     def target_markets_list(self) -> list[str]:
