@@ -300,6 +300,187 @@ def audio_list() -> None:
         console.print(f"  {f.relative_to(ROOT_DIR)}")
 
 
+@audio_app.command("voices")
+def audio_voices(
+    remote: bool = typer.Option(
+        False, "--remote", help="Consulta las voces reales de tu cuenta ElevenLabs"
+    ),
+    lang: str | None = typer.Option(
+        None, "--lang", help="Filtra por idioma/acento (substring case-insensitive)"
+    ),
+) -> None:
+    """Lista presets curados o las voces de tu cuenta ElevenLabs."""
+    from yt_auto.audio import CATALOG
+
+    if not remote:
+        table = Table(title="Catálogo local (presets curados)")
+        table.add_column("Key")
+        table.add_column("Nombre")
+        table.add_column("Género")
+        table.add_column("Acento")
+        for v in CATALOG:
+            table.add_row(v.id_key, v.display_name, v.gender, v.accent)
+        console.print(table)
+        console.print(
+            "\n[dim]Usa `--remote` para listar las voces reales de tu cuenta "
+            "y copiar un voice_id a .env como ELEVENLABS_VOICE_ID.[/dim]"
+        )
+        return
+
+    from yt_auto.audio.client import ElevenLabsClient, ElevenLabsError
+
+    s = get_settings()
+    if not s.elevenlabs_api_key:
+        console.print("[red]Falta ELEVENLABS_API_KEY en .env[/red]")
+        raise typer.Exit(code=1)
+
+    try:
+        with ElevenLabsClient(s.elevenlabs_api_key) as client:
+            voices = client.list_voices()
+            sub = client.get_subscription()
+    except ElevenLabsError as exc:
+        console.print(f"[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
+
+    if lang:
+        needle = lang.lower()
+        voices = [
+            v
+            for v in voices
+            if any(needle in (val or "").lower() for val in v.labels.values())
+            or needle in v.name.lower()
+        ]
+
+    table = Table(title=f"Voces remotas ({sub.tier}) · {len(voices)} resultado(s)")
+    table.add_column("voice_id")
+    table.add_column("Nombre")
+    table.add_column("Género")
+    table.add_column("Acento/Idioma")
+    table.add_column("Categoría")
+    for v in voices:
+        table.add_row(
+            v.voice_id,
+            v.name,
+            v.gender or "-",
+            v.language or "-",
+            v.category or "-",
+        )
+    console.print(table)
+    console.print(
+        f"\n[dim]Cuota: {sub.character_count}/{sub.character_limit} chars usados "
+        f"({sub.characters_remaining} disponibles este ciclo).[/dim]"
+    )
+    console.print(
+        "[dim]Copia el voice_id deseado a .env como `ELEVENLABS_VOICE_ID=...`[/dim]"
+    )
+
+
+@audio_app.command("synth")
+def audio_synth(
+    plan_file: Path = typer.Argument(..., help="JSON de un AudioReport"),
+    blocks: list[int] = typer.Option(
+        None, "--block", "-b", help="Solo estos bloques (repetible). Si se omite, todos."
+    ),
+    voice_id: str | None = typer.Option(
+        None, "--voice-id", help="Override de ELEVENLABS_VOICE_ID"
+    ),
+    overwrite: bool = typer.Option(
+        False, "--overwrite", help="Regenera los MP3 aunque ya existan"
+    ),
+    dry_run: bool = typer.Option(
+        False, "--dry-run", help="Solo muestra el coste estimado, no llama a la API"
+    ),
+) -> None:
+    """Sintetiza un AudioReport a MP3 vía API de ElevenLabs."""
+    from yt_auto.audio import NarrationBlock, load_report
+    from yt_auto.audio.api import (
+        QuotaExceededError,
+        mp3_dir_for,
+        synthesize_report,
+    )
+    from yt_auto.audio.client import ElevenLabsClient, ElevenLabsError
+
+    report = load_report(plan_file)
+    output_base = plan_file.parent / plan_file.stem
+
+    s = get_settings()
+    resolved_voice = voice_id or s.elevenlabs_voice_id
+
+    selected = (
+        [b for b in report.plan.blocks if b.block_id in set(blocks)]
+        if blocks
+        else list(report.plan.blocks)
+    )
+    if not selected:
+        console.print(f"[red]Ningún bloque coincide con --block {blocks}[/red]")
+        raise typer.Exit(code=1)
+
+    mp3_dir = mp3_dir_for(output_base)
+
+    def _mp3_path(b: NarrationBlock) -> Path:
+        return mp3_dir / f"{b.block_id:02d}_{b.role.value}.mp3"
+
+    pending = [b for b in selected if overwrite or not _mp3_path(b).exists()]
+    pending_chars = sum(b.character_count for b in pending)
+
+    console.print(f"  Guion:        {report.script_title}")
+    console.print(f"  Bloques sel.: {len(selected)} (de {len(report.plan.blocks)})")
+    console.print(f"  Ya en disco:  {len(selected) - len(pending)}")
+    console.print(f"  A sintetizar: {len(pending)} ({pending_chars} chars)")
+    console.print(f"  Modelo:       {report.plan.model_id}")
+    console.print(f"  Voice ID:     {resolved_voice or '[red]NO DEFINIDA[/red]'}")
+    console.print(f"  Destino:      {mp3_dir.relative_to(ROOT_DIR)}/")
+
+    if dry_run:
+        console.print("\n[yellow]--dry-run: no se llama a la API.[/yellow]")
+        return
+    if not pending:
+        console.print("\n[green]Nada que sintetizar.[/green]")
+        return
+    if not s.elevenlabs_api_key:
+        console.print("[red]Falta ELEVENLABS_API_KEY en .env[/red]")
+        raise typer.Exit(code=1)
+    if not resolved_voice:
+        console.print(
+            "[red]Falta voice_id. Usa `yt-auto audio voices --remote` y "
+            "fija ELEVENLABS_VOICE_ID en .env, o pasa --voice-id.[/red]"
+        )
+        raise typer.Exit(code=1)
+
+    try:
+        with ElevenLabsClient(s.elevenlabs_api_key) as client:
+            result = synthesize_report(
+                report,
+                client=client,
+                voice_id=resolved_voice,
+                output_base=output_base,
+                block_ids=blocks or None,
+                overwrite=overwrite,
+            )
+    except QuotaExceededError as exc:
+        console.print(f"\n[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
+    except ElevenLabsError as exc:
+        console.print(f"\n[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
+
+    console.print(
+        f"\n[green]MP3 generados: {result.generated_count}[/green] "
+        f"(saltados: {result.skipped_count})"
+    )
+    for r in result.blocks:
+        marker = "·" if r.skipped else "[green]✓[/green]"
+        console.print(
+            f"  {marker} {r.block_id:02d}_{r.role}  {r.path.relative_to(ROOT_DIR)}"
+        )
+    if result.subscription_before is not None:
+        sub = result.subscription_before
+        console.print(
+            f"\n[dim]Cuota pre-synth: {sub.character_count}/{sub.character_limit} "
+            f"({sub.tier}). Gastados ahora: {result.total_characters_used} chars.[/dim]"
+        )
+
+
 # -------------------- visuals --------------------
 
 

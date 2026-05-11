@@ -3,17 +3,23 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
+import httpx
 import pytest
 
 from yt_auto.audio import (
     AudioReport,
     BlockRole,
+    ElevenLabsClient,
+    ElevenLabsError,
+    QuotaExceededError,
     build_plan,
     build_report,
     by_key,
     clean_for_tts,
     recommend_for_niche,
+    synthesize_report,
 )
 from yt_auto.scripts import ingest_response
 
@@ -132,3 +138,279 @@ def test_settings_within_recommended_range(sample_script_report):
     s = plan.blocks[0].suggested_settings
     assert 0.40 <= s.stability <= 0.60
     assert 0.50 <= s.similarity_boost <= 0.90
+
+
+# --------------------------------------------------------------------------
+# Cliente ElevenLabs (sin red real, vía httpx.MockTransport)
+# --------------------------------------------------------------------------
+
+
+def _make_client(handler) -> ElevenLabsClient:
+    return ElevenLabsClient("fake-key", transport=httpx.MockTransport(handler))
+
+
+def test_client_rejects_empty_api_key():
+    with pytest.raises(ValueError, match="ELEVENLABS_API_KEY"):
+        ElevenLabsClient("")
+
+
+def test_list_voices_parses_response():
+    def handler(request: httpx.Request) -> httpx.Response:
+        assert request.url.path == "/v1/voices"
+        assert request.headers["xi-api-key"] == "fake-key"
+        return httpx.Response(
+            200,
+            json={
+                "voices": [
+                    {
+                        "voice_id": "v1",
+                        "name": "Mateo",
+                        "category": "premade",
+                        "labels": {"language": "Spanish", "gender": "male"},
+                    },
+                    {"voice_id": "v2", "name": "Sin labels"},
+                ]
+            },
+        )
+
+    with _make_client(handler) as client:
+        voices = client.list_voices()
+    assert [v.voice_id for v in voices] == ["v1", "v2"]
+    assert voices[0].language == "Spanish"
+    assert voices[0].gender == "male"
+    assert voices[1].labels == {}
+
+
+def test_get_subscription_computes_remaining():
+    def handler(request: httpx.Request) -> httpx.Response:
+        assert request.url.path == "/v1/user/subscription"
+        return httpx.Response(
+            200,
+            json={"tier": "free", "character_count": 8000, "character_limit": 10_000},
+        )
+
+    with _make_client(handler) as client:
+        sub = client.get_subscription()
+    assert sub.characters_remaining == 2000
+    assert sub.tier == "free"
+
+
+def test_text_to_speech_returns_mp3_bytes():
+    captured: dict[str, object] = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["path"] = request.url.path
+        captured["body"] = json.loads(request.content.decode())
+        return httpx.Response(200, content=b"ID3-fake-mp3-bytes")
+
+    with _make_client(handler) as client:
+        from yt_auto.audio.voices import AUTHORITY_NARRATION_SETTINGS
+
+        data = client.text_to_speech(
+            voice_id="vX",
+            text="hola",
+            model_id="eleven_multilingual_v2",
+            settings=AUTHORITY_NARRATION_SETTINGS,
+        )
+    assert data == b"ID3-fake-mp3-bytes"
+    assert captured["path"] == "/v1/text-to-speech/vX"
+    body = captured["body"]
+    assert body["text"] == "hola"
+    assert body["model_id"] == "eleven_multilingual_v2"
+    assert 0.0 <= body["voice_settings"]["stability"] <= 1.0
+
+
+def test_text_to_speech_requires_voice_id():
+    from yt_auto.audio.voices import AUTHORITY_NARRATION_SETTINGS
+
+    with (
+        _make_client(lambda r: httpx.Response(200)) as client,
+        pytest.raises(ValueError, match="voice_id"),
+    ):
+        client.text_to_speech(
+            voice_id="",
+            text="hola",
+            model_id="eleven_multilingual_v2",
+            settings=AUTHORITY_NARRATION_SETTINGS,
+        )
+
+
+def test_client_raises_eleven_error_on_4xx():
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            401, json={"detail": {"status": "invalid_api_key", "message": "Bad key"}}
+        )
+
+    with _make_client(handler) as client, pytest.raises(ElevenLabsError) as exc_info:
+        client.list_voices()
+    assert exc_info.value.status_code == 401
+    assert "Bad key" in str(exc_info.value)
+
+
+# --------------------------------------------------------------------------
+# Orquestador synth
+# --------------------------------------------------------------------------
+
+
+def test_synthesize_report_writes_one_mp3_per_block(sample_script_report, tmp_path: Path):
+    report = build_report(sample_script_report, script_ref="x.json")
+
+    calls: list[str] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/v1/user/subscription":
+            return httpx.Response(
+                200,
+                json={
+                    "tier": "free",
+                    "character_count": 0,
+                    "character_limit": 10_000,
+                },
+            )
+        calls.append(request.url.path)
+        return httpx.Response(200, content=b"mp3-bytes-" + request.url.path.encode())
+
+    with _make_client(handler) as client:
+        result = synthesize_report(
+            report,
+            client=client,
+            voice_id="vTEST",
+            output_base=tmp_path / "base",
+        )
+
+    assert result.generated_count == len(report.plan.blocks)
+    assert result.skipped_count == 0
+    for r in result.blocks:
+        assert r.path.exists()
+        assert r.path.read_bytes().startswith(b"mp3-bytes-")
+    assert all(p.startswith("/v1/text-to-speech/vTEST") for p in calls)
+
+
+def test_synthesize_report_skips_existing_mp3(sample_script_report, tmp_path: Path):
+    report = build_report(sample_script_report, script_ref="x.json")
+    base = tmp_path / "base"
+    mp3_dir = base / "mp3"
+    mp3_dir.mkdir(parents=True)
+    first = report.plan.blocks[0]
+    pre_path = mp3_dir / f"{first.block_id:02d}_{first.role.value}.mp3"
+    pre_path.write_bytes(b"already-here")
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/v1/user/subscription":
+            return httpx.Response(
+                200,
+                json={"tier": "free", "character_count": 0, "character_limit": 10_000},
+            )
+        return httpx.Response(200, content=b"new")
+
+    with _make_client(handler) as client:
+        result = synthesize_report(
+            report, client=client, voice_id="v", output_base=base
+        )
+
+    assert pre_path.read_bytes() == b"already-here"
+    assert result.skipped_count == 1
+
+
+def test_synthesize_report_overwrite_regenerates(sample_script_report, tmp_path: Path):
+    report = build_report(sample_script_report, script_ref="x.json")
+    base = tmp_path / "base"
+    mp3_dir = base / "mp3"
+    mp3_dir.mkdir(parents=True)
+    first = report.plan.blocks[0]
+    pre_path = mp3_dir / f"{first.block_id:02d}_{first.role.value}.mp3"
+    pre_path.write_bytes(b"old")
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/v1/user/subscription":
+            return httpx.Response(
+                200,
+                json={"tier": "free", "character_count": 0, "character_limit": 10_000},
+            )
+        return httpx.Response(200, content=b"new")
+
+    with _make_client(handler) as client:
+        result = synthesize_report(
+            report, client=client, voice_id="v", output_base=base, overwrite=True
+        )
+
+    assert pre_path.read_bytes() == b"new"
+    assert result.skipped_count == 0
+
+
+def test_synthesize_report_filter_by_block_id(sample_script_report, tmp_path: Path):
+    report = build_report(sample_script_report, script_ref="x.json")
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/v1/user/subscription":
+            return httpx.Response(
+                200,
+                json={"tier": "free", "character_count": 0, "character_limit": 10_000},
+            )
+        return httpx.Response(200, content=b"x")
+
+    with _make_client(handler) as client:
+        result = synthesize_report(
+            report,
+            client=client,
+            voice_id="v",
+            output_base=tmp_path / "b",
+            block_ids=[1],
+        )
+    assert len(result.blocks) == 1
+    assert result.blocks[0].block_id == 1
+
+
+def test_synthesize_report_unknown_block_raises(sample_script_report, tmp_path: Path):
+    report = build_report(sample_script_report, script_ref="x.json")
+    with (
+        _make_client(lambda r: httpx.Response(200)) as client,
+        pytest.raises(ValueError, match="inexistentes"),
+    ):
+        synthesize_report(
+            report,
+            client=client,
+            voice_id="v",
+            output_base=tmp_path / "b",
+            block_ids=[999],
+        )
+
+
+def test_synthesize_report_quota_exceeded(sample_script_report, tmp_path: Path):
+    report = build_report(sample_script_report, script_ref="x.json")
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/v1/user/subscription":
+            return httpx.Response(
+                200,
+                json={"tier": "free", "character_count": 9990, "character_limit": 10_000},
+            )
+        return httpx.Response(200, content=b"x")
+
+    with (
+        _make_client(handler) as client,
+        pytest.raises(QuotaExceededError, match="quedan"),
+    ):
+        synthesize_report(
+            report, client=client, voice_id="v", output_base=tmp_path / "b"
+        )
+
+
+def test_synthesize_report_skip_quota_check(sample_script_report, tmp_path: Path):
+    report = build_report(sample_script_report, script_ref="x.json")
+    visited: list[str] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        visited.append(request.url.path)
+        return httpx.Response(200, content=b"x")
+
+    with _make_client(handler) as client:
+        synthesize_report(
+            report,
+            client=client,
+            voice_id="v",
+            output_base=tmp_path / "b",
+            skip_quota_check=True,
+        )
+
+    assert "/v1/user/subscription" not in visited

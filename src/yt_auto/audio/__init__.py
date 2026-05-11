@@ -15,6 +15,19 @@ el plan Free de ElevenLabs (10.000 chars/mes).
 
 from __future__ import annotations
 
+from yt_auto.audio.api import (
+    BlockSynthesisResult,
+    QuotaExceededError,
+    SynthesisReport,
+    mp3_dir_for,
+    synthesize_report,
+)
+from yt_auto.audio.client import (
+    ElevenLabsClient,
+    ElevenLabsError,
+    RemoteVoice,
+    Subscription,
+)
 from yt_auto.audio.models import (
     AudioPlan,
     AudioReport,
@@ -46,10 +59,17 @@ __all__ = [
     "AudioPlan",
     "AudioReport",
     "BlockRole",
+    "BlockSynthesisResult",
     "CATALOG",
     "DYNAMIC_SHORTS_SETTINGS",
+    "ElevenLabsClient",
+    "ElevenLabsError",
     "NarrationBlock",
     "OUTPUT_DIR",
+    "QuotaExceededError",
+    "RemoteVoice",
+    "Subscription",
+    "SynthesisReport",
     "VoicePreset",
     "VoiceSettings",
     "build_plan",
@@ -58,7 +78,9 @@ __all__ = [
     "clean_for_tts",
     "latest_report_path",
     "load_report",
+    "mp3_dir_for",
     "recommend_for_niche",
     "render_markdown",
     "save_report",
+    "synthesize_report",
 ]
