@@ -25,10 +25,12 @@ niche_app = typer.Typer(help="Etapa 1 - selección y validación de nichos.")
 script_app = typer.Typer(help="Etapa 2 - ingeniería de guiones.")
 audio_app = typer.Typer(help="Etapa 3 - locución con ElevenLabs.")
 visuals_app = typer.Typer(help="Etapa 4 - generación visual (Nano Banana + Seedance).")
+editing_app = typer.Typer(help="Etapa 5 - edición y packaging.")
 app.add_typer(niche_app, name="niche")
 app.add_typer(script_app, name="script")
 app.add_typer(audio_app, name="audio")
 app.add_typer(visuals_app, name="visuals")
+app.add_typer(editing_app, name="editing")
 
 console = Console()
 
@@ -360,6 +362,71 @@ def visuals_list() -> None:
     files = sorted(OUTPUT_DIR.glob("*.json"))
     if not files:
         console.print("[yellow]No hay planes visuales todavía.[/yellow]")
+        return
+    for f in files:
+        console.print(f"  {f.relative_to(ROOT_DIR)}")
+
+
+# -------------------- editing --------------------
+
+
+@editing_app.command("plan")
+def editing_plan(
+    script_file: Path = typer.Argument(..., help="ScriptReport JSON"),
+    audio_file: Path = typer.Argument(..., help="AudioReport JSON"),
+    visuals_file: Path | None = typer.Option(None, "--visuals", help="VisualReport JSON"),
+    archive: bool = typer.Option(False, "--archive"),
+) -> None:
+    """Ensambla el plan de edición a partir de las etapas 2-4."""
+    from yt_auto.audio import load_report as load_audio
+    from yt_auto.editing import build_report, save_report
+    from yt_auto.scripts import load_report as load_script
+    from yt_auto.visuals import load_report as load_visuals
+
+    script_report = load_script(script_file)
+    audio_report = load_audio(audio_file)
+    visual_report = load_visuals(visuals_file) if visuals_file else None
+
+    report = build_report(
+        script=script_report,
+        audio=audio_report,
+        visuals=visual_report,
+        script_ref=str(script_file),
+        audio_ref=str(audio_file),
+        visuals_ref=str(visuals_file) if visuals_file else None,
+    )
+    json_path, md_path, csv_path = save_report(report, archive=archive)
+
+    console.print("[green]Plan de edición guardado[/green]:")
+    console.print(f"  JSON  -> {json_path}")
+    console.print(f"  MD    -> {md_path}")
+    console.print(f"  CSV   -> {csv_path}")
+    if archive:
+        console.print("  [bold]Archivado en docs/editing-archive/[/bold]")
+
+    p = report.plan
+    console.print()
+    console.print(f"  Eventos:        {len(p.timeline)}")
+    console.print(f"  Subtítulos:     {len(p.subtitles)}")
+    console.print(f"  DAI anchors:    {len(p.dai_anchors)}")
+    rule_color = "green" if p.three_second_rule_pass else "yellow"
+    rule_label = "pasa" if p.three_second_rule_pass else f"falla ({p.longest_static_gap_sec}s)"
+    console.print(f"  Regla de 3s:    [{rule_color}]{rule_label}[/{rule_color}]")
+    if p.three_second_violations:
+        console.print(f"  [yellow]{len(p.three_second_violations)} violaciones de la regla 3s[/yellow]")
+
+
+@editing_app.command("list")
+def editing_list() -> None:
+    """Lista planes de edición guardados."""
+    from yt_auto.editing import OUTPUT_DIR
+
+    if not OUTPUT_DIR.exists():
+        console.print("[yellow]No hay planes de edición todavía.[/yellow]")
+        return
+    files = sorted(OUTPUT_DIR.glob("*.json"))
+    if not files:
+        console.print("[yellow]No hay planes de edición todavía.[/yellow]")
         return
     for f in files:
         console.print(f"  {f.relative_to(ROOT_DIR)}")

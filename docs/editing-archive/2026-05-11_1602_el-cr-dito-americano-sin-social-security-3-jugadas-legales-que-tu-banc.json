@@ -1,0 +1,2076 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-05-11T16:02:06.446006",
+  "script_ref": "docs/scripts-archive/2026-05-11_1458_el-cr-dito-americano-sin-social-security-3-jugadas-legales-que-tu-banc.json",
+  "audio_ref": "docs/audio-archive/2026-05-11_1502_el-cr-dito-americano-sin-social-security-3-jugadas-legales-que-tu-banc.json",
+  "visuals_ref": "docs/visuals-archive/2026-05-11_1512_el-cr-dito-americano-sin-social-security-3-jugadas-legales-que-tu-banc.json",
+  "script_title": "El crédito americano sin Social Security: 3 jugadas legales que tu banco oculta",
+  "plan": {
+    "target_resolution": "4K",
+    "aspect_ratio": "16:9",
+    "target_fps": 24,
+    "timeline": [
+      {
+        "event_id": 1,
+        "timecode_sec": 0,
+        "duration_sec": 28,
+        "event_type": "audio_block",
+        "description": "Audio Hook (743 chars)",
+        "source_ref": "audio.block_01",
+        "importance": "critical"
+      },
+      {
+        "event_id": 2,
+        "timecode_sec": 28,
+        "duration_sec": 95,
+        "event_type": "audio_block",
+        "description": "Audio Sección 1: El error cultural que te empobrece sin que lo sepas (1284 chars)",
+        "source_ref": "audio.block_02",
+        "importance": "critical"
+      },
+      {
+        "event_id": 3,
+        "timecode_sec": 123,
+        "duration_sec": 110,
+        "event_type": "audio_block",
+        "description": "Audio Sección 2: Puerta 1: el ITIN, la llave que el IRS te entrega gratis (1435 chars)",
+        "source_ref": "audio.block_03",
+        "importance": "critical"
+      },
+      {
+        "event_id": 4,
+        "timecode_sec": 233,
+        "duration_sec": 125,
+        "event_type": "audio_block",
+        "description": "Audio Sección 3: Puerta 2: la tarjeta secured que sí construye, no la 'tarjeta de inmigrante' (1524 chars)",
+        "source_ref": "audio.block_04",
+        "importance": "critical"
+      },
+      {
+        "event_id": 5,
+        "timecode_sec": 358,
+        "duration_sec": 130,
+        "event_type": "audio_block",
+        "description": "Audio Sección 4: Puerta 3: credit builder loans, la jugada silenciosa que duplica tu velocidad (1755 chars)",
+        "source_ref": "audio.block_05",
+        "importance": "critical"
+      },
+      {
+        "event_id": 6,
+        "timecode_sec": 488,
+        "duration_sec": 110,
+        "event_type": "audio_block",
+        "description": "Audio Sección 5: La paradoja: vivir bien en efectivo te empobrece en este país (1145 chars)",
+        "source_ref": "audio.block_06",
+        "importance": "critical"
+      },
+      {
+        "event_id": 7,
+        "timecode_sec": 598,
+        "duration_sec": 110,
+        "event_type": "audio_block",
+        "description": "Audio Sección 6: Los primeros 90 días: el plan concreto que cualquier hispano puede empezar este lunes (1332 chars)",
+        "source_ref": "audio.block_07",
+        "importance": "critical"
+      },
+      {
+        "event_id": 8,
+        "timecode_sec": 708,
+        "duration_sec": 43,
+        "event_type": "audio_block",
+        "description": "Audio CTA (583 chars)",
+        "source_ref": "audio.block_08",
+        "importance": "critical"
+      },
+      {
+        "event_id": 9,
+        "timecode_sec": 0,
+        "duration_sec": 8,
+        "event_type": "video_clip",
+        "description": "Insert / Detail: Split screen vertical de pantalla completa: izquierda muestra score crediticio d",
+        "source_ref": "visuals.shot_01",
+        "importance": "critical"
+      },
+      {
+        "event_id": 10,
+        "timecode_sec": 8,
+        "duration_sec": 20,
+        "event_type": "video_clip",
+        "description": "Medium Shot: Luis sentado en escritorio de despacho moderno con luz cenital cinematográfica. ",
+        "source_ref": "visuals.shot_02",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 12,
+        "timecode_sec": 28,
+        "duration_sec": 90,
+        "event_type": "video_clip",
+        "description": "Medium Shot: Luis explicando la paradoja cultural del efectivo, gesticulando con manos abiert",
+        "source_ref": "visuals.shot_03",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 14,
+        "timecode_sec": 118,
+        "duration_sec": 5,
+        "event_type": "video_clip",
+        "description": "Insert / Detail: Pattern interrupt: cifra gigante animada en pantalla completa '26.000.000' (negr",
+        "source_ref": "visuals.shot_04",
+        "importance": "critical"
+      },
+      {
+        "event_id": 16,
+        "timecode_sec": 123,
+        "duration_sec": 10,
+        "event_type": "video_clip",
+        "description": "Insert / Detail: Pattern interrupt B-roll cinematográfico: formulario W-7 del IRS sobre escritori",
+        "source_ref": "visuals.shot_05",
+        "importance": "critical"
+      },
+      {
+        "event_id": 18,
+        "timecode_sec": 133,
+        "duration_sec": 100,
+        "event_type": "video_clip",
+        "description": "Full Shot: Luis de pie junto a su escritorio explicando el ITIN, gesticulando hacia un gráf",
+        "source_ref": "visuals.shot_06",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 20,
+        "timecode_sec": 233,
+        "duration_sec": 15,
+        "event_type": "video_clip",
+        "description": "Insert / Detail: Pattern interrupt: comparativa visual side-by-side. Izquierda con marca de agua ",
+        "source_ref": "visuals.shot_07",
+        "importance": "critical"
+      },
+      {
+        "event_id": 22,
+        "timecode_sec": 358,
+        "duration_sec": 12,
+        "event_type": "video_clip",
+        "description": "Insert / Detail: Pattern interrupt gráfico animado: dos barras crecientes mostrando trayectoria d",
+        "source_ref": "visuals.shot_08",
+        "importance": "critical"
+      },
+      {
+        "event_id": 24,
+        "timecode_sec": 488,
+        "duration_sec": 70,
+        "event_type": "video_clip",
+        "description": "Extreme Close-Up: Paradoja emocional. Plano cerrado de la cara de Luis, ojos centrados en el frame",
+        "source_ref": "visuals.shot_09",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 26,
+        "timecode_sec": 558,
+        "duration_sec": 30,
+        "event_type": "video_clip",
+        "description": "Insert / Detail: Pattern interrupt: timeline horizontal animado mostrando la trayectoria 90 días.",
+        "source_ref": "visuals.shot_10",
+        "importance": "critical"
+      },
+      {
+        "event_id": 28,
+        "timecode_sec": 588,
+        "duration_sec": 80,
+        "event_type": "video_clip",
+        "description": "Medium Shot: Luis cierra el video sentado nuevamente en su escritorio, gesticulando con calma",
+        "source_ref": "visuals.shot_11",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 30,
+        "timecode_sec": 668,
+        "duration_sec": 43,
+        "event_type": "video_clip",
+        "description": "Over the Shoulder: CTA. Plano por encima del hombro de Luis, mostrando su teléfono móvil (iPhone mo",
+        "source_ref": "visuals.shot_12",
+        "importance": "recommended"
+      }
+    ],
+    "subtitles": [
+      {
+        "seg_id": 1,
+        "timecode_start_sec": 0.0,
+        "duration_sec": 2.37,
+        "text": "Hay un hispano en Dallas que llegó hace siete años con visa",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 2,
+        "timecode_start_sec": 2.37,
+        "duration_sec": 2.37,
+        "text": "de turista, sin Social Security, y hoy tiene un FICO de 782.",
+        "highlight_keywords": [
+          "782",
+          "FICO",
+          "Social Security"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 3,
+        "timecode_start_sec": 4.73,
+        "duration_sec": 2.17,
+        "text": "Su asesor financiero le cobró 4.000 dólares por enseñarle el sistema.",
+        "highlight_keywords": [
+          "4.000"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 4,
+        "timecode_start_sec": 6.9,
+        "duration_sec": 1.97,
+        "text": "Yo te lo voy a explicar gratis en doce minutos,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 5,
+        "timecode_start_sec": 8.87,
+        "duration_sec": 2.37,
+        "text": "y al final de este video vas a entender tres puertas legales",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 6,
+        "timecode_start_sec": 11.24,
+        "duration_sec": 2.37,
+        "text": "que tu banco conoce, que el IRS publica en su propia web,",
+        "highlight_keywords": [
+          "IRS"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 7,
+        "timecode_start_sec": 13.61,
+        "duration_sec": 2.37,
+        "text": "y que la mayoría de hispanos en EE.UU. nunca abre porque nadie",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 8,
+        "timecode_start_sec": 15.97,
+        "duration_sec": 1.0,
+        "text": "nos enseña a leerlas.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 9,
+        "timecode_start_sec": 16.97,
+        "duration_sec": 1.77,
+        "text": "Pero antes de empezar quiero que entiendas algo incómodo:",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 10,
+        "timecode_start_sec": 18.75,
+        "duration_sec": 2.37,
+        "text": "el motivo real por el que tu crédito está atascado no es",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 11,
+        "timecode_start_sec": 21.11,
+        "duration_sec": 1.0,
+        "text": "tu estatus migratorio.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 12,
+        "timecode_start_sec": 22.11,
+        "duration_sec": 2.37,
+        "text": "Es algo que tus padres te enseñaron desde niño y que aquí,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 13,
+        "timecode_start_sec": 24.48,
+        "duration_sec": 1.97,
+        "text": "en este país, te empobrece sin que te des cuenta.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 14,
+        "timecode_start_sec": 26.45,
+        "duration_sec": 2.17,
+        "text": "Voy a contarte cuál es en el segundo siete del video.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 15,
+        "timecode_start_sec": 28.0,
+        "duration_sec": 1.7,
+        "text": "Aquí va lo incómodo.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 16,
+        "timecode_start_sec": 29.7,
+        "duration_sec": 3.83,
+        "text": "En Latinoamérica te enseñaron que la deuda es mala,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 17,
+        "timecode_start_sec": 33.54,
+        "duration_sec": 4.0,
+        "text": "que pagar todo en efectivo es señal de gente honrada,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 18,
+        "timecode_start_sec": 37.54,
+        "duration_sec": 4.0,
+        "text": "y que el que tiene tarjeta de crédito está al borde de",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 19,
+        "timecode_start_sec": 41.54,
+        "duration_sec": 1.0,
+        "text": "la ruina.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 20,
+        "timecode_start_sec": 42.54,
+        "duration_sec": 2.56,
+        "text": "Y tenían razón en su contexto.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 21,
+        "timecode_start_sec": 45.09,
+        "duration_sec": 3.41,
+        "text": "Pero en EE.UU. el sistema funciona al revés.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 22,
+        "timecode_start_sec": 48.5,
+        "duration_sec": 3.83,
+        "text": "Aquí el crédito no es deuda: es identidad financiera.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 23,
+        "timecode_start_sec": 52.34,
+        "duration_sec": 2.13,
+        "text": "Si nunca has pedido prestado,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 24,
+        "timecode_start_sec": 54.47,
+        "duration_sec": 4.0,
+        "text": "el sistema asume que no se puede confiar en ti,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 25,
+        "timecode_start_sec": 58.47,
+        "duration_sec": 4.0,
+        "text": "no porque seas malo, sino porque no existes en sus registros.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 26,
+        "timecode_start_sec": 62.47,
+        "duration_sec": 4.0,
+        "text": "El que paga la luz en efectivo todos los meses durante diez",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 27,
+        "timecode_start_sec": 66.47,
+        "duration_sec": 4.0,
+        "text": "años tiene el mismo perfil que alguien que acaba de cruzar la",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 28,
+        "timecode_start_sec": 70.47,
+        "duration_sec": 2.13,
+        "text": "frontera ayer: cero, ninguno, invisible.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 29,
+        "timecode_start_sec": 72.6,
+        "duration_sec": 4.0,
+        "text": "Y aquí viene el dato duro: según el Consumer Financial Protection Bureau,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 30,
+        "timecode_start_sec": 76.6,
+        "duration_sec": 4.0,
+        "text": "alrededor de veintiséis millones de adultos en EE.UU. son 'credit invisible',",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 31,
+        "timecode_start_sec": 80.6,
+        "duration_sec": 4.0,
+        "text": "y los hispanos representan una de las fracciones más altas de ese",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 32,
+        "timecode_start_sec": 84.6,
+        "duration_sec": 1.0,
+        "text": "grupo.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 33,
+        "timecode_start_sec": 85.6,
+        "duration_sec": 4.0,
+        "text": "Veintiséis millones de personas que existen en el censo, trabajan, pagan impuestos,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 34,
+        "timecode_start_sec": 89.6,
+        "duration_sec": 2.98,
+        "text": "y para el sistema financiero no existen.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 35,
+        "timecode_start_sec": 92.58,
+        "duration_sec": 2.13,
+        "text": "Ese es el primer obstáculo.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 36,
+        "timecode_start_sec": 94.71,
+        "duration_sec": 1.7,
+        "text": "No es tu visa.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 37,
+        "timecode_start_sec": 96.41,
+        "duration_sec": 2.13,
+        "text": "Es tu manera de pensar.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 38,
+        "timecode_start_sec": 98.54,
+        "duration_sec": 4.0,
+        "text": "La buena noticia es que cambiar tu identidad financiera en este país",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 39,
+        "timecode_start_sec": 102.54,
+        "duration_sec": 2.56,
+        "text": "no requiere papeles que no tengas.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 40,
+        "timecode_start_sec": 105.1,
+        "duration_sec": 2.13,
+        "text": "Requiere tres movimientos en orden.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 41,
+        "timecode_start_sec": 107.23,
+        "duration_sec": 4.0,
+        "text": "Y el primero empieza con un número que muchos hispanos creen, equivocadamente,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 42,
+        "timecode_start_sec": 111.23,
+        "duration_sec": 1.7,
+        "text": "que es peligroso sacar.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 43,
+        "timecode_start_sec": 123.0,
+        "duration_sec": 4.0,
+        "text": "El número se llama ITIN, Individual Taxpayer Identification Number,",
+        "highlight_keywords": [
+          "ITIN"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 44,
+        "timecode_start_sec": 127.0,
+        "duration_sec": 3.18,
+        "text": "y lo emite el Internal Revenue Service.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 45,
+        "timecode_start_sec": 130.18,
+        "duration_sec": 4.0,
+        "text": "Empieza con un nueve, tiene nueve dígitos en total,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 46,
+        "timecode_start_sec": 134.18,
+        "duration_sec": 3.18,
+        "text": "y se solicita con el formulario W-7.",
+        "highlight_keywords": [
+          "7",
+          "W-7"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 47,
+        "timecode_start_sec": 137.36,
+        "duration_sec": 2.27,
+        "text": "No es un Social Security.",
+        "highlight_keywords": [
+          "Social Security"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 48,
+        "timecode_start_sec": 139.64,
+        "duration_sec": 2.27,
+        "text": "No te identifica ante inmigración.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 49,
+        "timecode_start_sec": 141.91,
+        "duration_sec": 4.0,
+        "text": "Es un número que existe únicamente para que la persona que paga",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 50,
+        "timecode_start_sec": 145.91,
+        "duration_sec": 4.0,
+        "text": "impuestos en este país, sin importar su estatus migratorio, pueda hacerlo legalmente.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 51,
+        "timecode_start_sec": 149.91,
+        "duration_sec": 3.64,
+        "text": "Cualquier hispano que haya declarado taxes alguna vez,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 52,
+        "timecode_start_sec": 153.55,
+        "duration_sec": 4.0,
+        "text": "ya sea con Schedule C como autónomo o como empleado con W-2,",
+        "highlight_keywords": [
+          "2"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 53,
+        "timecode_start_sec": 157.55,
+        "duration_sec": 1.0,
+        "text": "califica.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 54,
+        "timecode_start_sec": 158.55,
+        "duration_sec": 4.0,
+        "text": "La razón por la que muchos no lo piden es miedo:",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 55,
+        "timecode_start_sec": 162.55,
+        "duration_sec": 3.64,
+        "text": "creen que pedirlo los pone en una lista.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 56,
+        "timecode_start_sec": 166.18,
+        "duration_sec": 1.36,
+        "text": "Eso es falso.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 57,
+        "timecode_start_sec": 167.55,
+        "duration_sec": 4.0,
+        "text": "El IRS y el Department of Homeland Security son agencias separadas,",
+        "highlight_keywords": [
+          "IRS"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 58,
+        "timecode_start_sec": 171.55,
+        "duration_sec": 4.0,
+        "text": "y la información del ITIN tiene restricciones de uso establecidas por la",
+        "highlight_keywords": [
+          "ITIN"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 59,
+        "timecode_start_sec": 175.55,
+        "duration_sec": 2.73,
+        "text": "sección 6103 del Internal Revenue Code.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 60,
+        "timecode_start_sec": 178.27,
+        "duration_sec": 4.0,
+        "text": "Una vez tienes ITIN, se te abre la primera puerta:",
+        "highlight_keywords": [
+          "ITIN"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 61,
+        "timecode_start_sec": 182.27,
+        "duration_sec": 4.0,
+        "text": "puedes abrir cuentas bancarias en Bank of America, Wells Fargo, Capital One,",
+        "highlight_keywords": [
+          "Capital One"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 62,
+        "timecode_start_sec": 186.27,
+        "duration_sec": 3.64,
+        "text": "Citi y bancos comunitarios como Self-Help Credit Union.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 63,
+        "timecode_start_sec": 189.91,
+        "duration_sec": 4.0,
+        "text": "Más importante todavía, puedes solicitar productos crediticios que reportan a las tres",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 64,
+        "timecode_start_sec": 193.91,
+        "duration_sec": 2.27,
+        "text": "burós: Experian, Equifax y TransUnion.",
+        "highlight_keywords": [
+          "Equifax",
+          "Experian",
+          "TransUnion"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 65,
+        "timecode_start_sec": 196.18,
+        "duration_sec": 2.73,
+        "text": "Sin ese reporte, no hay historial.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 66,
+        "timecode_start_sec": 198.91,
+        "duration_sec": 2.73,
+        "text": "Y sin historial, no hay FICO.",
+        "highlight_keywords": [
+          "FICO"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 67,
+        "timecode_start_sec": 201.64,
+        "duration_sec": 4.0,
+        "text": "Pero ojo: tener ITIN no te da crédito por sí solo.",
+        "highlight_keywords": [
+          "ITIN"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 68,
+        "timecode_start_sec": 205.64,
+        "duration_sec": 4.0,
+        "text": "Te da el derecho a participar en el juego.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 69,
+        "timecode_start_sec": 209.64,
+        "duration_sec": 4.0,
+        "text": "La jugada concreta para empezar a construir score viene en la segunda",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 70,
+        "timecode_start_sec": 213.64,
+        "duration_sec": 4.0,
+        "text": "puerta, y ahí es donde casi todos los hispanos eligen el producto",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 71,
+        "timecode_start_sec": 217.64,
+        "duration_sec": 1.0,
+        "text": "equivocado.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 72,
+        "timecode_start_sec": 233.0,
+        "duration_sec": 4.0,
+        "text": "El error más caro que vi en mis primeros años aquí,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 73,
+        "timecode_start_sec": 237.0,
+        "duration_sec": 4.0,
+        "text": "y que veo todavía hoy en familia y amigos,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 74,
+        "timecode_start_sec": 241.0,
+        "duration_sec": 4.0,
+        "text": "es contratar lo que la industria llama una 'tarjeta para inmigrantes',",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 75,
+        "timecode_start_sec": 245.0,
+        "duration_sec": 4.0,
+        "text": "generalmente tarjetas prepagadas con nombres comerciales atractivos en español.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 76,
+        "timecode_start_sec": 249.0,
+        "duration_sec": 2.39,
+        "text": "Esas tarjetas no construyen crédito.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 77,
+        "timecode_start_sec": 251.39,
+        "duration_sec": 2.39,
+        "text": "No reportan a los burós.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 78,
+        "timecode_start_sec": 253.77,
+        "duration_sec": 4.0,
+        "text": "Te cobran fees mensuales, fees por recargar, fees por sacar dinero,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 79,
+        "timecode_start_sec": 257.77,
+        "duration_sec": 4.0,
+        "text": "y al final del año pagaste cien o doscientos dólares por nada.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 80,
+        "timecode_start_sec": 261.77,
+        "duration_sec": 4.0,
+        "text": "Existen porque el sistema sabe que el hispano recién llegado va a",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 81,
+        "timecode_start_sec": 265.77,
+        "duration_sec": 2.86,
+        "text": "entrar por la puerta más cómoda.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 82,
+        "timecode_start_sec": 268.63,
+        "duration_sec": 2.39,
+        "text": "La puerta correcta es otra.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 83,
+        "timecode_start_sec": 271.02,
+        "duration_sec": 4.0,
+        "text": "Se llama secured credit card, tarjeta de crédito garantizada.",
+        "highlight_keywords": [
+          "secured"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 84,
+        "timecode_start_sec": 275.02,
+        "duration_sec": 4.0,
+        "text": "Funciona así: depositas una cantidad, normalmente entre doscientos y mil dólares,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 85,
+        "timecode_start_sec": 279.02,
+        "duration_sec": 4.0,
+        "text": "y ese depósito se convierte en tu límite de crédito.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 86,
+        "timecode_start_sec": 283.02,
+        "duration_sec": 4.0,
+        "text": "Usas la tarjeta como cualquier otra, pagas a tiempo,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 87,
+        "timecode_start_sec": 287.02,
+        "duration_sec": 4.0,
+        "text": "y el banco reporta tu comportamiento a las tres burós.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 88,
+        "timecode_start_sec": 291.02,
+        "duration_sec": 4.0,
+        "text": "A los seis o doce meses te devuelven el depósito y,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 89,
+        "timecode_start_sec": 295.02,
+        "duration_sec": 4.0,
+        "text": "si fuiste responsable, te suben a una tarjeta sin garantía.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 90,
+        "timecode_start_sec": 299.02,
+        "duration_sec": 4.0,
+        "text": "Los productos más conocidos y que históricamente han aceptado ITIN son la",
+        "highlight_keywords": [
+          "ITIN"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 91,
+        "timecode_start_sec": 303.02,
+        "duration_sec": 4.0,
+        "text": "Capital One Platinum Secured y la Discover it Secured.",
+        "highlight_keywords": [
+          "Capital One",
+          "Discover",
+          "Secured"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 92,
+        "timecode_start_sec": 307.02,
+        "duration_sec": 4.0,
+        "text": "Ambas reportan a los tres burós y permiten subir el FICO de",
+        "highlight_keywords": [
+          "FICO"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 93,
+        "timecode_start_sec": 311.02,
+        "duration_sec": 4.0,
+        "text": "cero a setecientos en aproximadamente diez a catorce meses si las usas",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 94,
+        "timecode_start_sec": 315.02,
+        "duration_sec": 1.0,
+        "text": "correctamente.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 95,
+        "timecode_start_sec": 316.02,
+        "duration_sec": 3.82,
+        "text": "Y 'usar correctamente' aquí significa algo muy específico:",
+        "highlight_keywords": [
+          "fico"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 96,
+        "timecode_start_sec": 319.84,
+        "duration_sec": 2.86,
+        "text": "no se trata de pagar puntual.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 97,
+        "timecode_start_sec": 322.7,
+        "duration_sec": 2.39,
+        "text": "Pagar puntual es el mínimo.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 98,
+        "timecode_start_sec": 325.08,
+        "duration_sec": 4.0,
+        "text": "La jugada de verdad, la que sube el score más rápido,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 99,
+        "timecode_start_sec": 329.08,
+        "duration_sec": 4.0,
+        "text": "es algo que el banco nunca te va a recomendar porque no",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 100,
+        "timecode_start_sec": 333.08,
+        "duration_sec": 1.0,
+        "text": "le conviene.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 101,
+        "timecode_start_sec": 334.08,
+        "duration_sec": 2.86,
+        "text": "Eso lo abro en un momento.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 102,
+        "timecode_start_sec": 358.0,
+        "duration_sec": 2.1,
+        "text": "Aquí está la tercera puerta,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 103,
+        "timecode_start_sec": 360.1,
+        "duration_sec": 4.0,
+        "text": "y es donde se separa al hispano que construye crédito en doce",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 104,
+        "timecode_start_sec": 364.1,
+        "duration_sec": 2.52,
+        "text": "meses del que tarda tres años.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 105,
+        "timecode_start_sec": 366.61,
+        "duration_sec": 2.1,
+        "text": "Se llama credit builder loan.",
+        "highlight_keywords": [
+          "credit builder"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 106,
+        "timecode_start_sec": 368.71,
+        "duration_sec": 4.0,
+        "text": "Y suena raro porque funciona al revés que un préstamo normal.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 107,
+        "timecode_start_sec": 372.71,
+        "duration_sec": 4.0,
+        "text": "En vez de darte dinero y que tú lo pagues con intereses,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 108,
+        "timecode_start_sec": 376.71,
+        "duration_sec": 3.77,
+        "text": "te abren una cuenta donde tú depositas cada mes,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 109,
+        "timecode_start_sec": 380.48,
+        "duration_sec": 4.0,
+        "text": "ese dinero queda guardado, y al final del plazo te lo devuelven",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 110,
+        "timecode_start_sec": 384.48,
+        "duration_sec": 2.52,
+        "text": "más un poco de interés ganado.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 111,
+        "timecode_start_sec": 387.0,
+        "duration_sec": 4.0,
+        "text": "Mientras tanto, cada pago mensual se reporta a los tres burós como",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 112,
+        "timecode_start_sec": 391.0,
+        "duration_sec": 2.94,
+        "text": "una cuota de préstamo pagada a tiempo.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 113,
+        "timecode_start_sec": 393.94,
+        "duration_sec": 3.35,
+        "text": "Es decir: no estás pidiendo prestado, estás ahorrando,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 114,
+        "timecode_start_sec": 397.29,
+        "duration_sec": 4.0,
+        "text": "pero el sistema lo registra como si estuvieras pagando una deuda con",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 115,
+        "timecode_start_sec": 401.29,
+        "duration_sec": 1.0,
+        "text": "disciplina.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 116,
+        "timecode_start_sec": 402.29,
+        "duration_sec": 4.0,
+        "text": "Empresas como Self Inc, Kikoff y Credit Strong ofrecen este producto a",
+        "highlight_keywords": [
+          "Credit Strong",
+          "Kikoff",
+          "Self Inc"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 117,
+        "timecode_start_sec": 406.29,
+        "duration_sec": 2.94,
+        "text": "partir de unos veinticinco dólares al mes.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 118,
+        "timecode_start_sec": 409.23,
+        "duration_sec": 1.0,
+        "text": "Aceptan ITIN.",
+        "highlight_keywords": [
+          "ITIN"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 119,
+        "timecode_start_sec": 410.23,
+        "duration_sec": 2.52,
+        "text": "Y la clave estratégica es esta:",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 120,
+        "timecode_start_sec": 412.74,
+        "duration_sec": 4.0,
+        "text": "si combinas una secured credit card con un credit builder loan al",
+        "highlight_keywords": [
+          "credit builder",
+          "secured"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 121,
+        "timecode_start_sec": 416.74,
+        "duration_sec": 4.0,
+        "text": "mismo tiempo, tu reporte de crédito muestra dos líneas activas distintas,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 122,
+        "timecode_start_sec": 420.74,
+        "duration_sec": 4.0,
+        "text": "una de tipo revolving (la tarjeta) y otra de tipo installment (el",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 123,
+        "timecode_start_sec": 424.74,
+        "duration_sec": 4.0,
+        "text": "préstamo), y eso es exactamente lo que el modelo FICO premia más.",
+        "highlight_keywords": [
+          "FICO"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 124,
+        "timecode_start_sec": 428.74,
+        "duration_sec": 4.0,
+        "text": "La mezcla de tipos de crédito pesa el diez por ciento del",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 125,
+        "timecode_start_sec": 432.74,
+        "duration_sec": 3.35,
+        "text": "score, y casi nadie que empieza la cubre.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 126,
+        "timecode_start_sec": 436.1,
+        "duration_sec": 4.0,
+        "text": "La consecuencia: el hispano que solo tiene secured card sube de cero",
+        "highlight_keywords": [
+          "secured"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 127,
+        "timecode_start_sec": 440.1,
+        "duration_sec": 2.52,
+        "text": "a seiscientos cincuenta en doce meses.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 128,
+        "timecode_start_sec": 442.61,
+        "duration_sec": 4.0,
+        "text": "El que combina las dos puertas sube de cero a setecientos diez",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 129,
+        "timecode_start_sec": 446.61,
+        "duration_sec": 2.94,
+        "text": "a setecientos treinta en el mismo tiempo.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 130,
+        "timecode_start_sec": 449.55,
+        "duration_sec": 3.35,
+        "text": "Mismo dinero invertido, casi cien puntos de diferencia.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 131,
+        "timecode_start_sec": 452.9,
+        "duration_sec": 2.52,
+        "text": "Y eso, en una hipoteca FHA,",
+        "highlight_keywords": [
+          "FHA"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 132,
+        "timecode_start_sec": 455.42,
+        "duration_sec": 4.0,
+        "text": "equivale a varios miles de dólares menos en intereses durante la vida",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 133,
+        "timecode_start_sec": 459.42,
+        "duration_sec": 1.0,
+        "text": "del préstamo.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 134,
+        "timecode_start_sec": 460.42,
+        "duration_sec": 4.0,
+        "text": "Pero hay una cuarta cosa que ninguna de estas puertas resuelve por",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 135,
+        "timecode_start_sec": 464.42,
+        "duration_sec": 1.0,
+        "text": "sí sola.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 136,
+        "timecode_start_sec": 465.42,
+        "duration_sec": 2.94,
+        "text": "Y es lo que mencioné al principio:",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 137,
+        "timecode_start_sec": 468.35,
+        "duration_sec": 4.0,
+        "text": "la paradoja emocional del hispano que ahorra bien y construye crédito mal.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 138,
+        "timecode_start_sec": 488.0,
+        "duration_sec": 4.0,
+        "text": "Esta es la parte incómoda y la que más cuesta aceptar.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 139,
+        "timecode_start_sec": 492.0,
+        "duration_sec": 4.0,
+        "text": "Tu disciplina con el dinero, esa que te salvó en Latinoamérica,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 140,
+        "timecode_start_sec": 496.0,
+        "duration_sec": 1.59,
+        "text": "aquí te castiga.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 141,
+        "timecode_start_sec": 497.59,
+        "duration_sec": 4.0,
+        "text": "El hispano que paga la renta a tiempo doce años seguidos,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 142,
+        "timecode_start_sec": 501.59,
+        "duration_sec": 2.64,
+        "text": "que nunca debe un peso,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 143,
+        "timecode_start_sec": 504.23,
+        "duration_sec": 4.0,
+        "text": "que ahorra debajo del colchón y vive sin tarjetas,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 144,
+        "timecode_start_sec": 508.23,
+        "duration_sec": 4.0,
+        "text": "es el mismo hispano que cuando va a comprar su primera casa",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 145,
+        "timecode_start_sec": 512.23,
+        "duration_sec": 4.0,
+        "text": "le dicen que necesita veinte por ciento de down y un co-signer",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 146,
+        "timecode_start_sec": 516.23,
+        "duration_sec": 1.0,
+        "text": "ciudadano.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 147,
+        "timecode_start_sec": 517.23,
+        "duration_sec": 1.06,
+        "text": "¿Por qué?",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 148,
+        "timecode_start_sec": 518.29,
+        "duration_sec": 3.7,
+        "text": "Porque el sistema no premia tu honradez.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 149,
+        "timecode_start_sec": 521.99,
+        "duration_sec": 1.59,
+        "text": "Premia tu visibilidad.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 150,
+        "timecode_start_sec": 523.58,
+        "duration_sec": 4.0,
+        "text": "Sientes que estás haciendo las cosas bien, sabes que eres responsable,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 151,
+        "timecode_start_sec": 527.58,
+        "duration_sec": 4.0,
+        "text": "pero el modelo te trata como si fueras un riesgo.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 152,
+        "timecode_start_sec": 531.58,
+        "duration_sec": 2.12,
+        "text": "Esa es la paradoja.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 153,
+        "timecode_start_sec": 533.69,
+        "duration_sec": 4.0,
+        "text": "Y por eso construir crédito en EE.UU. no es una decisión financiera,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 154,
+        "timecode_start_sec": 537.69,
+        "duration_sec": 2.12,
+        "text": "es una decisión cultural.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 155,
+        "timecode_start_sec": 539.81,
+        "duration_sec": 4.0,
+        "text": "Es aceptar que aquí necesitas usar el sistema, no esconderte de él.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 156,
+        "timecode_start_sec": 543.81,
+        "duration_sec": 4.0,
+        "text": "Que pedir una tarjeta y pagarla cada mes no te hace menos",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 157,
+        "timecode_start_sec": 547.81,
+        "duration_sec": 2.12,
+        "text": "honrado: te hace contable.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 158,
+        "timecode_start_sec": 549.92,
+        "duration_sec": 3.7,
+        "text": "Que el ITIN no es un peligro:",
+        "highlight_keywords": [
+          "ITIN"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 159,
+        "timecode_start_sec": 553.63,
+        "duration_sec": 4.0,
+        "text": "es la primera firma de tu existencia económica.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 160,
+        "timecode_start_sec": 557.63,
+        "duration_sec": 4.0,
+        "text": "Cuando un inmigrante hispano entiende esto, su trayectoria cambia.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 161,
+        "timecode_start_sec": 561.63,
+        "duration_sec": 2.64,
+        "text": "No porque gane más dinero,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 162,
+        "timecode_start_sec": 564.27,
+        "duration_sec": 4.0,
+        "text": "sino porque el dinero que ya gana empieza a valer más a",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 163,
+        "timecode_start_sec": 568.27,
+        "duration_sec": 1.59,
+        "text": "ojos del sistema.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 164,
+        "timecode_start_sec": 569.86,
+        "duration_sec": 4.0,
+        "text": "Y eso se nota a los noventa días.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 165,
+        "timecode_start_sec": 598.0,
+        "duration_sec": 2.33,
+        "text": "Te dejo el plan exacto.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 166,
+        "timecode_start_sec": 600.33,
+        "duration_sec": 4.0,
+        "text": "Día uno: descarga el formulario W-7 del sitio del IRS, en irs.gov,",
+        "highlight_keywords": [
+          "7",
+          "IRS",
+          "W-7"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 167,
+        "timecode_start_sec": 604.33,
+        "duration_sec": 4.0,
+        "text": "llénalo, adjunta tu pasaporte y los documentos que el formulario pide.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 168,
+        "timecode_start_sec": 608.33,
+        "duration_sec": 4.0,
+        "text": "Puedes presentarlo por correo o a través de un Certifying Acceptance Agent",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 169,
+        "timecode_start_sec": 612.33,
+        "duration_sec": 3.26,
+        "text": "autorizado por el IRS en tu ciudad.",
+        "highlight_keywords": [
+          "IRS"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 170,
+        "timecode_start_sec": 615.59,
+        "duration_sec": 3.73,
+        "text": "El número llega entre seis y once semanas.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 171,
+        "timecode_start_sec": 619.32,
+        "duration_sec": 2.8,
+        "text": "Día sesenta, una vez tengas ITIN:",
+        "highlight_keywords": [
+          "ITIN"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 172,
+        "timecode_start_sec": 622.12,
+        "duration_sec": 4.0,
+        "text": "abre una cuenta de cheques en un banco que sí acepte ITIN",
+        "highlight_keywords": [
+          "ITIN"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 173,
+        "timecode_start_sec": 626.12,
+        "duration_sec": 2.8,
+        "text": "como Capital One, Bank of America,",
+        "highlight_keywords": [
+          "Capital One"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 174,
+        "timecode_start_sec": 628.92,
+        "duration_sec": 3.26,
+        "text": "Wells Fargo o tu credit union local.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 175,
+        "timecode_start_sec": 632.18,
+        "duration_sec": 4.0,
+        "text": "Mismo día, solicita una secured credit card de doscientos dólares de límite.",
+        "highlight_keywords": [
+          "secured"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 176,
+        "timecode_start_sec": 636.18,
+        "duration_sec": 4.0,
+        "text": "Mismo día también, abre una cuenta en Self Inc o Kikoff con",
+        "highlight_keywords": [
+          "Kikoff",
+          "Self Inc"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 177,
+        "timecode_start_sec": 640.18,
+        "duration_sec": 3.26,
+        "text": "cuota mensual de veinticinco a cincuenta dólares.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 178,
+        "timecode_start_sec": 643.44,
+        "duration_sec": 4.0,
+        "text": "Día noventa, tu reporte ya empieza a tener actividad en los tres",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 179,
+        "timecode_start_sec": 647.44,
+        "duration_sec": 1.0,
+        "text": "burós.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 180,
+        "timecode_start_sec": 648.44,
+        "duration_sec": 4.0,
+        "text": "Usa la secured card para gastos pequeños y predecibles,",
+        "highlight_keywords": [
+          "secured"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 181,
+        "timecode_start_sec": 652.44,
+        "duration_sec": 2.33,
+        "text": "idealmente la compra del super,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 182,
+        "timecode_start_sec": 654.77,
+        "duration_sec": 4.0,
+        "text": "y paga la totalidad del balance antes del statement date,",
+        "highlight_keywords": [
+          "statement date"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 183,
+        "timecode_start_sec": 658.77,
+        "duration_sec": 2.33,
+        "text": "no de la due date.",
+        "highlight_keywords": [
+          "due date"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 184,
+        "timecode_start_sec": 661.1,
+        "duration_sec": 4.0,
+        "text": "Eso último es la jugada técnica más importante del video y casi",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 185,
+        "timecode_start_sec": 665.1,
+        "duration_sec": 4.0,
+        "text": "nadie la conoce: si pagas antes de que el banco reporte el",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 186,
+        "timecode_start_sec": 669.1,
+        "duration_sec": 4.0,
+        "text": "ciclo, tu utilization aparece bajo, y bajo es premiado.",
+        "highlight_keywords": [
+          "utilization"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 187,
+        "timecode_start_sec": 673.1,
+        "duration_sec": 4.0,
+        "text": "A los doce meses, si seguiste los tres pasos en paralelo,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 188,
+        "timecode_start_sec": 677.1,
+        "duration_sec": 4.0,
+        "text": "tu FICO estará entre seiscientos noventa y setecientos cuarenta.",
+        "highlight_keywords": [
+          "FICO"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 189,
+        "timecode_start_sec": 681.1,
+        "duration_sec": 4.0,
+        "text": "Es el rango donde se abre la hipoteca FHA,",
+        "highlight_keywords": [
+          "FHA"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 190,
+        "timecode_start_sec": 685.1,
+        "duration_sec": 4.0,
+        "text": "el préstamo de auto con tasa razonable y, sobre todo,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 191,
+        "timecode_start_sec": 689.1,
+        "duration_sec": 2.33,
+        "text": "donde dejas de ser invisible.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 192,
+        "timecode_start_sec": 708.0,
+        "duration_sec": 4.0,
+        "text": "Te dejo gratis en el primer enlace de la descripción la 'Hoja",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 193,
+        "timecode_start_sec": 712.0,
+        "duration_sec": 4.0,
+        "text": "Ruta del Crédito ITIN': un PDF de dos páginas con los enlaces",
+        "highlight_keywords": [
+          "ITIN",
+          "PDF"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 194,
+        "timecode_start_sec": 716.0,
+        "duration_sec": 4.0,
+        "text": "directos al W-7, la lista actualizada de bancos que aceptan ITIN por",
+        "highlight_keywords": [
+          "7",
+          "ITIN",
+          "W-7"
+        ],
+        "motion_style": "pop"
+      },
+      {
+        "seg_id": 195,
+        "timecode_start_sec": 720.0,
+        "duration_sec": 4.0,
+        "text": "estado, y un calendario imprimible de noventa días con las fechas exactas",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 196,
+        "timecode_start_sec": 724.0,
+        "duration_sec": 1.18,
+        "text": "de cada paso.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 197,
+        "timecode_start_sec": 725.18,
+        "duration_sec": 2.37,
+        "text": "No te pido que te suscribas.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 198,
+        "timecode_start_sec": 727.55,
+        "duration_sec": 4.0,
+        "text": "Te pido que lo guardes en tu teléfono y lo abras cuando",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 199,
+        "timecode_start_sec": 731.55,
+        "duration_sec": 1.58,
+        "text": "estés listo para empezar.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 200,
+        "timecode_start_sec": 733.13,
+        "duration_sec": 4.0,
+        "text": "Y si conoces a alguien que lleva años aquí sin construir crédito,",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 201,
+        "timecode_start_sec": 737.13,
+        "duration_sec": 1.18,
+        "text": "mándale este video.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 202,
+        "timecode_start_sec": 738.31,
+        "duration_sec": 4.0,
+        "text": "A veces el regalo más valioso para un hispano en este país",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      },
+      {
+        "seg_id": 203,
+        "timecode_start_sec": 742.31,
+        "duration_sec": 3.55,
+        "text": "no es dinero, es información que nadie le dio.",
+        "highlight_keywords": [],
+        "motion_style": "none"
+      }
+    ],
+    "dai_anchors": [
+      {
+        "timecode_sec": 358,
+        "minimum_break_sec": 5,
+        "rationale": "Punto natural tras 'Sección 3: Puerta 2: la tarjeta secured que sí construye, no la 'tarjeta de inmigrante'' donde un loop se acaba de cerrar antes de abrir el siguiente. Pausa de 5s no rompe la retención.",
+        "section_after": "sección siguiente"
+      },
+      {
+        "timecode_sec": 598,
+        "minimum_break_sec": 5,
+        "rationale": "Punto natural tras 'Sección 5: La paradoja: vivir bien en efectivo te empobrece en este país' donde un loop se acaba de cerrar antes de abrir el siguiente. Pausa de 5s no rompe la retención.",
+        "section_after": "sección siguiente"
+      }
+    ],
+    "transitions": [
+      {
+        "event_id": 11,
+        "timecode_sec": 8,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Cut desde shot anterior",
+        "source_ref": "transition.before_shot_02",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 13,
+        "timecode_sec": 28,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Cut desde shot anterior",
+        "source_ref": "transition.before_shot_03",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 15,
+        "timecode_sec": 118,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Glitch desde shot anterior",
+        "source_ref": "transition.before_shot_04",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 17,
+        "timecode_sec": 123,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Glitch desde shot anterior",
+        "source_ref": "transition.before_shot_05",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 19,
+        "timecode_sec": 133,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Cut desde shot anterior",
+        "source_ref": "transition.before_shot_06",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 21,
+        "timecode_sec": 233,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Glitch desde shot anterior",
+        "source_ref": "transition.before_shot_07",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 23,
+        "timecode_sec": 358,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Glitch desde shot anterior",
+        "source_ref": "transition.before_shot_08",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 25,
+        "timecode_sec": 488,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Cut desde shot anterior",
+        "source_ref": "transition.before_shot_09",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 27,
+        "timecode_sec": 558,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Glitch desde shot anterior",
+        "source_ref": "transition.before_shot_10",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 29,
+        "timecode_sec": 588,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Cut desde shot anterior",
+        "source_ref": "transition.before_shot_11",
+        "importance": "recommended"
+      },
+      {
+        "event_id": 31,
+        "timecode_sec": 668,
+        "duration_sec": 0,
+        "event_type": "transition",
+        "description": "Transición Cut desde shot anterior",
+        "source_ref": "transition.before_shot_12",
+        "importance": "recommended"
+      }
+    ],
+    "longest_static_gap_sec": 100,
+    "three_second_violations": [
+      {
+        "start_sec": 8,
+        "end_sec": 28,
+        "duration_sec": 20,
+        "suggested_fix": "Shot 02 dura 20s. Subdividir en sub-shots de ≤3s con zoom, B-roll, text overlay o pattern interrupt cada 3s en CapCut/Filmora."
+      },
+      {
+        "start_sec": 28,
+        "end_sec": 118,
+        "duration_sec": 90,
+        "suggested_fix": "Shot 03 dura 90s. Subdividir en sub-shots de ≤3s con zoom, B-roll, text overlay o pattern interrupt cada 3s en CapCut/Filmora."
+      },
+      {
+        "start_sec": 133,
+        "end_sec": 233,
+        "duration_sec": 100,
+        "suggested_fix": "Shot 06 dura 100s. Subdividir en sub-shots de ≤3s con zoom, B-roll, text overlay o pattern interrupt cada 3s en CapCut/Filmora."
+      },
+      {
+        "start_sec": 488,
+        "end_sec": 558,
+        "duration_sec": 70,
+        "suggested_fix": "Shot 09 dura 70s. Subdividir en sub-shots de ≤3s con zoom, B-roll, text overlay o pattern interrupt cada 3s en CapCut/Filmora."
+      },
+      {
+        "start_sec": 588,
+        "end_sec": 668,
+        "duration_sec": 80,
+        "suggested_fix": "Shot 11 dura 80s. Subdividir en sub-shots de ≤3s con zoom, B-roll, text overlay o pattern interrupt cada 3s en CapCut/Filmora."
+      },
+      {
+        "start_sec": 668,
+        "end_sec": 711,
+        "duration_sec": 43,
+        "suggested_fix": "Shot 12 dura 43s. Subdividir en sub-shots de ≤3s con zoom, B-roll, text overlay o pattern interrupt cada 3s en CapCut/Filmora."
+      }
+    ]
+  },
+  "notes": "⚠ 6 tramos violan la regla de 3 segundos. El más largo: 100s. Subdividir manualmente en CapCut."
+}
