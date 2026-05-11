@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-05-11T16:25:10.886616",
+  "videos": [
+    {
+      "video_id": "pilot_itin_001",
+      "title": "El crédito americano sin Social Security: 3 jugadas legales",
+      "duration_sec": 708,
+      "views": 0,
+      "impressions": 0,
+      "ctr": null,
+      "avg_view_duration_sec": null,
+      "avg_retention_pct": null,
+      "subscribers_gained": 0,
+      "revenue_usd": null,
+      "rpm_usd": null,
+      "retention_curve": [
+        {
+          "timecode_sec": 0,
+          "relative_retention": 1.0,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 18,
+          "relative_retention": 0.98,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 35,
+          "relative_retention": 0.95,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 71,
+          "relative_retention": 0.9,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 106,
+          "relative_retention": 0.85,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 142,
+          "relative_retention": 0.82,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 177,
+          "relative_retention": 0.8,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 212,
+          "relative_retention": 0.78,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 283,
+          "relative_retention": 0.75,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 354,
+          "relative_retention": 0.72,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 425,
+          "relative_retention": 0.68,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 496,
+          "relative_retention": 0.55,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 531,
+          "relative_retention": 0.5,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 566,
+          "relative_retention": 0.45,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 602,
+          "relative_retention": 0.4,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 637,
+          "relative_retention": 0.38,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 673,
+          "relative_retention": 0.35,
+          "is_leak": false
+        },
+        {
+          "timecode_sec": 708,
+          "relative_retention": 0.3,
+          "is_leak": false
+        }
+      ],
+      "leaks": [
+        {
+          "start_sec": 0,
+          "end_sec": 71,
+          "drop_pct": 10.0,
+          "related_section": null,
+          "suggested_fix": "Caída fuerte (10%) en este tramo. Probable fricción narrativa. Insertar B-roll, cifra impactante o cambio de plano. Acortar la sección."
+        },
+        {
+          "start_sec": 71,
+          "end_sec": 142,
+          "drop_pct": 8.0,
+          "related_section": null,
+          "suggested_fix": "Caída fuerte (8%) en este tramo. Probable fricción narrativa. Insertar B-roll, cifra impactante o cambio de plano. Acortar la sección."
+        },
+        {
+          "start_sec": 177,
+          "end_sec": 283,
+          "drop_pct": 5.0,
+          "related_section": null,
+          "suggested_fix": "Caída moderada (5%) en este tramo. Añadir un pattern interrupt o variación visual cada 3 segundos."
+        },
+        {
+          "start_sec": 425,
+          "end_sec": 496,
+          "drop_pct": 13.0,
+          "related_section": null,
+          "suggested_fix": "Caída fuerte (13%) en este tramo. Probable fricción narrativa. Insertar B-roll, cifra impactante o cambio de plano. Acortar la sección."
+        },
+        {
+          "start_sec": 496,
+          "end_sec": 566,
+          "drop_pct": 10.0,
+          "related_section": null,
+          "suggested_fix": "Caída fuerte (10%) en este tramo. Probable fricción narrativa. Insertar B-roll, cifra impactante o cambio de plano. Acortar la sección."
+        },
+        {
+          "start_sec": 566,
+          "end_sec": 637,
+          "drop_pct": 7.0,
+          "related_section": null,
+          "suggested_fix": "Caída moderada (7%) en este tramo. Añadir un pattern interrupt o variación visual cada 3 segundos."
+        },
+        {
+          "start_sec": 637,
+          "end_sec": 708,
+          "drop_pct": 8.0,
+          "related_section": null,
+          "suggested_fix": "Caída fuerte (8%) en este tramo. Probable fricción narrativa. Insertar B-roll, cifra impactante o cambio de plano. Acortar la sección."
+        }
+      ],
+      "is_outlier": false
+    }
+  ],
+  "portfolio": {
+    "channels": [
+      {
+        "channel_id": "UC_credito_hispano",
+        "name": "Crédito Hispano USA",
+        "market_focus": "US-Hispanic",
+        "subscriber_count": 0,
+        "videos_last_30d": 1,
+        "monthly_revenue_usd": 0.0,
+        "monthly_rpm_usd": null,
+        "avg_retention_30d_pct": null,
+        "languages": [
+          "es"
+        ]
+      }
+    ],
+    "total_monthly_revenue_usd": 0.0,
+    "top_channel_revenue_share_pct": 100.0,
+    "concentration_risk": "crítico",
+    "diversification_score": 2,
+    "languages_covered": [
+      "es"
+    ],
+    "has_us_hispanic_exposure": true,
+    "recommendations": [
+      "Tienes 1 canal/es. La regla del informe es 5 canales mínimo (5x$500 > 1x$2500). Plan: lanzar 4 canales más en los próximos 12 meses.",
+      "El canal top representa el 100% del revenue. Concentración de riesgo crítica: una sola desmonetización colapsa el negocio. Acelera la producción de los canales secundarios o lanza un canal hermano del top en otro mercado.",
+      "Solo cubres un idioma. Activa el doblaje automático (MLA) en al menos un canal para abrir un mercado anglosajón secundario."
+    ]
+  },
+  "ask_studio_prompts": [
+    {
+      "purpose": "outlier_analysis",
+      "title": "Análisis outlier · El crédito americano sin Social Security",
+      "prompt_text": "Analiza el video 'El crédito americano sin Social Security' que tiene 250,000 vistas (50.0x sobre mis 5,000 suscriptores).\n\nEspecíficamente quiero saber:\n1. ¿Qué porcentaje de las vistas viene de Home Page y Sugeridos (no de notificaciones ni suscripciones)?\n2. ¿Cuál es el CTR de la miniatura comparado con mi promedio del canal?\n3. ¿Cuál es la curva de retención en los primeros 30 segundos vs el resto?\n4. ¿Qué edades, géneros y geografías están sobre-representadas vs mi audiencia habitual?\n5. ¿Qué tres patrones replicables podría aplicar a mi próximo video para intentar reproducir este outlier?",
+      "expected_output": "Recomendaciones accionables. Identificar si fue Home Page-driven, qué audiencia 'cold' captó, y 3 elementos replicables (formato, miniatura, hook o tema)."
+    },
+    {
+      "purpose": "drop_detection",
+      "title": "Detector de drops · El crédito americano sin Social Security",
+      "prompt_text": "En el video 'El crédito americano sin Social Security', muéstrame el segundo exacto donde se produce la mayor caída de retención (sospecho que está cerca del segundo 95).\n\nDevuélveme:\n1. Los 3 segundos exactos con mayor pérdida de audiencia.\n2. Para cada uno, el porcentaje de espectadores que abandonó.\n3. La causa probable (transición, ritmo, contenido).\n4. Una recomendación concreta de qué cambiar en el guion de un video similar futuro.",
+      "expected_output": "Lista priorizada de puntos de fuga con recomendaciones."
+    },
+    {
+      "purpose": "gap_detection",
+      "title": "Detección de gaps · Finanzas para inmigrantes en EE.UU.",
+      "prompt_text": "Soy un canal de 'Finanzas para inmigrantes en EE.UU.' dirigido a 'US-Hispanic'. Analiza mi catálogo y dime:\n\n1. ¿Qué temas tienen alta demanda en mi audiencia (visible en comentarios y búsquedas dentro de YouTube) que NO he cubierto todavía?\n2. ¿Qué subtemas mis competidores directos están cubriendo y yo no?\n3. ¿Existen preguntas recurrentes en los comentarios de mis 10 videos top que merezcan un video dedicado?\n4. Para cada gap detectado, sugiere un título de video en estilo '3-Points / Open Loop' y una miniatura disruptiva.",
+      "expected_output": "3-5 ideas de video con título sugerido y razonamiento."
+    },
+    {
+      "purpose": "competitor_pattern",
+      "title": "Patrones del competidor · Canal Hipotético - The Credit Coach",
+      "prompt_text": "Analiza el canal competidor 'Canal Hipotético - The Credit Coach'. Quiero detectar:\n\n1. Los 5 videos con mejor performance del último año (por vistas y por engagement relativo a su base de suscriptores).\n2. La fórmula recurrente en sus títulos (estructura sintáctica común).\n3. El estilo visual de sus miniaturas (paleta, composición, presencia de cara).\n4. La duración media de los 5 videos top y cómo se compara con su promedio.\n5. Qué de su fórmula podría aplicarse a mi canal sin perder mi diferenciación.",
+      "expected_output": "Patrón replicable con 3-5 puntos accionables."
+    },
+    {
+      "purpose": "ab_test_thumbnails",
+      "title": "A/B de miniaturas · El crédito americano sin Social Security",
+      "prompt_text": "Para el video 'El crédito americano sin Social Security', estoy haciendo A/B test nativo de tres miniaturas distintas.\n\nCuando termine el test (mínimo 7 días o 1.000 impresiones por variante), dame:\n1. La variante ganadora y por qué (CTR + retención implícita).\n2. Si la diferencia es estadísticamente significativa.\n3. Qué elemento visual específico crees que marcó la diferencia.\n4. Si recomiendas extender ese patrón al resto del catálogo.",
+      "expected_output": "Conclusión accionable con confianza estadística."
+    }
+  ],
+  "notes": "Piloto sintético: simulación de curva de retención esperada para el video ITIN. Los datos reales se obtendrán al publicar."
+}

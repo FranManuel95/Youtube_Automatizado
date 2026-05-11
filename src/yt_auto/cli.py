@@ -27,12 +27,14 @@ audio_app = typer.Typer(help="Etapa 3 - locución con ElevenLabs.")
 visuals_app = typer.Typer(help="Etapa 4 - generación visual (Nano Banana + Seedance).")
 editing_app = typer.Typer(help="Etapa 5 - edición y packaging.")
 publish_app = typer.Typer(help="Etapa 6 - publicación YouTube.")
+analytics_app = typer.Typer(help="Etapa 7 - analítica, retention leaks y Ask Studio.")
 app.add_typer(niche_app, name="niche")
 app.add_typer(script_app, name="script")
 app.add_typer(audio_app, name="audio")
 app.add_typer(visuals_app, name="visuals")
 app.add_typer(editing_app, name="editing")
 app.add_typer(publish_app, name="publish")
+app.add_typer(analytics_app, name="analytics")
 
 console = Console()
 
@@ -497,6 +499,111 @@ def publish_list() -> None:
     files = sorted(OUTPUT_DIR.glob("*.json"))
     if not files:
         console.print("[yellow]No hay planes de publicación todavía.[/yellow]")
+        return
+    for f in files:
+        console.print(f"  {f.relative_to(ROOT_DIR)}")
+
+
+# -------------------- analytics --------------------
+
+
+@analytics_app.command("ask")
+def analytics_ask(
+    purpose: str = typer.Argument(
+        ...,
+        help="outlier | drops | gaps | competitor | thumbnails",
+    ),
+    video_title: str = typer.Option("", "--video", help="Título del video"),
+    views: int = typer.Option(0, "--views"),
+    subscribers: int = typer.Option(0, "--subs"),
+    niche: str = typer.Option("", "--niche"),
+    market: str = typer.Option("", "--market"),
+    competitor: str = typer.Option("", "--competitor"),
+    biggest_drop_sec: int = typer.Option(60, "--drop-sec"),
+) -> None:
+    """Genera un prompt para Ask Studio (Gemini in-channel)."""
+    from yt_auto.analytics import (
+        ab_test_thumbnails_prompt,
+        competitor_pattern_prompt,
+        drop_detection_prompt,
+        gap_detection_prompt,
+        outlier_analysis_prompt,
+    )
+
+    s = get_settings()
+    market = market or (s.target_markets_list[0] if s.target_markets_list else "US-Hispanic")
+
+    if purpose == "outlier":
+        p = outlier_analysis_prompt(video_title or "<título>", views, subscribers)
+    elif purpose == "drops":
+        p = drop_detection_prompt(video_title or "<título>", biggest_drop_sec)
+    elif purpose == "gaps":
+        p = gap_detection_prompt(niche or s.default_niche or "<nicho>", market)
+    elif purpose == "competitor":
+        p = competitor_pattern_prompt(competitor or "<canal-competidor>")
+    elif purpose == "thumbnails":
+        p = ab_test_thumbnails_prompt(video_title or "<título>")
+    else:
+        console.print(f"[red]Propósito desconocido: {purpose}[/red]")
+        raise typer.Exit(code=1)
+
+    console.rule(f"[bold cyan]{p.title}")
+    console.print(p.prompt_text)
+    console.rule("[bold cyan]Output esperado")
+    console.print(p.expected_output)
+
+
+@analytics_app.command("retention")
+def analytics_retention(
+    csv_file: Path = typer.Argument(..., help="CSV exportado de YouTube Studio"),
+    duration_sec: int = typer.Option(..., "--duration", "-d", help="Duración del video en segundos"),
+    drop_threshold: float = typer.Option(5.0, "--threshold", help="Caída mínima para marcar leak (%)"),
+    archive: bool = typer.Option(False, "--archive"),
+) -> None:
+    """Parsea retention CSV y detecta retention leaks."""
+    from yt_auto.analytics import (
+        AnalyticsReport,
+        VideoPerformance,
+        detect_leaks,
+        parse_retention_csv,
+        save_report,
+    )
+
+    content = csv_file.read_text("utf-8")
+    points = parse_retention_csv(content, total_duration_sec=duration_sec)
+    leaks = detect_leaks(points, drop_threshold_pct=drop_threshold)
+
+    video = VideoPerformance(
+        video_id=csv_file.stem,
+        title=csv_file.stem,
+        duration_sec=duration_sec,
+        retention_curve=points,
+        leaks=leaks,
+    )
+    report = AnalyticsReport(videos=[video])
+    json_path, md_path = save_report(report, label=f"retention_{csv_file.stem}", archive=archive)
+
+    console.print(f"[green]Análisis de retention guardado[/green]:")
+    console.print(f"  JSON  -> {json_path}")
+    console.print(f"  MD    -> {md_path}")
+    console.print()
+    console.print(f"  Puntos parseados: {len(points)}")
+    console.print(f"  Leaks detectados: {len(leaks)}")
+    for l in leaks[:5]:
+        console.print(f"    [yellow]{l.start_sec}-{l.end_sec}s[/yellow] drop {l.drop_pct:.1f}%")
+
+
+@analytics_app.command("list")
+def analytics_list() -> None:
+    """Lista reportes de analítica guardados."""
+    from yt_auto.analytics import OUTPUT_DIR
+
+    if not OUTPUT_DIR.exists():
+        console.print("[yellow]No hay reportes todavía.[/yellow]")
+        return
+    files = sorted(OUTPUT_DIR.glob("*.json"))
+    if not files:
+        console.print("[yellow]No hay reportes todavía.[/yellow]")
         return
     for f in files:
         console.print(f"  {f.relative_to(ROOT_DIR)}")
