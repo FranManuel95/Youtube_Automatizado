@@ -26,11 +26,13 @@ script_app = typer.Typer(help="Etapa 2 - ingeniería de guiones.")
 audio_app = typer.Typer(help="Etapa 3 - locución con ElevenLabs.")
 visuals_app = typer.Typer(help="Etapa 4 - generación visual (Nano Banana + Seedance).")
 editing_app = typer.Typer(help="Etapa 5 - edición y packaging.")
+publish_app = typer.Typer(help="Etapa 6 - publicación YouTube.")
 app.add_typer(niche_app, name="niche")
 app.add_typer(script_app, name="script")
 app.add_typer(audio_app, name="audio")
 app.add_typer(visuals_app, name="visuals")
 app.add_typer(editing_app, name="editing")
+app.add_typer(publish_app, name="publish")
 
 console = Console()
 
@@ -432,13 +434,72 @@ def editing_list() -> None:
         console.print(f"  {f.relative_to(ROOT_DIR)}")
 
 
-# -------------------- placeholders --------------------
+# -------------------- publish --------------------
 
 
-@app.command()
-def publish(video_path: str = typer.Argument(...)) -> None:
-    """Publicar video en YouTube (stub) - con MLA y miniatura 4K."""
-    console.print(f"[yellow]TODO[/yellow] publishing.upload(video={video_path!r})")
+@publish_app.command("prep")
+def publish_prep(
+    script_file: Path = typer.Argument(..., help="ScriptReport JSON"),
+    editing_file: Path = typer.Argument(..., help="EditingReport JSON"),
+    pdf_url: str = typer.Option(
+        "https://<pendiente-de-configurar>/recurso",
+        "--pdf-url",
+        help="URL del PDF/recurso del CTA",
+    ),
+    extra_tags: str | None = typer.Option(None, "--tags", help="Tags extra separados por coma"),
+    archive: bool = typer.Option(False, "--archive"),
+) -> None:
+    """Genera metadata YouTube + capítulos + checklist pre-publish."""
+    from yt_auto.editing import load_report as load_editing
+    from yt_auto.publishing import build_report, save_report
+    from yt_auto.scripts import load_report as load_script
+
+    script_report = load_script(script_file)
+    editing_report = load_editing(editing_file)
+    extra = [t.strip() for t in extra_tags.split(",")] if extra_tags else None
+
+    report = build_report(
+        script=script_report,
+        editing=editing_report,
+        script_ref=str(script_file),
+        editing_ref=str(editing_file),
+        pdf_url=pdf_url,
+        extra_tags=extra,
+    )
+    json_path, md_path = save_report(report, archive=archive)
+
+    console.print(f"[green]Plan de publicación guardado[/green]:")
+    console.print(f"  JSON  -> {json_path}")
+    console.print(f"  MD    -> {md_path}")
+    if archive:
+        console.print("  [bold]Archivado en docs/publishing-archive/[/bold]")
+
+    c = report.plan.checklist
+    veredict_color = "green" if c.critical_pass else "red"
+    veredict_label = "LISTO PARA PUBLICAR" if c.critical_pass else "NO PUBLICAR"
+    console.print()
+    console.print(f"  [{veredict_color}]{veredict_label}[/{veredict_color}]")
+    console.print(f"  Críticos pasados: {sum([c.anti_ai_slop_passed, c.thumbnail_4k_ready, c.title_under_70_chars, c.description_has_disclaimer, c.likeness_declaration])}/5")
+    console.print(f"  Capítulos: {len(report.plan.chapters)}")
+    console.print(f"  Tags: {len(report.plan.metadata.tags)}")
+    if report.notes:
+        console.print(f"\n[yellow]Notas:[/yellow]\n{report.notes}")
+
+
+@publish_app.command("list")
+def publish_list() -> None:
+    """Lista planes de publicación guardados."""
+    from yt_auto.publishing import OUTPUT_DIR
+
+    if not OUTPUT_DIR.exists():
+        console.print("[yellow]No hay planes de publicación todavía.[/yellow]")
+        return
+    files = sorted(OUTPUT_DIR.glob("*.json"))
+    if not files:
+        console.print("[yellow]No hay planes de publicación todavía.[/yellow]")
+        return
+    for f in files:
+        console.print(f"  {f.relative_to(ROOT_DIR)}")
 
 
 if __name__ == "__main__":

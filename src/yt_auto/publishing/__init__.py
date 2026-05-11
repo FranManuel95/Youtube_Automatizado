@@ -2,12 +2,56 @@
 
 Ver: docs/06_publicacion_y_escalado.md
 
-Componentes previstos:
-    - upload_video(video_path, metadata)
-    - upload_multilang_audio(video_id, tracks: dict[lang, audio_path])
-    - update_back_catalog(channel_id)   -> refresco de títulos/miniaturas
-    - schedule_live_simulcast(stream)   -> horizontal + vertical (+70% alcance)
-    - appeal_demonetization(video_id)   -> protocolo 24h de 4 puntos
+API pública:
+    - build_report: ensambla ScriptReport + EditingReport en un
+      PublishingReport con metadata SEO, capítulos y checklist.
+    - Modelos: YouTubeMetadata, Chapter, MLATrack, PrePublishChecklist,
+      PublishingPlan, PublishingReport.
+    - save_report / load_report / render_markdown.
 
-Regla de oro: 5 canales x $500 > 1 canal x $2500 (fragmentación de riesgo).
+Modo actual: interactivo (genera el contenido para pegar en YouTube
+Studio, sin OAuth). Modo `api` previsto con google-api-python-client.
+
+Regla de oro: 5 canales x $500 > 1 canal x $2.500. La publicación se
+diseña pensando en fragmentación de riesgo.
 """
+
+from __future__ import annotations
+
+from yt_auto.publishing.builder import build_report
+from yt_auto.publishing.models import (
+    Category,
+    Chapter,
+    MLATrack,
+    PrePublishChecklist,
+    Privacy,
+    PublishingPlan,
+    PublishingReport,
+    YouTubeMetadata,
+)
+from yt_auto.publishing.storage import (
+    ARCHIVE_DIR,
+    OUTPUT_DIR,
+    latest_report_path,
+    load_report,
+    render_markdown,
+    save_report,
+)
+
+__all__ = [
+    "ARCHIVE_DIR",
+    "Category",
+    "Chapter",
+    "MLATrack",
+    "OUTPUT_DIR",
+    "PrePublishChecklist",
+    "Privacy",
+    "PublishingPlan",
+    "PublishingReport",
+    "YouTubeMetadata",
+    "build_report",
+    "latest_report_path",
+    "load_report",
+    "render_markdown",
+    "save_report",
+]
