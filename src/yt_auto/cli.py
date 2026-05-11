@@ -22,7 +22,9 @@ from yt_auto.config import ROOT_DIR, get_settings
 
 app = typer.Typer(help="Pipeline de automatización de YouTube con IA - estrategia 2026.")
 niche_app = typer.Typer(help="Etapa 1 - selección y validación de nichos.")
+script_app = typer.Typer(help="Etapa 2 - ingeniería de guiones.")
 app.add_typer(niche_app, name="niche")
+app.add_typer(script_app, name="script")
 
 console = Console()
 
@@ -149,13 +151,95 @@ def niche_list() -> None:
         console.print(f"  {f.relative_to(ROOT_DIR)}")
 
 
+# -------------------- script --------------------
+
+
+@script_app.command("prompt")
+def script_prompt(
+    topic: str = typer.Argument(..., help="Tema concreto del video"),
+    niche: str = typer.Option(..., "--niche", "-n", help="Subnicho del canal"),
+    candidate_name: str = typer.Option(
+        ..., "--candidate", "-c", help="Nombre del candidato en la auditoría origen"
+    ),
+    duration_min: int = typer.Option(0, "--duration", "-d", help="Override de duración"),
+    viewer_hint: str | None = typer.Option(None, "--viewer", help="Hint del viewer_ideal"),
+    audit_ref: str | None = typer.Option(None, "--audit-ref", help="Path de la auditoría origen"),
+    save: bool = typer.Option(True, "--save/--no-save"),
+) -> None:
+    """Genera el prompt maestro de un guion para sesión interactiva con Claude."""
+    from yt_auto.scripts import OUTPUT_DIR, SCRIPT_SYSTEM, build_script_prompt
+
+    s = get_settings()
+    market = s.target_markets_list[0] if s.target_markets_list else "US-Hispanic"
+    duration = duration_min or s.target_duration_min
+
+    body = build_script_prompt(
+        niche=niche,
+        candidate_name=candidate_name,
+        target_market=market,
+        target_language=s.default_language,
+        target_duration_min=duration,
+        topic=topic,
+        viewer_ideal_hint=viewer_hint,
+        niche_audit_ref=audit_ref,
+    )
+
+    console.rule("[bold cyan]System prompt")
+    console.print(SCRIPT_SYSTEM)
+    console.rule("[bold cyan]User prompt")
+    console.print(body)
+
+    if save:
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        path = OUTPUT_DIR / "last_prompt.md"
+        path.write_text(f"# System\n\n{SCRIPT_SYSTEM}\n\n# User\n\n{body}\n", "utf-8")
+        console.print(f"\n[green]Prompt guardado en[/green] {path}")
+
+
+@script_app.command("ingest")
+def script_ingest(
+    response_file: Path = typer.Argument(...),
+    archive: bool = typer.Option(False, "--archive"),
+) -> None:
+    """Parsea la respuesta JSON de Claude y guarda el guion."""
+    from yt_auto.scripts import ingest_response, save_report
+
+    raw = response_file.read_text("utf-8")
+    report = ingest_response(raw)
+    json_path, md_path = save_report(report, archive=archive)
+    h = report.draft.humanization
+
+    console.print(f"[green]Guion guardado[/green]:")
+    console.print(f"  JSON  -> {json_path}")
+    console.print(f"  MD    -> {md_path}")
+    if archive:
+        console.print("  [bold]Archivado en docs/scripts-archive/[/bold]")
+
+    veredict_color = "green" if h.pasa else "yellow"
+    console.print(
+        f"\n[{veredict_color}]Anti-AI-Slop: {'APROBADO' if h.pasa else 'REQUIERE EDICIÓN'}[/{veredict_color}]"
+    )
+    console.print(f"  Retención 30s estimada: {report.draft.estimated_retention_30s:.0%}")
+    console.print(f"  CTR estimado: {report.draft.estimated_ctr:.1%}")
+
+
+@script_app.command("list")
+def script_list() -> None:
+    """Lista guiones guardados."""
+    from yt_auto.scripts import OUTPUT_DIR
+
+    if not OUTPUT_DIR.exists():
+        console.print("[yellow]No hay guiones todavía.[/yellow]")
+        return
+    files = sorted(OUTPUT_DIR.glob("*.json"))
+    if not files:
+        console.print("[yellow]No hay guiones todavía.[/yellow]")
+        return
+    for f in files:
+        console.print(f"  {f.relative_to(ROOT_DIR)}")
+
+
 # -------------------- placeholders --------------------
-
-
-@app.command()
-def script(topic: str = typer.Argument(...), duration_min: int = 12) -> None:
-    """Generar guion (stub) - hooks, open loops, anti-AI-Slop."""
-    console.print(f"[yellow]TODO[/yellow] scripts.generate(topic={topic!r}, duration={duration_min}min)")
 
 
 @app.command()
