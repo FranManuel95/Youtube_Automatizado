@@ -20,6 +20,14 @@ keyword_triggers:
   - "form 1040"
   - "form 8843"
 
+# Queries optimizadas para YouTube Search (validadas con scans reales).
+# El subnicho está MUY desierto en YouTube hispano-USA — gran oportunidad.
+search_queries:
+  - "declarar impuestos ITIN español"
+  - "tax return inmigrantes hispanos USA"
+  - "EITC child tax credit ITIN"
+  - "Ismael Ventura taxes"  # ~1.2k subs, único canal con autoridad real verificada
+
 tags:
   - "taxes inmigrantes"
   - "impuestos ITIN"

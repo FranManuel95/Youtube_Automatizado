@@ -19,6 +19,15 @@ keyword_triggers:
   - "construir crédito"
   - "subir credit score"
 
+# Queries optimizadas para YouTube Search (validadas con scans reales).
+# Super Dinero domina SEO web pero NO YouTube — SoyDaat (~16k subs) es el
+# único big-fish modesto detectado.
+search_queries:
+  - "tarjeta credito ITIN sin SSN"
+  - "construir credito desde cero inmigrante"
+  - "FICO score sin Social Security"
+  - "SoyDaat credito"  # big-fish modesto del nicho
+
 tags:
   - "credito ITIN"
   - "tarjeta credito sin SSN"

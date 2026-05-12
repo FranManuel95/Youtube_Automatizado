@@ -161,10 +161,15 @@ def detect_outliers(
 
 
 def _build_query(profile: NicheProfile) -> str:
-    """Construye una query relevante a partir de los keyword_triggers."""
+    """Construye una query relevante para YouTube Search.
+
+    Prefiere `search_queries[0]` (curado y validado). Si no hay, cae a
+    los top 3 `keyword_triggers` más largos (heurística más débil).
+    """
+    if profile.search_queries:
+        return profile.search_queries[0]
     if not profile.keyword_triggers:
         return profile.display_name
-    # Top 3 keywords más específicas (las más largas suelen ser las más nicho)
     top_keywords = sorted(profile.keyword_triggers, key=len, reverse=True)[:3]
     return " ".join(top_keywords)
 

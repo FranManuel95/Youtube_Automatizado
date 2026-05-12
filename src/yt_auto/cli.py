@@ -862,6 +862,7 @@ def competitive_scan(
     console.print()
 
     table = Table(title="Top canales (orden por relevancia)")
+    table.add_column("channel_id", overflow="fold")
     table.add_column("Canal")
     table.add_column("Subs", justify="right")
     table.add_column("Videos", justify="right")
@@ -871,6 +872,7 @@ def competitive_scan(
     table.add_column("País")
     for ch in report.channels:
         table.add_row(
+            ch.channel_id,
             ch.title[:35],
             f"{ch.statistics.subscriber_count:,}",
             f"{ch.statistics.video_count:,}",
@@ -880,6 +882,11 @@ def competitive_scan(
             ch.country or "-",
         )
     console.print(table)
+    console.print(
+        "\n[dim]Para análisis profundo de un canal:[/dim]\n"
+        "[dim]  yt-auto competitive outliers <channel_id>[/dim]\n"
+        "[dim]  yt-auto competitive channel <channel_id>[/dim]"
+    )
 
 
 @competitive_app.command("outliers")

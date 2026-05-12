@@ -67,3 +67,16 @@ def test_yellow_icon_keywords_present_in_finance_profiles():
 def test_each_profile_has_disclaimer():
     for p in list_profiles():
         assert p.disclaimer.strip(), f"{p.id} sin disclaimer YMYL"
+
+
+def test_each_non_default_profile_has_search_queries():
+    """Las queries optimizadas YouTube Search son obligatorias en perfiles
+    de producción (no en _default).
+    """
+    for p in list_profiles():
+        if p.id == "finanzas_inmigrantes_paraguas":
+            continue
+        assert p.search_queries, (
+            f"Perfil '{p.id}' no declara search_queries — "
+            "competitive scan caería a la heurística débil de keyword_triggers."
+        )

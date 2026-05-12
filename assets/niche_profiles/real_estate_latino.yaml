@@ -19,6 +19,14 @@ keyword_triggers:
   - "homeownership"
   - "casa propia"
 
+# Queries optimizadas para YouTube Search (validadas con scans reales).
+# La primera es la default para `competitive scan` sin --query.
+search_queries:
+  - "comprar casa USA hispanos primera vivienda"
+  - "FHA inmigrante ITIN comprar casa"
+  - "hipoteca sin Social Security hispanos"
+  - "Javier Vidana realtor"  # big-fish del nicho, referencia para outliers
+
 # Tags YouTube (10-15 max según best practice)
 tags:
   - "real estate latino"

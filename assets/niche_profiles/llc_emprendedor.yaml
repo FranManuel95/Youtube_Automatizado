@@ -20,6 +20,16 @@ keyword_triggers:
   - "abrir negocio"
   - "non-resident LLC"
 
+# Queries optimizadas para YouTube Search.
+# La query restrictiva "LLC sin SSN inmigrante hispano emprendedor" devolvió
+# 0 resultados — desierto extremo. Estas queries son progresivamente más
+# amplias para encontrar referentes.
+search_queries:
+  - "abrir LLC español USA"
+  - "LLC no residentes paso a paso"
+  - "EIN sin SSN inmigrante"
+  - "Mercury Novo banking LLC inmigrante"
+
 tags:
   - "LLC no residentes"
   - "abrir LLC inmigrante"

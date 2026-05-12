@@ -45,7 +45,17 @@ class NicheProfile(BaseModel):
     id: str
     display_name: str
     parent_niche: str = ""
-    keyword_triggers: list[str] = Field(default_factory=list)
+    keyword_triggers: list[str] = Field(
+        default_factory=list,
+        description="Keywords para resolver el perfil desde script.draft.niche",
+    )
+    search_queries: list[str] = Field(
+        default_factory=list,
+        description=(
+            "Queries optimizadas para YouTube Search. Si está vacío, se "
+            "genera una desde keyword_triggers (subóptimo)."
+        ),
+    )
     tags: list[str] = Field(default_factory=list)
     hashtags: list[str] = Field(default_factory=list)
     disclaimer: str = ""
