@@ -1,0 +1,76 @@
+# Perfil temporal: Automatización con IA para hispanohablantes
+# Auditando viabilidad — NO usar todavía como nicho de producción
+
+id: automatizacion_ia_hispano
+display_name: "Automatización con IA para hispanohablantes"
+parent_niche: "AI tools en español"
+
+keyword_triggers:
+  - "automatización"
+  - "automatizacion"
+  - "Claude"
+  - "ChatGPT"
+  - "Gemini"
+  - "n8n"
+  - "Make"
+  - "Zapier"
+  - "Cursor"
+  - "Lovable"
+  - "agentes IA"
+  - "prompt engineering"
+  - "build in public"
+
+search_queries:
+  - "automatizar con IA español"
+  - "Claude tutorial español"
+  - "n8n automatización español"
+  - "agentes IA hispanos"
+
+tags:
+  - "automatización IA"
+  - "Claude tutorial"
+  - "ChatGPT productividad"
+  - "n8n español"
+  - "Make automation"
+  - "agentes IA"
+  - "AI for hispanic"
+  - "build in public"
+
+hashtags:
+  - "#AutomatizacionIA"
+  - "#ClaudeAI"
+  - "#nocode"
+  - "#BuildInPublic"
+
+disclaimer: |
+  Contenido educativo sobre herramientas de IA. Las funciones de modelos y precios cambian frecuentemente; verifica condiciones actuales en la documentación oficial antes de implementar.
+
+official_sources:
+  - name: "Anthropic Docs (Claude)"
+    url: "https://docs.anthropic.com"
+  - name: "Google AI for Developers"
+    url: "https://ai.google.dev"
+  - name: "n8n Documentation"
+    url: "https://docs.n8n.io"
+  - name: "OpenAI Platform Docs"
+    url: "https://platform.openai.com/docs"
+
+mla_target_markets:
+  primary: "ES-Global"
+  secondary:
+    - "ES-LATAM"
+    - "ES-MX"
+    - "ES-AR"
+
+youtube_category: "science_technology"
+yellow_icon_keywords:
+  - "te haces millonario con IA"
+  - "automatiza todo y descansa"
+  - "100% sin código garantizado"
+  - "IA reemplaza tu trabajo"
+
+affiliate_focus: []
+leadgen_channels:
+  - "Cursos online (Stan.store, Gumroad)"
+  - "Comunidades pago (Skool, Circle)"
+  - "Consultoría 1-1 automatización IA"

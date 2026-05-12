@@ -1,0 +1,70 @@
+# Perfil temporal: Espiritualidad / Numerología / Esoterismo hispano
+# Auditando viabilidad
+
+id: espiritualidad_hispano
+display_name: "Espiritualidad / Numerología / Esoterismo hispano"
+parent_niche: "Self-help espiritual"
+
+keyword_triggers:
+  - "numerología"
+  - "numerologia"
+  - "tarot"
+  - "astrología"
+  - "astrologia"
+  - "predicciones"
+  - "esoterismo"
+  - "manifestación"
+  - "ley de atracción"
+  - "espiritualidad"
+  - "ciclos"
+  - "energías"
+
+search_queries:
+  - "numerología 2026 predicciones español"
+  - "tarot del día español"
+  - "astrología signos zodiaco hispano"
+  - "manifestación abundancia español"
+
+tags:
+  - "numerología"
+  - "tarot lectura"
+  - "predicciones 2026"
+  - "astrología español"
+  - "esoterismo hispano"
+  - "manifestación"
+  - "energía positiva"
+
+hashtags:
+  - "#Numerologia"
+  - "#Tarot"
+  - "#Espiritualidad"
+  - "#Astrologia"
+
+disclaimer: |
+  Contenido de entretenimiento espiritual. No sustituye asesoría profesional de salud mental, financiera ni médica. Las interpretaciones esotéricas son orientativas, no predictivas verificables.
+
+official_sources:
+  - name: "American Federation of Astrologers"
+    url: "https://www.astrologers.com"
+  - name: "Tarot Heritage (historia tarot)"
+    url: "https://tarot-heritage.com"
+
+mla_target_markets:
+  primary: "ES-Global"
+  secondary:
+    - "ES-MX"
+    - "ES-AR"
+    - "ES-CO"
+
+youtube_category: "people_blogs"
+yellow_icon_keywords:
+  - "garantizado funcionará"
+  - "cura tu enfermedad"
+  - "predicción 100% exacta"
+  - "harás millones con esto"
+
+affiliate_focus: []
+leadgen_channels:
+  - "Cursos numerología/tarot pagados"
+  - "Apps mindfulness con afiliados"
+  - "Lecturas 1-1 por video llamada"

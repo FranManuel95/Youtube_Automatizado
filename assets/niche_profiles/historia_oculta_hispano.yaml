@@ -1,0 +1,76 @@
+# Perfil temporal: Historia oculta / Misterios / Documentales hispano
+# Auditando viabilidad
+
+id: historia_oculta_hispano
+display_name: "Historia oculta / Documentales / Misterios"
+parent_niche: "Entertainment educativo"
+
+keyword_triggers:
+  - "historia"
+  - "documental"
+  - "misterio"
+  - "conspiración"
+  - "antiguo"
+  - "civilización"
+  - "arqueología"
+  - "OOPArt"
+  - "Egipto"
+  - "Roma"
+  - "nazi"
+  - "Segunda Guerra"
+  - "ocultismo"
+  - "secreto"
+
+search_queries:
+  - "documental historia español misterio"
+  - "civilizaciones perdidas español"
+  - "misterios sin resolver"
+  - "Dross historia"
+
+tags:
+  - "documental historia"
+  - "misterio"
+  - "civilización perdida"
+  - "arqueología español"
+  - "historia oculta"
+  - "conspiración"
+
+hashtags:
+  - "#HistoriaOculta"
+  - "#Misterios"
+  - "#Documental"
+  - "#HistoriaEspañol"
+
+disclaimer: |
+  Contenido educativo y de entretenimiento basado en investigaciones históricas. Las teorías especulativas se presentan como tales, no como hechos verificados. Para investigación académica formal, consulta fuentes universitarias.
+
+official_sources:
+  - name: "UNESCO World Heritage"
+    url: "https://whc.unesco.org/es/"
+  - name: "British Museum"
+    url: "https://www.britishmuseum.org/"
+  - name: "National Geographic Historia"
+    url: "https://historia.nationalgeographic.com.es/"
+  - name: "Museo Arqueológico Nacional (España)"
+    url: "https://www.man.es/"
+
+mla_target_markets:
+  primary: "ES-Global"
+  secondary:
+    - "ES-MX"
+    - "ES-AR"
+    - "ES-ES"
+
+youtube_category: "education"
+yellow_icon_keywords:
+  - "los aliens construyeron"
+  - "verdad oculta que no quieren"
+  - "la realidad que te ocultan"
+  - "los illuminati"
+
+affiliate_focus: []
+leadgen_channels:
+  - "MasterClass / Coursera (cursos historia)"
+  - "Libros propios + Amazon afiliados"
+  - "YouTube Memberships / Patreon"
+  - "Podcasts derivados (Spotify)"

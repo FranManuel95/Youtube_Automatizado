@@ -1,0 +1,75 @@
+# Perfil temporal: Productividad / Sistemas / High performance hispano
+# Auditando viabilidad
+
+id: productividad_hispano
+display_name: "Productividad / Sistemas / High performance"
+parent_niche: "Self-improvement práctico"
+
+keyword_triggers:
+  - "productividad"
+  - "Notion"
+  - "Obsidian"
+  - "Second Brain"
+  - "PARA"
+  - "GTD"
+  - "hábitos"
+  - "habits"
+  - "disciplina"
+  - "high performance"
+  - "estoicismo"
+  - "aprendizaje acelerado"
+  - "sistemas"
+  - "Atomic Habits"
+
+search_queries:
+  - "productividad sistemas Notion español"
+  - "hábitos disciplina alto rendimiento"
+  - "Second Brain español PARA"
+  - "estoicismo aplicado vida moderna"
+
+tags:
+  - "productividad"
+  - "Notion español"
+  - "Building Second Brain"
+  - "Atomic Habits"
+  - "alto rendimiento"
+  - "disciplina"
+  - "estoicismo"
+  - "GTD getting things done"
+
+hashtags:
+  - "#Productividad"
+  - "#Notion"
+  - "#Habitos"
+  - "#AltoRendimiento"
+
+disclaimer: |
+  Contenido educativo y motivacional. No sustituye terapia psicológica, asesoría profesional ni evaluación médica de problemas de atención/sueño. Las técnicas presentadas requieren adaptación a tu contexto personal.
+
+official_sources:
+  - name: "Cal Newport blog (Deep Work)"
+    url: "https://calnewport.com/blog/"
+  - name: "Building a Second Brain (Tiago Forte)"
+    url: "https://www.buildingasecondbrain.com/"
+  - name: "Notion Help Center"
+    url: "https://www.notion.so/help"
+
+mla_target_markets:
+  primary: "ES-Global"
+  secondary:
+    - "ES-MX"
+    - "ES-AR"
+    - "ES-CO"
+
+youtube_category: "education"
+yellow_icon_keywords:
+  - "transforma tu vida en 7 días garantizado"
+  - "secreto de los millonarios"
+  - "no necesitas trabajar más"
+
+affiliate_focus: []
+leadgen_channels:
+  - "Cursos Notion / Second Brain"
+  - "Plantillas Notion (Gumroad/Stan)"
+  - "Comunidades Skool"
+  - "Libros propios / Amazon afiliados"
