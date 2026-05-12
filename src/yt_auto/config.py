@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     # ElevenLabs
     elevenlabs_api_key: str = ""
     elevenlabs_voice_id: str = ""
-    elevenlabs_model_id: str = "eleven_multilingual_v2"
+    elevenlabs_model_id: str = "eleven_v3"
 
     # Visuales
     nanobanana_api_key: str = ""

@@ -29,6 +29,14 @@ from yt_auto.publishing.models import (
     PublishingReport,
     YouTubeMetadata,
 )
+from yt_auto.publishing.niche_profile import (
+    AffiliateFocus,
+    NicheProfile,
+    OfficialSource,
+    list_profiles,
+    load_profile,
+    resolve_profile,
+)
 from yt_auto.publishing.storage import (
     ARCHIVE_DIR,
     OUTPUT_DIR,
@@ -40,10 +48,13 @@ from yt_auto.publishing.storage import (
 
 __all__ = [
     "ARCHIVE_DIR",
+    "AffiliateFocus",
     "Category",
     "Chapter",
     "MLATrack",
+    "NicheProfile",
     "OUTPUT_DIR",
+    "OfficialSource",
     "PrePublishChecklist",
     "Privacy",
     "PublishingPlan",
@@ -51,7 +62,10 @@ __all__ = [
     "YouTubeMetadata",
     "build_report",
     "latest_report_path",
+    "list_profiles",
+    "load_profile",
     "load_report",
     "render_markdown",
+    "resolve_profile",
     "save_report",
 ]

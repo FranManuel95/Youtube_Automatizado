@@ -1,0 +1,89 @@
+# Perfil de nicho: Real Estate latino USA
+# Pilar de monetización del paraguas "Finanzas para el Inmigrante Emprendedor Hispano"
+# Cuota editorial: 40% del calendario.
+
+id: real_estate_latino
+display_name: "Real Estate latino USA"
+parent_niche: "Finanzas para el Inmigrante Emprendedor Hispano"
+
+# Keywords que disparan este perfil al resolverlo desde script.draft.niche
+keyword_triggers:
+  - "real estate"
+  - "bienes raíces"
+  - "bienes raices"
+  - "comprar casa"
+  - "primera casa"
+  - "FHA"
+  - "hipoteca"
+  - "mortgage"
+  - "homeownership"
+  - "casa propia"
+
+# Tags YouTube (10-15 max según best practice)
+tags:
+  - "real estate latino"
+  - "comprar casa USA"
+  - "FHA inmigrantes"
+  - "hipoteca con ITIN"
+  - "comprar casa sin SSN"
+  - "primera casa USA"
+  - "NAHREP"
+  - "bienes raices hispanos"
+  - "homeownership latino"
+  - "credito hipotecario"
+  - "casa propia inmigrante"
+
+# Hashtags al final de la descripción (YouTube los recoge si están en últimas líneas)
+hashtags:
+  - "#RealEstateLatino"
+  - "#ComprarCasaUSA"
+  - "#FHAInmigrantes"
+  - "#HipotecaITIN"
+
+# Disclaimer YMYL específico del nicho (obligatorio antes de YPP)
+disclaimer: |
+  Este contenido es educativo y no constituye asesoría inmobiliaria, hipotecaria, fiscal ni legal personalizada.
+  Las tasas, programas y requisitos cambian; verifica con un realtor licenciado NMLS y un lender autorizado en tu estado.
+
+# Fuentes oficiales obligatorias para citar (sello agregador-educador)
+# El módulo compliance bloquea publicación si NO hay al menos 1 cita de estas fuentes.
+official_sources:
+  - name: "HUD.gov - Federal Housing Administration"
+    url: "https://www.hud.gov/program_offices/housing/sfh"
+  - name: "NAHREP - State of Hispanic Homeownership Report"
+    url: "https://nahrep.org/research/"
+  - name: "CFPB - Mortgage Resources Spanish"
+    url: "https://www.consumerfinance.gov/es/preguntas/categoria-hipotecas/"
+  - name: "Fannie Mae - HomeReady Program"
+    url: "https://singlefamily.fanniemae.com/originating-underwriting/mortgage-products/homeready-mortgage"
+
+# Mercado objetivo MLA (Multi-Language Audio)
+mla_target_markets:
+  primary: "US-Hispanic"
+  secondary:
+    - "EN-US"  # captura compradores latinos bilingües
+
+# Categoría YouTube y publishing
+youtube_category: "education"
+yellow_icon_keywords:  # palabras que disparan limited ads — evitar
+  - "garantizado"
+  - "aprobación inmediata"
+  - "sin importar tu estatus"
+  - "100% seguro"
+
+# Foco de monetización (consumido por el módulo monetization)
+affiliate_focus:
+  - id: "stessa"
+    rationale: "Software gestión propiedades, $120/referido + 90 días cookie. Crossover con audiencia compradora-inversora."
+  - id: "doorloop"
+    rationale: "Property management software, hasta $250/cliente. Para audiencia que compra para alquilar."
+  - id: "rocket_mortgage"
+    rationale: "Afiliado lender. Foco español, programas para ITIN/inmigrantes."
+  - id: "roofstock"
+    rationale: "Marketplace de inversión, $15-500 por activación."
+
+# Lead-gen B2B
+leadgen_channels:
+  - "Realtores latinos por ciudad (Houston, Miami, Dallas, Orlando)"
+  - "CDFIs y Latino Credit Unions con préstamos ITIN"
+  - "Lenders con programas FHA para inmigrantes"

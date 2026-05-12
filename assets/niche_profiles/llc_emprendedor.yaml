@@ -1,0 +1,86 @@
+# Perfil de nicho: LLC + Inmigrante Emprendedor
+# Pilar de monetización del paraguas "Finanzas para el Inmigrante Emprendedor Hispano"
+# Cuota editorial: 20% del calendario.
+
+id: llc_emprendedor
+display_name: "LLC + Inmigrante Emprendedor"
+parent_niche: "Finanzas para el Inmigrante Emprendedor Hispano"
+
+keyword_triggers:
+  - "LLC"
+  - "S-Corp"
+  - "emprendedor"
+  - "small business"
+  - "negocio propio"
+  - "self employed"
+  - "1099"
+  - "independent contractor"
+  - "EIN"
+  - "freelancer"
+  - "abrir negocio"
+  - "non-resident LLC"
+
+tags:
+  - "LLC no residentes"
+  - "abrir LLC inmigrante"
+  - "EIN sin SSN"
+  - "small business hispano"
+  - "1099 inmigrantes"
+  - "self employed taxes"
+  - "negocio hispano USA"
+  - "emprendedor latino"
+  - "freelancer impuestos"
+  - "bank account LLC"
+  - "Mercury Novo Bluevine"
+
+hashtags:
+  - "#LLCInmigrantes"
+  - "#EmprendedorLatino"
+  - "#NegocioHispano"
+  - "#FreelancerUSA"
+
+disclaimer: |
+  Este contenido es educativo. La formación de entidades legales, obtención de EIN y declaración fiscal de small business requieren asesoría de un CPA o atorney registrado en tu estado.
+  Las normas estatales varían significativamente.
+
+official_sources:
+  - name: "IRS.gov - LLC Information"
+    url: "https://www.irs.gov/businesses/small-businesses-self-employed/limited-liability-company-llc"
+  - name: "SBA - Hispanic Business Resources"
+    url: "https://www.sba.gov/business-guide/grow-your-business/government-contracting/socioeconomic-categories/small-disadvantaged-business"
+  - name: "IRS.gov - EIN Application"
+    url: "https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online"
+  - name: "Stanford Latino Entrepreneurship Initiative"
+    url: "https://www.gsb.stanford.edu/faculty-research/centers-initiatives/slei"
+
+mla_target_markets:
+  primary: "US-Hispanic"
+  secondary:
+    - "EN-US"
+    - "ES-LATAM"  # emprendedores latam que planean expandirse a USA
+
+youtube_category: "education"
+yellow_icon_keywords:
+  - "esconde dinero"
+  - "ocultar al IRS"
+  - "loophole secreto"
+  - "evade impuestos"
+
+affiliate_focus:
+  - id: "gusto"
+    rationale: "Payroll para small business, $150-300/referido. Conversión alta en LLCs con empleados."
+  - id: "mercury"
+    rationale: "Banking para non-resident LLCs, popular en audiencia immigrant founder."
+  - id: "novo"
+    rationale: "Banking small business sin SSN. CPA $20-50/cuenta abierta."
+  - id: "bluevine"
+    rationale: "Banking + crédito para LLC."
+  - id: "quickbooks"
+    rationale: "Software contable, $5-25 por lead cualificado."
+  - id: "bench"
+    rationale: "Bookkeeping outsourced. Alta conversión small business."
+
+leadgen_channels:
+  - "Prodezk / Easy Business Solutions (alianza de contenido)"
+  - "Hispanic chambers of commerce locales"
+  - "Latino-owned business directories"

@@ -1,0 +1,52 @@
+# Perfil paraguas (fallback genérico)
+# Se usa cuando el script.draft.niche no coincide con ningún perfil específico
+# pero está dentro del paraguas general del canal.
+
+id: finanzas_inmigrantes_paraguas
+display_name: "Finanzas para el Inmigrante Emprendedor Hispano (genérico)"
+parent_niche: "Finanzas para el Inmigrante Emprendedor Hispano"
+
+keyword_triggers:
+  - "finanzas"
+  - "inmigrante"
+  - "hispano"
+
+tags:
+  - "finanzas inmigrantes"
+  - "hispanos USA"
+  - "dinero inmigrante"
+  - "economía hispana"
+  - "financial education latino"
+  - "consejos financieros hispanos"
+  - "Andrés Gutiérrez"
+  - "finanzas en español USA"
+
+hashtags:
+  - "#FinanzasInmigrantes"
+  - "#HispanosUSA"
+  - "#DineroHispano"
+
+disclaimer: |
+  Este contenido es educativo y no constituye asesoría financiera, fiscal, legal ni inmobiliaria personalizada.
+  Consulta con un profesional certificado (CPA, EA, NMLS, atorney) en tu estado antes de tomar decisiones.
+
+official_sources:
+  - name: "CFPB - Recursos en Español"
+    url: "https://www.consumerfinance.gov/es/"
+  - name: "IRS.gov - Spanish"
+    url: "https://www.irs.gov/es"
+
+mla_target_markets:
+  primary: "US-Hispanic"
+  secondary:
+    - "EN-US"
+
+youtube_category: "education"
+yellow_icon_keywords:
+  - "garantizado"
+  - "aprobación instantánea"
+  - "sin riesgo"
+  - "secreto"
+
+affiliate_focus: []
+leadgen_channels: []

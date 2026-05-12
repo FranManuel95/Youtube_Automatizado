@@ -56,7 +56,6 @@ def _build_timeline(
 
     # Capa de video: usa los timecodes de cada shot
     if visuals:
-        prev_end = 0
         for shot in visuals.shots:
             events.append(
                 TimelineEvent(
@@ -66,7 +65,11 @@ def _build_timeline(
                     event_type=EventType.video_clip,
                     description=f"{shot.shot_type.value}: {shot.description[:80]}",
                     source_ref=f"visuals.shot_{shot.shot_id:02d}",
-                    importance=Importance.critical if shot.pattern_interrupt else Importance.recommended,
+                    importance=(
+                        Importance.critical
+                        if shot.pattern_interrupt
+                        else Importance.recommended
+                    ),
                 )
             )
             event_id += 1
@@ -86,7 +89,6 @@ def _build_timeline(
                     )
                 )
                 event_id += 1
-            prev_end = shot.timecode_start_sec + shot.duration_sec
 
     return events, transitions
 
@@ -112,25 +114,26 @@ def _detect_dai_anchors(script: ScriptReport, audio: AudioReport) -> list[DAIAnc
     """Identifica puntos naturales entre secciones donde insertar ads."""
     anchors: list[DAIAnchor] = []
     cursor = 0
+    blocks = audio.plan.blocks
 
-    # Recorre los bloques de audio en orden
-    for block in audio.plan.blocks:
+    for idx, block in enumerate(blocks):
         cursor += block.target_duration_sec
-        # Solo entre secciones (no después del hook ni antes del CTA)
-        if block.role == BlockRole.section:
-            # No el último (CTA debería ser el último)
-            anchors.append(
-                DAIAnchor(
-                    timecode_sec=cursor,
-                    minimum_break_sec=5,
-                    rationale=(
-                        f"Punto natural tras '{block.heading}' donde un loop se "
-                        f"acaba de cerrar antes de abrir el siguiente. Pausa de 5s "
-                        f"no rompe la retención."
-                    ),
-                    section_after=f"sección siguiente",
-                )
+        if block.role != BlockRole.section:
+            continue
+        next_block = blocks[idx + 1] if idx + 1 < len(blocks) else None
+        section_after = next_block.heading if next_block is not None else "CTA"
+        anchors.append(
+            DAIAnchor(
+                timecode_sec=cursor,
+                minimum_break_sec=5,
+                rationale=(
+                    f"Punto natural tras '{block.heading}' donde un loop se "
+                    f"acaba de cerrar antes de abrir el siguiente. Pausa de 5s "
+                    f"no rompe la retención."
+                ),
+                section_after=section_after,
             )
+        )
 
     # Heurística: máximo 2 anchors por video largo, repartidos.
     # Quitamos el último (suele ser justo antes del CTA).

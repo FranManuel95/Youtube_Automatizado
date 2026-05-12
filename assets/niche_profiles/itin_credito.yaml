@@ -1,0 +1,84 @@
+# Perfil de nicho: ITIN / Crédito (subnicho residual)
+# Continuidad del piloto + top-funnel SEO. NO eje central del calendario.
+# Cuota editorial: 10% del calendario.
+
+id: itin_credito
+display_name: "ITIN / Crédito"
+parent_niche: "Finanzas para el Inmigrante Emprendedor Hispano"
+
+keyword_triggers:
+  - "ITIN"
+  - "crédito"
+  - "credito"
+  - "tarjeta de crédito"
+  - "FICO"
+  - "credit score"
+  - "credit builder"
+  - "sin SSN"
+  - "secured card"
+  - "construir crédito"
+  - "subir credit score"
+
+tags:
+  - "credito ITIN"
+  - "tarjeta credito sin SSN"
+  - "credit builder hispanos"
+  - "FICO inmigrantes"
+  - "secured card ITIN"
+  - "construir credito USA"
+  - "credito sin social"
+  - "Self Financial"
+  - "Kikoff"
+  - "Capital One Platinum"
+  - "Chime Credit Builder"
+
+hashtags:
+  - "#CreditoITIN"
+  - "#CreditoSinSSN"
+  - "#FICOInmigrantes"
+  - "#CreditBuilder"
+
+disclaimer: |
+  Este contenido es educativo. Los productos crediticios cambian (APR, fees, requisitos); verifica las condiciones actuales directamente con el emisor y consulta con un asesor financiero certificado antes de aplicar.
+
+official_sources:
+  - name: "CFPB - Building Credit (Spanish)"
+    url: "https://www.consumerfinance.gov/es/preguntas/categoria-puntaje-de-credito/"
+  - name: "FTC - Credit Reports (Spanish)"
+    url: "https://www.consumidor.ftc.gov/articulos/informes-y-puntajes-de-credito"
+  - name: "myFICO - Credit Score Information"
+    url: "https://www.myfico.com/credit-education"
+  - name: "CFPB - ITIN Consumer Resources"
+    url: "https://www.consumerfinance.gov/data-research/research-reports/financial-conditions-mexican-americans/"
+
+mla_target_markets:
+  primary: "US-Hispanic"
+  secondary:
+    - "EN-US"
+
+youtube_category: "education"
+yellow_icon_keywords:
+  - "aprobación garantizada"
+  - "crédito sin verificación"
+  - "subir 100 puntos en una semana"
+  - "trampa"
+  - "secreto del banco"
+  - "no necesitas SSN ni nada"
+
+affiliate_focus:
+  - id: "self_financial"
+    rationale: "Credit-builder loan, $10-30/referido. Conversión muy alta en audiencia inmigrante."
+  - id: "kikoff"
+    rationale: "Credit builder sin SSN obligatorio. CPA atractivo."
+  - id: "capital_one_platinum_secured"
+    rationale: "Tarjeta secured tradicional para construir crédito, acepta ITIN."
+  - id: "chime_credit_builder"
+    rationale: "Credit builder sin hard pull. Audiencia bancarizada digital."
+  - id: "nova_credit"
+    rationale: "Translation de credit history internacional. PROGRAMA ESPECÍFICO PARA CREADORES HISPANOS infrautilizado."
+  - id: "alterna_card"
+    rationale: "Credit card para no-residentes. Programa de afiliados específico hispano."
+
+leadgen_channels:
+  - "CDFIs (Latino Credit Union, Mission Asset Fund)"
+  - "Lead-gen a credit counseling agencies no-profit"

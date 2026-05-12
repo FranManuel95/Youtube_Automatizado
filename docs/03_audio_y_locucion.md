@@ -10,21 +10,25 @@ Autoridad:  La construcción de una identidad sonora que posicione al creador co
 
 Retención:  La capacidad de mantener al usuario conectado mediante un flujo narrativo dinámico que evite el agotamiento cognitivo del oyente.
 
-2. Tecnología de Síntesis: ElevenLabs y el Modelo Multilingual v2
+2. Tecnología de Síntesis: ElevenLabs y el Modelo Eleven v3
 
-En el ecosistema de ingeniería de audio actual, ElevenLabs lidera la síntesis de voz mediante modelos de aprendizaje profundo. Para proyectos de globalización de largo formato, el modelo  Multilingual v2  se mantiene como el "estándar de oro". Mientras que el modelo V3 ofrece capacidades experimentales y el Turbo v2.5 prioriza la latencia para aplicaciones en tiempo real, el v2 garantiza una estabilidad superior en la coherencia de los fonemas y el tono emocional a lo largo de narraciones extensas.
+> **Nota de revisión 2026-05**: este apartado se reescribió tras la GA de Eleven v3 (febrero 2026). El documento original recomendaba Multilingual v2 como "estándar de oro" porque V3 estaba en alpha. Esa premisa ya no es válida.
 
-Comparativa Técnica de Modelos
+En el ecosistema de ingeniería de audio 2026, ElevenLabs lidera la síntesis de voz mediante modelos de aprendizaje profundo. Para proyectos de largo formato, el modelo **Eleven v3** (GA desde febrero 2026) es el nuevo estándar: +68% de precisión sobre texto complejo respecto a Multilingual v2, soporte de **audio tags** (`[serious]`, `[whisper]`, `[laugh]`) que disparan la prosodia de autoridad, y mayor estabilidad narrativa que el v3-alpha de 2025. Turbo v2.5 sigue siendo la opción para tiempo real (agentes, baja latencia), no para narración.
 
-Factor Diferencial,Multilingual v2,Turbo v2.5,Multilingual V3 (Experimental)
+Comparativa Técnica de Modelos (revisada 2026)
 
-Estabilidad Narrativa,Máxima:  Ideal para contenido de 10+ minutos sin desajustes tonales.,Media: Optimizada para respuestas rápidas.,Variable: Puede presentar inconsistencias en la cadencia.
+Factor Diferencial,Eleven v3 (Recomendado),Multilingual v2 (Legacy),Turbo v2.5
 
-Calidad Multilingüe,Alta fidelidad en 29+ idiomas (Español es el #2 en YouTube).,"Alta, pero centrada en la velocidad de inferencia.",Alta: Soporta una base de datos de idiomas expandida.
+Estabilidad Narrativa,Máxima: prosodia controlable con tags; ideal 10+ min.,Alta: estable pero sin tags emocionales.,Media: optimizada para latencia.
 
-Realismo Vocal,Excelente: Manejo orgánico de pausas y matices.,Muy Bueno: Enfocado en la eficiencia.,Excelente: Mayor variabilidad emocional.
+Calidad Multilingüe,70+ idiomas; Español LatAm con mayor naturalidad por embeddings actualizados.,29+ idiomas; calidad correcta pero sin matiz LatAm.,"Igual catálogo, optimizado para velocidad."
 
-Uso Recomendado,Globalización de canales de autoridad y documentales.,Asistentes de voz y Shorts de producción masiva.,Pruebas de nuevas texturas vocales y prototipado.
+Realismo Vocal,Excelente: tags emocionales + variabilidad orgánica.,Muy bueno: pausas y matices nativos.,Bueno: enfocado en eficiencia, menos matiz.
+
+Uso Recomendado,**Default actual** para canales de autoridad, documentales y long-form.,Migrar a v3 antes de YPP. Mantener solo en cuentas Free legacy.,Asistentes de voz, Shorts de producción masiva, voice agents.
+
+Configuración por defecto del pipeline: `ELEVENLABS_MODEL_ID=eleven_v3` (ver `.env.example`).
 
 3. Funciones de "Expressive Speech" y Naturalidad Vocal
 

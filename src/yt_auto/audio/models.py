@@ -63,7 +63,7 @@ class AudioPlan(BaseModel):
         default="ELEVENLABS_VOICE_ID",
         description="Variable de entorno donde el usuario fija el voice_id real",
     )
-    model_id: str = "eleven_multilingual_v2"
+    model_id: str = "eleven_v3"
     blocks: list[NarrationBlock]
 
     @property

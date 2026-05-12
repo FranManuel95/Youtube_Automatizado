@@ -1,0 +1,83 @@
+# Perfil de nicho: Tax & Legal Education para inmigrantes
+# Pilar de monetización del paraguas "Finanzas para el Inmigrante Emprendedor Hispano"
+# Cuota editorial: 30% del calendario.
+
+id: tax_legal_inmigrantes
+display_name: "Tax & Legal Education para Inmigrantes"
+parent_niche: "Finanzas para el Inmigrante Emprendedor Hispano"
+
+keyword_triggers:
+  - "impuestos"
+  - "taxes"
+  - "IRS"
+  - "ITIN"
+  - "tax return"
+  - "declaración de impuestos"
+  - "EITC"
+  - "child tax credit"
+  - "tax legal"
+  - "preparar taxes"
+  - "form 1040"
+  - "form 8843"
+
+tags:
+  - "taxes inmigrantes"
+  - "impuestos ITIN"
+  - "IRS hispanos"
+  - "declarar taxes USA"
+  - "tax return ITIN"
+  - "EITC hispanos"
+  - "form 1040 español"
+  - "Latino Tax Pro"
+  - "preparador taxes hispano"
+  - "child tax credit"
+  - "compliance fiscal"
+
+hashtags:
+  - "#TaxesInmigrantes"
+  - "#ITIN"
+  - "#IRSHispanos"
+  - "#TaxesEspañol"
+
+disclaimer: |
+  Este contenido es educativo y no sustituye asesoría fiscal personalizada.
+  Las normas del IRS cambian anualmente; consulta con un Enrolled Agent (EA), CPA o tax preparer certificado antes de declarar.
+
+official_sources:
+  - name: "IRS.gov - ITIN Information (Spanish)"
+    url: "https://www.irs.gov/es/individuals/individual-taxpayer-identification-number"
+  - name: "IRS.gov - Publication 519 (Tax Guide for Aliens)"
+    url: "https://www.irs.gov/forms-pubs/about-publication-519"
+  - name: "Taxpayer Advocate Service"
+    url: "https://www.taxpayeradvocate.irs.gov/"
+  - name: "NAEA - National Association of Enrolled Agents"
+    url: "https://www.naea.org/"
+
+mla_target_markets:
+  primary: "US-Hispanic"
+  secondary:
+    - "EN-US"
+
+youtube_category: "education"
+yellow_icon_keywords:
+  - "evita pagar impuestos"
+  - "esconde dinero"
+  - "indocumentado sin riesgo"
+  - "IRS no te encontrará"
+  - "trucos legales"
+  - "secretos del IRS"
+
+affiliate_focus:
+  - id: "taxslayer_pro"
+    rationale: "Software profesional para tax preparers. Alianza visible con Latino Tax Pro."
+  - id: "mytaxprepoffice"
+    rationale: "Software tax prep. Audiencia avanzada/preparadores."
+  - id: "h_and_r_block"
+    rationale: "Programa afiliado tax filing, Spanish version disponible."
+  - id: "turbotax_es"
+    rationale: "Afiliado TurboTax en español, conversión alta Q1."
+
+leadgen_channels:
+  - "Enrolled Agents hispanos (NAEA directory)"
+  - "CPAs especializados en non-resident aliens"
+  - "Latino Tax Pro / Latino Tax Fest (sponsorships)"

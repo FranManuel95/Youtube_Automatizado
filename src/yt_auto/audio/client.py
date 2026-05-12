@@ -12,11 +12,18 @@ from typing import Self
 
 import httpx
 from pydantic import BaseModel, Field
+from tenacity import (
+    Retrying,
+    retry_if_exception,
+    stop_after_attempt,
+    wait_exponential,
+)
 
 from yt_auto.audio.models import VoiceSettings
 
 _DEFAULT_BASE_URL = "https://api.elevenlabs.io"
 _DEFAULT_TIMEOUT = 120.0
+_RETRYABLE_STATUS = {429, 500, 502, 503, 504}
 
 
 class ElevenLabsError(RuntimeError):
@@ -65,6 +72,9 @@ class ElevenLabsClient:
     Diseñado para ser inyectable en tests: el caller puede pasar un
     `transport` (p. ej. `httpx.MockTransport`) en vez de hablar con la
     red real.
+
+    Reintenta automáticamente 429 y 5xx con backoff exponencial. Los 4xx
+    no-429 se propagan inmediatamente (key inválida, voice_id inválido).
     """
 
     def __init__(
@@ -74,6 +84,7 @@ class ElevenLabsClient:
         base_url: str = _DEFAULT_BASE_URL,
         timeout: float = _DEFAULT_TIMEOUT,
         transport: httpx.BaseTransport | None = None,
+        max_attempts: int = 4,
     ) -> None:
         if not api_key:
             raise ValueError("ELEVENLABS_API_KEY vacía. Configúrala en .env.")
@@ -85,6 +96,18 @@ class ElevenLabsClient:
                 "xi-api-key": api_key,
                 "accept": "application/json",
             },
+        )
+        self._max_attempts = max_attempts
+
+    def _retrying(self) -> Retrying:
+        return Retrying(
+            stop=stop_after_attempt(self._max_attempts),
+            wait=wait_exponential(multiplier=1, min=2, max=30),
+            retry=retry_if_exception(
+                lambda e: isinstance(e, ElevenLabsError)
+                and e.status_code in _RETRYABLE_STATUS
+            ),
+            reraise=True,
         )
 
     def __enter__(self) -> Self:
@@ -101,14 +124,18 @@ class ElevenLabsClient:
     # ------------------------------------------------------------------
 
     def list_voices(self) -> list[RemoteVoice]:
-        response = self._client.get("/v1/voices")
-        self._raise_for_status(response)
+        for attempt in self._retrying():
+            with attempt:
+                response = self._client.get("/v1/voices")
+                self._raise_for_status(response)
         payload = response.json()
         return [RemoteVoice.model_validate(v) for v in payload.get("voices", [])]
 
     def get_subscription(self) -> Subscription:
-        response = self._client.get("/v1/user/subscription")
-        self._raise_for_status(response)
+        for attempt in self._retrying():
+            with attempt:
+                response = self._client.get("/v1/user/subscription")
+                self._raise_for_status(response)
         return Subscription.model_validate(response.json())
 
     def text_to_speech(
@@ -135,12 +162,14 @@ class ElevenLabsClient:
                 "use_speaker_boost": settings.use_speaker_boost,
             },
         }
-        response = self._client.post(
-            f"/v1/text-to-speech/{voice_id}",
-            json=body,
-            headers={"accept": "audio/mpeg"},
-        )
-        self._raise_for_status(response)
+        for attempt in self._retrying():
+            with attempt:
+                response = self._client.post(
+                    f"/v1/text-to-speech/{voice_id}",
+                    json=body,
+                    headers={"accept": "audio/mpeg"},
+                )
+                self._raise_for_status(response)
         return response.content
 
     # ------------------------------------------------------------------

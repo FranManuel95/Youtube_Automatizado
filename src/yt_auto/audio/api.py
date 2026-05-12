@@ -96,7 +96,7 @@ def synthesize_report(
     )
 
     subscription: Subscription | None = None
-    if not skip_quota_check and pending_chars > 0:
+    if not skip_quota_check:
         subscription = client.get_subscription()
         if pending_chars > subscription.characters_remaining:
             raise QuotaExceededError(

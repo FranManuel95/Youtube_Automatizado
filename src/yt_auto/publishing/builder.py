@@ -3,6 +3,11 @@
 Toma `ScriptReport` + `EditingReport` y produce una `PublishingPlan` con
 metadata SEO, capítulos derivados del timeline y checklist pre-publish
 auto-evaluado.
+
+Los tags, disclaimers, hashtags, MLA targets y fuentes oficiales se
+resuelven desde `assets/niche_profiles/<id>.yaml` según el nicho del
+guion (ver `niche_profile.resolve_profile`). Cualquier nuevo nicho/canal
+se añade creando un YAML nuevo, sin tocar este archivo.
 """
 
 from __future__ import annotations
@@ -10,6 +15,7 @@ from __future__ import annotations
 import re
 
 from yt_auto.editing.models import EditingReport
+from yt_auto.monetization.renderer import render_resources_block
 from yt_auto.publishing.models import (
     Category,
     Chapter,
@@ -19,34 +25,21 @@ from yt_auto.publishing.models import (
     PublishingReport,
     YouTubeMetadata,
 )
+from yt_auto.publishing.niche_profile import NicheProfile, resolve_profile
 from yt_auto.scripts.models import ScriptReport
-
-
-# Tags por categoría temática (US-Hispanic, finanzas) — heurística inicial.
-TAGS_FINANZAS_HISPANIC = [
-    "credito",
-    "credito hispano",
-    "ITIN",
-    "FICO",
-    "finanzas hispanos",
-    "credito americano",
-    "inmigrantes EEUU",
-    "como construir credito",
-    "ITIN credit card",
-    "credit builder",
-]
 
 
 def _slug_keyword(text: str) -> str:
     return re.sub(r"[^a-z0-9áéíóúñ]+", " ", text.lower()).strip()
 
 
-def _build_tags(script: ScriptReport, extra: list[str] | None = None) -> list[str]:
-    """Combina tags semánticos del nicho + términos del guion."""
-    tags: list[str] = []
-    niche = script.draft.niche.lower()
-    if any(k in niche for k in ["finanzas", "credito", "crédito", "inmigrante"]):
-        tags.extend(TAGS_FINANZAS_HISPANIC)
+def _build_tags(
+    script: ScriptReport,
+    profile: NicheProfile,
+    extra: list[str] | None = None,
+) -> list[str]:
+    """Combina tags del perfil + términos extraídos del guion."""
+    tags: list[str] = list(profile.tags)
     if extra:
         tags.extend(extra)
     # Términos extraídos de los sample_titles
@@ -70,46 +63,47 @@ def _build_tags(script: ScriptReport, extra: list[str] | None = None) -> list[st
 def _build_description(
     script: ScriptReport,
     chapters: list[Chapter],
+    profile: NicheProfile,
     *,
-    pdf_url_placeholder: str = "https://<pendiente-de-configurar>/itin-pdf",
-    has_finance_content: bool = True,
+    pdf_url_placeholder: str = "https://<pendiente-de-configurar>/recurso",
 ) -> str:
     d = script.draft
     parts: list[str] = []
 
-    # Hook reescrito en formato descripción (1-2 frases)
     parts.append(d.headline if hasattr(d, "headline") else d.hook.promise)
     parts.append("")
 
-    # Promesa del video
-    parts.append(f"En este video aprenderás:")
+    parts.append("En este video aprenderás:")
     for sec in d.sections[:5]:
         parts.append(f"• {sec.heading}")
     parts.append("")
 
-    # CTA + producto
     parts.append("🎁 RECURSO GRATIS")
     parts.append(d.cta.split(".")[0] + ".")
     parts.append(f"Descárgalo aquí: {pdf_url_placeholder}")
     parts.append("")
 
-    # Capítulos timestamp
+    # Bloque de afiliados (resuelto desde el perfil de nicho)
+    resources_block = render_resources_block(
+        profile,
+        video_title_or_id=d.title,
+    )
+    if resources_block:
+        parts.append(resources_block.rstrip())
+        parts.append("")
+
     parts.append("⏱ CAPÍTULOS")
     for ch in chapters:
         parts.append(f"{ch.youtube_timestamp()} {ch.title}")
     parts.append("")
 
-    # Disclaimers (YPP / YMYL)
-    if has_finance_content:
+    # Disclaimer YMYL del perfil (siempre presente, evita yellow icon)
+    if profile.disclaimer:
         parts.append("⚠ AVISO IMPORTANTE")
-        parts.append(
-            "Este video tiene fines educativos. No constituye asesoría financiera, "
-            "fiscal ni legal personalizada. Antes de tomar decisiones, consulta con "
-            "un profesional certificado en tu estado."
-        )
+        parts.append(profile.disclaimer.strip())
         parts.append("")
 
-    # Likeness Detection / declaración de IA
+    # Declaración de uso de IA (anti-purga 2026)
     parts.append("ℹ TRANSPARENCIA")
     parts.append(
         "Parte de la narración y los visuales de este video se han producido con "
@@ -119,19 +113,26 @@ def _build_description(
     )
     parts.append("")
 
-    # Fuentes citadas en el guion
-    sources: list[str] = []
+    # Fuentes oficiales del perfil (sello agregador-educador)
+    if profile.official_sources:
+        parts.append("📚 FUENTES OFICIALES")
+        for src in profile.official_sources[:8]:
+            parts.append(f"• {src.name} — {src.url}")
+        parts.append("")
+
+    # Fuentes adicionales citadas en el guion
+    script_sources: list[str] = []
     for sec in d.sections:
-        sources.extend(sec.sources)
-    sources = list(dict.fromkeys(sources))
-    if sources:
-        parts.append("📚 FUENTES CITADAS")
-        for src in sources[:8]:
+        script_sources.extend(sec.sources)
+    script_sources = list(dict.fromkeys(script_sources))
+    if script_sources:
+        parts.append("📎 OTRAS FUENTES CITADAS")
+        for src in script_sources[:8]:
             parts.append(f"• {src}")
         parts.append("")
 
-    # Hashtags al final (YouTube los recoge si están en las últimas líneas)
-    parts.append("#FinanzasHispanas #CreditoEEUU #ITIN #InmigrantesEEUU")
+    if profile.hashtags:
+        parts.append(" ".join(profile.hashtags))
 
     description = "\n".join(parts)
     return description[:5000]
@@ -152,13 +153,6 @@ def _build_chapters(editing: EditingReport, script: ScriptReport) -> list[Chapte
     # CTA
     chapters.append(Chapter(timecode_sec=cursor, title="Plan de acción y recurso gratuito"))
     return chapters
-
-
-def _has_finance_keywords(text: str) -> bool:
-    return any(
-        k in text.lower()
-        for k in ["finanzas", "crédito", "credito", "ITIN", "FICO", "inversión", "inversion"]
-    )
 
 
 def _evaluate_checklist(
@@ -199,18 +193,32 @@ def build_report(
     thumbnail_ready: bool = True,
     end_screen_planned: bool = False,
     extra_tags: list[str] | None = None,
+    profile: NicheProfile | None = None,
 ) -> PublishingReport:
+    """Construye el `PublishingReport`.
+
+    Si `profile` no se pasa, se resuelve automáticamente desde
+    `script.draft.niche` contra `assets/niche_profiles/`.
+    """
+    if profile is None:
+        profile = resolve_profile(script.draft.niche)
+
     chapters = _build_chapters(editing, script)
     description = _build_description(
         script,
         chapters,
+        profile,
         pdf_url_placeholder=pdf_url,
-        has_finance_content=_has_finance_keywords(script.draft.niche),
     )
-    tags = _build_tags(script, extra_tags)
+    tags = _build_tags(script, profile, extra_tags)
+
+    title = script.draft.title[:100]
+    yellow_flags = [
+        kw for kw in profile.yellow_icon_keywords if kw.lower() in title.lower()
+    ]
 
     metadata = YouTubeMetadata(
-        title=script.draft.title[:100],
+        title=title,
         description=description,
         tags=tags,
         category=Category.education,
@@ -225,20 +233,31 @@ def build_report(
         has_mla=False,
         thumbnail_ready=thumbnail_ready,
         end_screen_planned=end_screen_planned,
-        likeness_declared=True,  # la descripción incluye la declaración
+        likeness_declared=True,
     )
 
     notes_parts: list[str] = []
+    notes_parts.append(f"Perfil de nicho aplicado: {profile.display_name} ({profile.id})")
     if not checklist.critical_pass:
         notes_parts.append("⚠ CRÍTICOS FALLAN: corrige antes de publicar.")
     if len(metadata.title) > 70:
         notes_parts.append(
             f"⚠ Título de {len(metadata.title)} chars. Recomendado < 70 para móvil."
         )
-    if not checklist.mla_track_prepared:
+    if yellow_flags:
         notes_parts.append(
-            "MLA pendiente: prepara una pista de audio en inglés (en-US) para "
-            "capturar mercado anglo + multiplicar RPM hasta x4."
+            f"⚠ Yellow icon risk: el título contiene palabras de riesgo "
+            f"({', '.join(yellow_flags)}). Reescribe para evitar limited ads."
+        )
+    if not checklist.mla_track_prepared:
+        target_market = (
+            profile.mla_target_markets.secondary[0]
+            if profile.mla_target_markets and profile.mla_target_markets.secondary
+            else "en-US"
+        )
+        notes_parts.append(
+            f"MLA pendiente: prepara una pista de audio en {target_market} para "
+            f"capturar mercado anglo + multiplicar RPM hasta x4."
         )
 
     plan = PublishingPlan(
