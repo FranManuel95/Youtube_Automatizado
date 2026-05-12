@@ -40,6 +40,7 @@ class Settings(BaseSettings):
     youtube_client_secrets_file: str = "client_secret.json"
     youtube_token_file: str = "token.json"
     youtube_channel_id: str = ""
+    youtube_api_key: str = ""
 
     # Proyecto
     project_name: str = "canal_demo"

@@ -28,6 +28,7 @@ visuals_app = typer.Typer(help="Etapa 4 - generación visual (Nano Banana + Seed
 editing_app = typer.Typer(help="Etapa 5 - edición y packaging.")
 publish_app = typer.Typer(help="Etapa 6 - publicación YouTube.")
 analytics_app = typer.Typer(help="Etapa 7 - analítica, retention leaks y Ask Studio.")
+competitive_app = typer.Typer(help="Análisis competitivo - YouTube Data API v3.")
 app.add_typer(niche_app, name="niche")
 app.add_typer(script_app, name="script")
 app.add_typer(audio_app, name="audio")
@@ -35,6 +36,7 @@ app.add_typer(visuals_app, name="visuals")
 app.add_typer(editing_app, name="editing")
 app.add_typer(publish_app, name="publish")
 app.add_typer(analytics_app, name="analytics")
+app.add_typer(competitive_app, name="competitive")
 
 console = Console()
 
@@ -789,6 +791,236 @@ def analytics_list() -> None:
         return
     for f in files:
         console.print(f"  {f.relative_to(ROOT_DIR)}")
+
+
+# -------------------- competitive (YouTube Data API v3) --------------------
+
+
+@competitive_app.command("scan")
+def competitive_scan(
+    niche: str = typer.Option(
+        ...,
+        "--niche",
+        "-n",
+        help="ID del perfil de nicho (ej: real_estate_latino, tax_legal_inmigrantes)",
+    ),
+    query: str | None = typer.Option(
+        None, "--query", "-q", help="Override del query (por defecto: top keywords del perfil)"
+    ),
+    max_channels: int = typer.Option(10, "--max", help="Cuántos canales top devolver (1-50)"),
+    no_cache: bool = typer.Option(False, "--no-cache", help="Fuerza llamada real, salta caché 24h"),
+) -> None:
+    """Escanea los canales referentes de un nicho con datos reales de la API."""
+    from yt_auto.competitive import YouTubeAPIError, YouTubeDataClient, scan_niche
+    from yt_auto.publishing.niche_profile import load_profile
+
+    s = get_settings()
+    if not s.youtube_api_key:
+        console.print(
+            "[red]Falta YOUTUBE_API_KEY en .env. "
+            "Crea una en https://console.cloud.google.com/apis/credentials[/red]"
+        )
+        raise typer.Exit(code=1)
+
+    try:
+        profile = load_profile(niche)
+    except FileNotFoundError:
+        console.print(f"[red]Perfil de nicho '{niche}' no existe.[/red]")
+        console.print("[dim]Disponibles:[/dim]")
+        from yt_auto.publishing.niche_profile import list_profiles
+
+        for p in list_profiles():
+            console.print(f"  {p.id} - {p.display_name}")
+        raise typer.Exit(code=1) from None
+
+    try:
+        with YouTubeDataClient(s.youtube_api_key) as client:
+            report = scan_niche(
+                profile,
+                client=client,
+                query_override=query,
+                max_channels=max_channels,
+                use_cache=not no_cache,
+            )
+    except YouTubeAPIError as exc:
+        console.print(f"[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
+
+    console.rule(f"[bold cyan]Análisis competitivo · {profile.display_name}")
+    console.print(f"  Query usada:   '{report.query_used}'")
+    console.print(f"  Canales:       {len(report.channels)}")
+    console.print(f"  Subs mediana:  {report.median_subscribers:,}")
+    console.print(f"  Subs total:    {report.total_subscribers:,}")
+    color = {"fragmentado-bajo": "green", "fragmentado-medio": "yellow"}.get(
+        report.fragmentation_score, "red"
+    )
+    console.print(
+        f"  Saturación:    [{color}]{report.fragmentation_score}[/{color}] "
+        f"({report.big_fish_count} canales >100k subs)"
+    )
+    console.print(f"  Cuota gastada: {report.quota_units_spent} unidades")
+    console.print()
+
+    table = Table(title="Top canales (orden por relevancia)")
+    table.add_column("Canal")
+    table.add_column("Subs", justify="right")
+    table.add_column("Videos", justify="right")
+    table.add_column("Views totales", justify="right")
+    table.add_column("Views/video", justify="right")
+    table.add_column("Edad (d)", justify="right")
+    table.add_column("País")
+    for ch in report.channels:
+        table.add_row(
+            ch.title[:35],
+            f"{ch.statistics.subscriber_count:,}",
+            f"{ch.statistics.video_count:,}",
+            f"{ch.statistics.view_count:,}",
+            f"{int(ch.avg_views_per_video):,}",
+            str(ch.age_days or "-"),
+            ch.country or "-",
+        )
+    console.print(table)
+
+
+@competitive_app.command("outliers")
+def competitive_outliers(
+    channel_id: str = typer.Argument(..., help="channel_id del canal (UCxxxxxxxx)"),
+    sample: int = typer.Option(30, "--sample", help="Cuántos videos analizar"),
+    min_multiplier: float = typer.Option(3.0, "--multiplier", help="Umbral X veces mediana"),
+    no_cache: bool = typer.Option(False, "--no-cache"),
+) -> None:
+    """Detecta videos outliers de un canal (views >= X veces la mediana)."""
+    from yt_auto.competitive import YouTubeAPIError, YouTubeDataClient, detect_outliers
+
+    s = get_settings()
+    if not s.youtube_api_key:
+        console.print("[red]Falta YOUTUBE_API_KEY en .env[/red]")
+        raise typer.Exit(code=1)
+
+    try:
+        with YouTubeDataClient(s.youtube_api_key) as client:
+            chs = client.channels([channel_id])
+            if not chs:
+                console.print(f"[red]Canal {channel_id} no encontrado.[/red]")
+                raise typer.Exit(code=1)
+            channel = chs[0]
+            outliers = detect_outliers(
+                channel,
+                client=client,
+                sample_size=sample,
+                min_multiplier=min_multiplier,
+                use_cache=not no_cache,
+            )
+    except YouTubeAPIError as exc:
+        console.print(f"[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
+
+    console.rule(f"[bold cyan]Outliers · {channel.title}")
+    console.print(
+        f"  Mediana del canal: "
+        f"{outliers[0].channel_median_views if outliers else '-'} views"
+    )
+    console.print(f"  Outliers (>= {min_multiplier}x): {len(outliers)}")
+    console.print(f"  Cuota gastada:     {client.quota.units_spent} unidades")
+    console.print()
+
+    if not outliers:
+        console.print(
+            "[dim]Sin outliers. El canal tiene rendimiento homogéneo o tu --multiplier es muy alto.[/dim]"
+        )
+        return
+
+    table = Table(title="Videos outlier")
+    table.add_column("Multiplicador", justify="right")
+    table.add_column("Views", justify="right")
+    table.add_column("Edad")
+    table.add_column("Título")
+    for o in outliers[:15]:
+        table.add_row(
+            f"{o.multiplier_vs_median:.1f}x",
+            f"{o.video.statistics.view_count:,}",
+            f"{o.video.age_days}d",
+            o.video.title[:60],
+        )
+    console.print(table)
+
+
+@competitive_app.command("channel")
+def competitive_channel(
+    channel_id: str = typer.Argument(..., help="channel_id (UCxxx) o handle (@nombre)"),
+) -> None:
+    """Detalle de un canal: stats + últimos videos."""
+    from yt_auto.competitive import YouTubeAPIError, YouTubeDataClient
+
+    s = get_settings()
+    if not s.youtube_api_key:
+        console.print("[red]Falta YOUTUBE_API_KEY en .env[/red]")
+        raise typer.Exit(code=1)
+
+    try:
+        with YouTubeDataClient(s.youtube_api_key) as client:
+            chs = client.channels([channel_id])
+            if not chs:
+                console.print(f"[red]Canal {channel_id} no encontrado.[/red]")
+                raise typer.Exit(code=1)
+            ch = chs[0]
+            recent_ids = (
+                client.playlist_items(ch.uploads_playlist_id, max_results=10)
+                if ch.uploads_playlist_id
+                else []
+            )
+            recent = client.videos(recent_ids) if recent_ids else []
+    except YouTubeAPIError as exc:
+        console.print(f"[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
+
+    console.rule(f"[bold cyan]{ch.title}")
+    console.print(f"  URL:        {ch.url}")
+    console.print(f"  País:       {ch.country or '-'}")
+    console.print(f"  Antigüedad: {ch.age_days or '-'} días")
+    console.print(f"  Subs:       {ch.statistics.subscriber_count:,}")
+    console.print(f"  Videos:     {ch.statistics.video_count:,}")
+    console.print(f"  Views:      {ch.statistics.view_count:,}")
+    console.print(f"  Views/vid:  {int(ch.avg_views_per_video):,}")
+    console.print()
+
+    if recent:
+        table = Table(title="Últimos 10 videos")
+        table.add_column("Edad", justify="right")
+        table.add_column("Views", justify="right")
+        table.add_column("Likes", justify="right")
+        table.add_column("Título")
+        for v in recent:
+            table.add_row(
+                f"{v.age_days}d",
+                f"{v.statistics.view_count:,}",
+                f"{v.statistics.like_count:,}",
+                v.title[:60],
+            )
+        console.print(table)
+
+
+@competitive_app.command("quota")
+def competitive_quota() -> None:
+    """Recordatorio de cuota YouTube Data API v3."""
+    console.print("[bold]YouTube Data API v3 — cuota diaria[/bold]")
+    console.print("  Free tier: 10.000 unidades/día")
+    console.print()
+    console.print("[bold]Coste por endpoint:[/bold]")
+    console.print("  search.list:        [yellow]100 unidades[/yellow] (lo más caro)")
+    console.print("  channels.list:      1 unidad")
+    console.print("  videos.list:        1 unidad")
+    console.print("  playlistItems.list: 1 unidad")
+    console.print()
+    console.print("[bold]Coste de comandos del pipeline:[/bold]")
+    console.print("  competitive scan:     ~101 unidades (cabe 99/día)")
+    console.print("  competitive outliers: ~2 unidades por canal")
+    console.print("  competitive channel:  ~2 unidades")
+    console.print()
+    console.print(
+        "[dim]La cuota se resetea a medianoche Pacífico (PT). "
+        "Caché en disco evita repetir consultas el mismo día.[/dim]"
+    )
 
 
 if __name__ == "__main__":
