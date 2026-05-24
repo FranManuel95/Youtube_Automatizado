@@ -1,0 +1,140 @@
+{
+  "name": "Agente IA - Captación Leads Inmobiliaria (plantilla gratis)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lead-inmobiliaria",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-entrada",
+      "name": "Lead entrante (Webhook)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "lead-inmobiliaria"
+    },
+    {
+      "parameters": {
+        "modelId": "claude-sonnet-4-6",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "Eres el asistente de una inmobiliaria. Cuando llegue un mensaje de un posible cliente, responde de forma cálida y profesional en español neutro. Identifica tres datos: (1) tipo de inmueble que busca, (2) presupuesto, (3) zona. Si el cliente da los tres, devuelve un JSON con {\"calificado\": true, \"respuesta\": \"<mensaje ofreciendo 3 horarios de visita>\", \"tipo\": \"...\", \"presupuesto\": \"...\", \"zona\": \"...\"}. Si falta algún dato, devuelve {\"calificado\": false, \"respuesta\": \"<pregunta amable por lo que falta>\"}. NUNCA inventes propiedades concretas que no existan. Sé breve."
+            },
+            {
+              "role": "user",
+              "content": "={{ $json.body.mensaje }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ia-clasifica",
+      "name": "IA: clasifica y responde",
+      "type": "n8n-nodes-base.anthropic",
+      "typeVersion": 1,
+      "position": [520, 300],
+      "notesInFlow": true,
+      "notes": "Sustituye por tu nodo de IA preferido (Anthropic / OpenAI). Requiere tu API key."
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": { "caseSensitive": false },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.calificado }}",
+                    "rightValue": true,
+                    "operator": { "type": "boolean", "operation": "true" }
+                  }
+                ]
+              },
+              "outputKey": "calificado"
+            }
+          ]
+        },
+        "options": { "fallbackOutput": "extra" }
+      },
+      "id": "switch-decision",
+      "name": "¿Lead calificado?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [800, 300]
+    },
+    {
+      "parameters": {
+        "calendar": { "__rl": true, "mode": "list", "value": "primary" },
+        "start": "={{ $now.plus(1, 'day').toISO() }}",
+        "end": "={{ $now.plus(1, 'day').plus(1, 'hour').toISO() }}",
+        "summary": "=Visita: {{ $json.tipo }} en {{ $json.zona }}",
+        "additionalFields": {}
+      },
+      "id": "crear-visita",
+      "name": "Agendar visita (Calendar)",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [1080, 200],
+      "notesInFlow": true,
+      "notes": "Opcional: sustituye por tu CRM (GoHighLevel, HubSpot) o una hoja de cálculo."
+    },
+    {
+      "parameters": {
+        "message": "=🏠 NUEVO LEAD CALIFICADO\nTipo: {{ $json.tipo }}\nPresupuesto: {{ $json.presupuesto }}\nZona: {{ $json.zona }}\nVisita propuesta para mañana.",
+        "additionalFields": {}
+      },
+      "id": "notificar-agente",
+      "name": "Avisar al agente",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1080, 380],
+      "notesInFlow": true,
+      "notes": "Notifica al humano. Sustituye Telegram por WhatsApp/Email según prefieras."
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"reply\": $json.respuesta } }}",
+        "options": {}
+      },
+      "id": "responder-cliente",
+      "name": "Responder al cliente",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1360, 300]
+    }
+  ],
+  "connections": {
+    "Lead entrante (Webhook)": {
+      "main": [[{ "node": "IA: clasifica y responde", "type": "main", "index": 0 }]]
+    },
+    "IA: clasifica y responde": {
+      "main": [[{ "node": "¿Lead calificado?", "type": "main", "index": 0 }]]
+    },
+    "¿Lead calificado?": {
+      "main": [
+        [
+          { "node": "Agendar visita (Calendar)", "type": "main", "index": 0 },
+          { "node": "Avisar al agente", "type": "main", "index": 0 }
+        ],
+        [{ "node": "Responder al cliente", "type": "main", "index": 0 }]
+      ]
+    },
+    "Agendar visita (Calendar)": {
+      "main": [[{ "node": "Responder al cliente", "type": "main", "index": 0 }]]
+    },
+    "Avisar al agente": {
+      "main": [[{ "node": "Responder al cliente", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "description": "Plantilla educativa (lead magnet). Agente IA que recibe un lead, lo califica con IA, agenda visita y avisa al agente. Sustituye las credenciales (IA, Calendar, Telegram) por las tuyas. Contenido educativo, sin garantía de resultados. Docs: https://docs.n8n.io"
+  }
+}

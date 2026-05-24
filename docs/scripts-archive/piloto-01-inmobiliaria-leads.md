@@ -11,7 +11,7 @@
 
 **Títulos A/B alternativos**:
 1. Construí un agente de IA que cierra visitas inmobiliarias mientras duermes (n8n, sin código)
-2. Una inmobiliaria pierde el 40% de sus leads por esto. Lo arreglé con IA en una tarde
+2. Tu inmobiliaria responde tarde a los leads. La IA lo hace en segundos (n8n, sin código)
 3. El sistema de captación con IA que las agencias venden por 2.000€ (te lo monto gratis)
 
 ---
@@ -20,7 +20,7 @@
 
 > [PANTALLA: dashboard de n8n con un workflow ya montado, ejecutándose en vivo. Mensaje de WhatsApp entrando → respuesta automática en 3 segundos.]
 
-Un estudio de la Asociación de Agentes Inmobiliarios reveló algo brutal: el 78% de los compradores contrata a la **primera** inmobiliaria que le responde. No a la mejor. A la **primera**. Y la mayoría de las agencias tardan horas en contestar un lead. En este video vas a ver, paso a paso y en pantalla, cómo montar un agente de inteligencia artificial que responde a cada cliente en menos de 30 segundos, califica si es serio, y agenda la visita solo. Sin escribir una sola línea de código. Quédate, porque al final te dejo la plantilla para que lo copies hoy mismo.
+Según el National Association of Realtors, alrededor de 7 de cada 10 compradores entrevistan a un solo agente antes de decidir. Lee eso otra vez: la mayoría no compara. Se queda con el primero que les da una buena primera impresión. Y la mayoría de las agencias tardan horas en contestar un lead, cuando ya es tarde. En este video vas a ver, paso a paso y en pantalla, cómo montar un agente de inteligencia artificial que responde a cada cliente en segundos, califica si es serio, y agenda la visita solo. Sin escribir una sola línea de código. Quédate, porque al final te dejo la plantilla para que lo copies hoy mismo.
 
 ---
 
@@ -30,9 +30,9 @@ Un estudio de la Asociación de Agentes Inmobiliarios reveló algo brutal: el 78
 
 Vamos a poner números sobre la mesa, porque esto no es teoría. Cuando alguien rellena un formulario en un portal inmobiliario, no está mirando solo tu anuncio. Está rellenando el de cinco agencias a la vez. El reloj empieza a correr en ese segundo.
 
-Los datos del sector son consistentes: si respondes en los primeros 5 minutos, tienes hasta 9 veces más probabilidad de convertir ese lead en una visita. Si tardas una hora, ese lead ya está hablando con tu competencia. Si tardas hasta el día siguiente, está prácticamente muerto.
+Y los datos sobre velocidad de respuesta son demoledores. Un estudio de Harvard Business Review que analizó un millón y cuarto de leads encontró que contactar en la primera hora multiplica por casi siete la probabilidad de cualificar ese lead, frente a esperar solo una o dos horas más. Y la investigación del MIT lo lleva más lejos: responder en cinco minutos en lugar de treinta multiplica por veintiuno esa probabilidad. Veintiuno. Si tardas hasta el día siguiente, ese lead está prácticamente muerto.
 
-El problema es que un agente inmobiliario humano no puede estar disponible 24 horas. Duerme, conduce, está en visitas, es fin de semana. Y los leads no entienden de horarios: el 50% llegan fuera del horario de oficina.
+El problema es que un agente inmobiliario humano no puede estar disponible 24 horas. Duerme, conduce, está en visitas, es fin de semana. Y los leads no entienden de horarios: una buena parte de las consultas llega por la tarde-noche y los fines de semana, justo cuando la oficina está cerrada.
 
 Aquí es donde entra la automatización. No para reemplazar al agente —eso es lo que vende humo— sino para hacer la primera respuesta, calificar al lead y reservar la visita, de modo que el humano solo dedique su tiempo a los clientes que de verdad van a comprar.
 
@@ -111,6 +111,10 @@ Si esto te ha resultado útil, suscríbete: cada semana monto un sistema de auto
 - **Fuentes oficiales a citar en pantalla/descripción**: docs.n8n.io (400+ integraciones), docs.anthropic.com (API). Refuerza E-E-A-T.
 - **Disclaimer descripción**: "Contenido educativo. Las funciones y precios de las herramientas cambian; verifica en su documentación oficial. No garantizamos resultados de negocio."
 - **Yellow-icon a evitar**: NO usar "gana millones", "no trabajes", "reemplaza empleados". Tono = utilidad, no get-rich-quick.
-- **Dato del 78%/9x**: VERIFICAR con fuente real (Harvard Business Review "Lead Response Management Study" o similar) antes de publicar. Si no se verifica, suavizar a "los estudios del sector muestran que responder rápido multiplica la conversión".
+- **Datos VERIFICADOS** (usar estas fuentes en pantalla):
+  - "7 de cada 10 entrevistan a un solo agente" → NAR 2024 Profile of Home Buyers and Sellers (https://www.nar.realtor/research-and-statistics). NO decir "el primero que responde".
+  - "7x en primera hora" → Harvard Business Review, "The Short Life of Online Sales Leads" (2011), 1,25M leads (https://hbr.org/2011/03/the-short-life-of-online-sales-leads).
+  - "21x en 5 min" → MIT / Lead Response Management Study, Dr. James Oldroyd (https://www.leadresponsemanagement.org/lrm_study/).
+  - "fuera de horario": afirmación CUALITATIVA, sin porcentaje (el 50% no es verificable).
 - **Screencast**: grabar con OBS, n8n real. La pantalla es el contenido — cero necesidad de cara.
 - **Voz**: Eleven v3, voz masculina/femenina neutra profesional. Stability 0.5.
