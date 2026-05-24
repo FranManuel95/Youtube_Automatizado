@@ -29,6 +29,7 @@ editing_app = typer.Typer(help="Etapa 5 - edición y packaging.")
 publish_app = typer.Typer(help="Etapa 6 - publicación YouTube.")
 analytics_app = typer.Typer(help="Etapa 7 - analítica, retention leaks y Ask Studio.")
 competitive_app = typer.Typer(help="Análisis competitivo - YouTube Data API v3.")
+pipeline_app = typer.Typer(help="Orquestador end-to-end (producción asistida).")
 app.add_typer(niche_app, name="niche")
 app.add_typer(script_app, name="script")
 app.add_typer(audio_app, name="audio")
@@ -37,6 +38,7 @@ app.add_typer(editing_app, name="editing")
 app.add_typer(publish_app, name="publish")
 app.add_typer(analytics_app, name="analytics")
 app.add_typer(competitive_app, name="competitive")
+app.add_typer(pipeline_app, name="pipeline")
 
 console = Console()
 
@@ -1049,6 +1051,82 @@ def competitive_quota() -> None:
         "[dim]La cuota se resetea a medianoche Pacífico (PT). "
         "Caché en disco evita repetir consultas el mismo día.[/dim]"
     )
+
+
+# -------------------- pipeline (orquestador) --------------------
+
+
+@pipeline_app.command("run")
+def pipeline_run(
+    topic: str = typer.Argument(..., help="Tema del video"),
+    niche: str | None = typer.Option(
+        None, "--niche", "-n", help="Perfil de nicho (por defecto se resuelve del tema)"
+    ),
+    script_file: Path | None = typer.Option(
+        None, "--script", help="ScriptReport JSON ya generado (marca el guion como listo)"
+    ),
+) -> None:
+    """Crea un proyecto de video y calcula qué se automatiza y qué es manual.
+
+    Producción asistida: automatiza audio plan + packaging; marca screencast,
+    montaje y thumbnail como manuales (tu foso anti-purga).
+    """
+    from yt_auto.pipeline import plan_pipeline, start_project
+
+    project = start_project(topic=topic, niche_profile_id=niche)
+    plan = plan_pipeline(project, has_script=script_file is not None)
+
+    console.rule(f"[bold cyan]Pipeline · proyecto {project.project_id}")
+    console.print(f"  Tema:   {project.topic}")
+    console.print(f"  Nicho:  {project.niche_profile_id}")
+    console.print(f"  Carpeta: output/projects/{project.project_id}/")
+    console.print()
+    console.print(f"  [green]Automatizado:[/green] {', '.join(plan.automated_stages) or '—'}")
+    console.print(f"  [yellow]Manual (tu foso):[/yellow] {', '.join(plan.manual_stages)}")
+    console.print()
+    console.print("[bold]Próximos pasos:[/bold]")
+    for i, action in enumerate(plan.next_actions, 1):
+        console.print(f"  {i}. {action}")
+    console.print(
+        "\n[dim]El 30% manual (screencast + montaje + criterio) es lo que te "
+        "diferencia de los 12M de canales que YouTube purgó en 2025.[/dim]"
+    )
+
+
+@pipeline_app.command("status")
+def pipeline_status(
+    project_id: str | None = typer.Argument(None, help="ID del proyecto (vacío = listar todos)"),
+) -> None:
+    """Muestra el estado de un proyecto, o lista todos."""
+    from yt_auto.pipeline import VideoProject
+
+    if project_id is None:
+        projects = VideoProject.list_all()
+        if not projects:
+            console.print("[yellow]No hay proyectos todavía. Usa `pipeline run`.[/yellow]")
+            return
+        console.print("[bold]Proyectos:[/bold]")
+        for pid in projects:
+            p = VideoProject.load(pid)
+            console.print(f"  {pid}  ·  {p.topic}")
+        return
+
+    project = VideoProject.load(project_id)
+    console.rule(f"[bold cyan]{project.topic}")
+    table = Table(title=f"Proyecto {project.project_id}")
+    table.add_column("Etapa")
+    table.add_column("Estado")
+    table.add_column("Nota")
+    color = {
+        "done": "green",
+        "automated": "green",
+        "manual_required": "yellow",
+        "pending": "dim",
+    }
+    for stage, state in project.stages.items():
+        c = color.get(state.status.value, "white")
+        table.add_row(stage, f"[{c}]{state.status.value}[/{c}]", state.note[:50])
+    console.print(table)
 
 
 if __name__ == "__main__":
