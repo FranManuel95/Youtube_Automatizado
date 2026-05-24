@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "candidate_name": "automatizacion_ia_inmobiliaria",
+  "model_used": "claude-opus-4-7",
+  "mode": "interactive",
+  "niche_audit_ref": "barrido-mercado-2026 + 4 deep-dives + validacion YouTube API",
+  "draft": {
+    "title": "El agente de IA que responde TODOS los leads de una inmobiliaria en 30 segundos (plantilla n8n GRATIS)",
+    "title_alternatives": [
+      "Construí un agente de IA que cierra visitas inmobiliarias mientras duermes (n8n, sin código)",
+      "Tu inmobiliaria responde tarde a los leads. La IA lo hace en segundos (n8n, sin código)",
+      "El sistema de captación con IA que las agencias venden por 2.000€ (te lo monto gratis)"
+    ],
+    "title_style": "3-Points / Open Loop",
+    "niche": "Automatización IA para inmobiliarias",
+    "target_market": "ES-Global",
+    "target_language": "es",
+    "target_duration_min": 12,
+    "viewer_ideal": {
+      "nombre": "Freelancer que quiere vender automatización + dueño de inmobiliaria pequeña",
+      "edad": "25-45",
+      "ubicacion": "España y LatAm",
+      "situacion": "Quiere montar un sistema de automatización con IA para captar clientes o venderlo como servicio",
+      "dolor": "Pierde leads/clientes por no responder a tiempo y no sabe cómo automatizarlo sin programar",
+      "deseo": "Un sistema que funcione solo, montado paso a paso, que pueda copiar hoy",
+      "objeciones": ["No sé programar", "¿Funciona de verdad?", "¿Es caro?"]
+    },
+    "hook": {
+      "text": "Según el National Association of Realtors, alrededor de 7 de cada 10 compradores entrevistan a un solo agente antes de decidir. Lee eso otra vez: la mayoría no compara. Se queda con el primero que les da una buena primera impresión. Y la mayoría de las agencias tardan horas en contestar un lead, cuando ya es tarde. En este video vas a ver, paso a paso y en pantalla, cómo montar un agente de inteligencia artificial que responde a cada cliente en segundos, califica si es serio, y agenda la visita solo. Sin escribir una sola línea de código. Quédate, porque al final te dejo la plantilla para que lo copies hoy mismo.",
+      "duration_sec": 25,
+      "visual_cue": "Dashboard de n8n con workflow ejecutándose; mensaje de WhatsApp entrando y respuesta automática en 3 segundos",
+      "promise": "Montar un agente IA que responde, califica y agenda visitas solo, con plantilla gratis",
+      "open_loop": "¿Cómo puede una IA calificar leads y agendar visitas sin código?"
+    },
+    "sections": [
+      {
+        "heading": "El problema que cuesta dinero",
+        "content": "Vamos a poner números sobre la mesa, porque esto no es teoría. Cuando alguien rellena un formulario en un portal inmobiliario, no está mirando solo tu anuncio. Está rellenando el de cinco agencias a la vez. El reloj empieza a correr en ese segundo. Y los datos sobre velocidad de respuesta son demoledores. Un estudio de Harvard Business Review que analizó un millón y cuarto de leads encontró que contactar en la primera hora multiplica por casi siete la probabilidad de cualificar ese lead, frente a esperar solo una o dos horas más. Y la investigación del MIT lo lleva más lejos: responder en cinco minutos en lugar de treinta multiplica por veintiuno esa probabilidad. Veintiuno. Si tardas hasta el día siguiente, ese lead está prácticamente muerto. El problema es que un agente inmobiliario humano no puede estar disponible veinticuatro horas. Duerme, conduce, está en visitas, es fin de semana. Y los leads no entienden de horarios: una buena parte de las consultas llega por la tarde-noche y los fines de semana, justo cuando la oficina está cerrada. Aquí es donde entra la automatización. No para reemplazar al agente, que es lo que vende humo, sino para hacer la primera respuesta, calificar al lead y reservar la visita, de modo que el humano solo dedique su tiempo a los clientes que de verdad van a comprar.",
+        "duration_sec": 95,
+        "loop_open": "¿Cómo se monta esa automatización sin programar?",
+        "pattern_interrupt": "Gráfico de tiempo de respuesta vs probabilidad de cierre",
+        "sources": ["NAR 2024 Profile of Home Buyers and Sellers", "Harvard Business Review - The Short Life of Online Sales Leads (2011)", "MIT / Lead Response Management Study (Oldroyd)"]
+      },
+      {
+        "heading": "La arquitectura del sistema",
+        "content": "Antes de tocar nada, entendamos las piezas. Esto es lo bonito de la automatización moderna: son bloques que encajan, no programación. Pieza uno: la entrada. El lead llega por un sitio: un formulario de la web, un mensaje de WhatsApp, o un anuncio de un portal. Esto es el disparador. Pieza dos: el cerebro, que es n8n. n8n es una herramienta de automatización visual. Piensa en ella como un tablero donde conectas cajas con flechas. Cada caja hace una acción. Es gratuita si la instalas tú mismo, y según su documentación oficial, que te enlazo en la descripción, soporta más de cuatrocientas integraciones. No vas a programar: vas a arrastrar y conectar. Pieza tres: la inteligencia. Conectamos n8n a un modelo de inteligencia artificial, Claude o GPT, que lee el mensaje del cliente, entiende qué busca, y redacta una respuesta natural. No un robot frío que dice su consulta es importante. Una respuesta que parece de una persona del equipo. Pieza cuatro: las acciones. La IA decide: si el lead es serio, le ofrece horarios de visita y los reserva en el calendario. Si tiene dudas, las responde. Y en todos los casos, registra el contacto y avisa al agente humano. Cuatro piezas. Ninguna requiere saber programar. Vamos a montarlas en pantalla.",
+        "duration_sec": 110,
+        "loop_close": "Cómo se monta sin programar",
+        "loop_open": "¿Cómo se ve esto construido de verdad?",
+        "pattern_interrupt": "Diagrama de bloques animado: entrada, n8n, IA, acciones",
+        "sources": ["n8n docs (docs.n8n.io)"]
+      },
+      {
+        "heading": "Montaje paso a paso en n8n",
+        "content": "Abro n8n. Si no lo tienes, en la descripción te dejo cómo instalarlo gratis en tu ordenador o en un servidor por unos pocos euros al mes. Paso uno: el disparador. Añado un nodo Webhook. Esto crea una dirección única a la que tu formulario o tu WhatsApp envían el mensaje del cliente. Copio esa dirección. Ya tenemos la puerta de entrada. Paso dos: conectar la inteligencia artificial. Añado el nodo del modelo de lenguaje. Pego mi clave, que es gratis para empezar. Y aquí está la magia: en el campo de instrucciones, le escribo al modelo quién es. Le digo que es el asistente de una inmobiliaria, que responda de forma cálida y profesional en español, que identifique qué tipo de inmueble busca el cliente, su presupuesto y su zona, y que si tiene esos tres datos, ofrezca tres horarios para una visita. Y una instrucción clave: que nunca invente propiedades que no existen. Esa última frase evita el problema número uno de los chatbots malos. Paso tres: la decisión. Añado un nodo Switch. Esto es un cruce de caminos: si la IA marcó el lead como caliente, va por un camino; si necesita seguimiento, por otro. Paso cuatro: las acciones finales. En la rama caliente, conecto dos nodos: uno que crea el evento en el calendario con la visita, y otro que guarda el contacto. Aquí puedes usar un CRM especializado, o algo tan simple como una hoja de cálculo para empezar. Y un último nodo: una notificación al agente humano que dice nuevo lead calificado, visita reservada para el jueves a las seis de la tarde. El humano se despierta con la visita ya agendada. Esto es todo el sistema. Ocho nodos. Cero código.",
+        "duration_sec": 270,
+        "loop_close": "Cómo se ve construido de verdad",
+        "loop_open": "¿Funciona de verdad cuando llega un cliente real?",
+        "pattern_interrupt": "Screencast en vivo de n8n construyendo cada nodo",
+        "sources": ["n8n docs", "Anthropic docs (docs.anthropic.com)"]
+      },
+      {
+        "heading": "Demo en vivo y cómo adaptarlo",
+        "content": "Vamos a probarlo de verdad. Mando un mensaje como si fuera un cliente: hola, busco un piso de dos habitaciones en Valencia, presupuesto hasta doscientos mil euros. Y mira: en tres segundos, la inteligencia artificial responde con el nombre del cliente, confirma lo que busca, y le ofrece tres horarios para visitar. El evento aparece en el calendario. El agente recibe el aviso. Todo solo. ¿Y si no eres de inmobiliaria? Este mismo sistema sirve para una clínica dental que agenda primeras consultas, un gimnasio que capta socios, o un despacho que filtra clientes. Cambias el texto de las instrucciones de la inteligencia artificial y ya está. La arquitectura es idéntica. En los próximos videos voy a montar exactamente eso para otros sectores.",
+        "duration_sec": 90,
+        "loop_close": "Funciona de verdad con un cliente real",
+        "pattern_interrupt": "Demo real: mensaje de prueba y respuesta llegando + evento en calendario",
+        "sources": []
+      }
+    ],
+    "cta": "Te he dejado este workflow completo como plantilla gratuita para que lo importes a tu n8n y lo tengas funcionando hoy mismo: el enlace está en la descripción, solo te pido tu correo para enviártelo. Y si quieres la versión avanzada, con calificación de leads por presupuesto, seguimiento automático a los que no responden, y conexión con los portales inmobiliarios, tienes el Kit Inmobiliaria IA completo, también abajo. Si esto te ha resultado útil, suscríbete: cada semana monto un sistema de automatización con inteligencia artificial para un negocio distinto, paso a paso y sin código. Nos vemos en el próximo.",
+    "word_count": 1180,
+    "estimated_retention_30s": 0.55,
+    "estimated_ctr": 0.06,
+    "humanization": {
+      "pilar_localizacion": true,
+      "pilar_autoridad": true,
+      "pilar_refinamiento": true,
+      "paradoja_emocional": true,
+      "pattern_interrupts_count": 4,
+      "sources_count": 3
+    }
+  },
+  "notes": "Datos verificados (NAR, HBR, MIT). Faceless screencast. Dato '50% fuera de horario' reformulado a cualitativo por no ser verificable."
+}
