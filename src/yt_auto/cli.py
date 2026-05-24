@@ -798,19 +798,24 @@ def analytics_list() -> None:
 
 @competitive_app.command("scan")
 def competitive_scan(
-    niche: str = typer.Option(
-        ...,
+    niche: str | None = typer.Option(
+        None,
         "--niche",
         "-n",
-        help="ID del perfil de nicho (ej: real_estate_latino, tax_legal_inmigrantes)",
+        help="ID del perfil de nicho. Opcional si pasas --query (modo exploratorio).",
     ),
     query: str | None = typer.Option(
-        None, "--query", "-q", help="Override del query (por defecto: top keywords del perfil)"
+        None, "--query", "-q", help="Query de búsqueda. Si lo pasas, --niche es opcional."
     ),
     max_channels: int = typer.Option(10, "--max", help="Cuántos canales top devolver (1-50)"),
     no_cache: bool = typer.Option(False, "--no-cache", help="Fuerza llamada real, salta caché 24h"),
 ) -> None:
-    """Escanea los canales referentes de un nicho con datos reales de la API."""
+    """Escanea los canales referentes de un nicho con datos reales de la API.
+
+    Dos modos:
+    - Con perfil: `competitive scan --niche real_estate_latino`
+    - Exploratorio: `competitive scan --query "tu búsqueda"` (sin perfil)
+    """
     from yt_auto.competitive import YouTubeAPIError, YouTubeDataClient, scan_niche
     from yt_auto.publishing.niche_profile import load_profile
 
@@ -822,16 +827,32 @@ def competitive_scan(
         )
         raise typer.Exit(code=1)
 
-    try:
-        profile = load_profile(niche)
-    except FileNotFoundError:
-        console.print(f"[red]Perfil de nicho '{niche}' no existe.[/red]")
-        console.print("[dim]Disponibles:[/dim]")
-        from yt_auto.publishing.niche_profile import list_profiles
+    if niche is None and not query:
+        console.print(
+            "[red]Debes pasar --niche <perfil> o --query \"búsqueda\" (o ambos).[/red]"
+        )
+        raise typer.Exit(code=1)
 
-        for p in list_profiles():
-            console.print(f"  {p.id} - {p.display_name}")
-        raise typer.Exit(code=1) from None
+    if niche is not None:
+        try:
+            profile = load_profile(niche)
+        except FileNotFoundError:
+            console.print(f"[red]Perfil de nicho '{niche}' no existe.[/red]")
+            console.print("[dim]Disponibles:[/dim]")
+            from yt_auto.publishing.niche_profile import list_profiles
+
+            for p in list_profiles():
+                console.print(f"  {p.id} - {p.display_name}")
+            raise typer.Exit(code=1) from None
+    else:
+        # Modo exploratorio: perfil sintético ad-hoc a partir de la query
+        from yt_auto.publishing.niche_profile import NicheProfile
+
+        profile = NicheProfile(
+            id="_exploratorio",
+            display_name=f"Exploratorio: {query}",
+            search_queries=[query] if query else [],
+        )
 
     try:
         with YouTubeDataClient(s.youtube_api_key) as client:
