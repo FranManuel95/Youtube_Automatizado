@@ -27,6 +27,10 @@ ProgramCategory = Literal[
     "payroll_bookkeeping",
     "credit_history_translation",
     "investing",
+    "automation_saas",
+    "ai_tool",
+    "hosting_vps",
+    "crm_realestate",
 ]
 
 
@@ -46,7 +50,12 @@ class AffiliateProgram(BaseModel):
     )
     cpa_usd_min: float = Field(..., ge=0)
     cpa_usd_max: float = Field(..., ge=0)
-    cpa_model: Literal["per_signup", "per_approval", "per_funded_loan", "per_referral"]
+    cpa_model: Literal[
+        "per_signup", "per_approval", "per_funded_loan", "per_referral", "recurring"
+    ]
+    recurring_months: int = Field(
+        0, ge=0, description="Meses de comisión recurrente (0 si es pago único)"
+    )
     cookie_days: int = 30
     spanish_landing_available: bool = False
     notes_es: str = ""
@@ -290,6 +299,85 @@ AFFILIATE_CATALOG: list[AffiliateProgram] = [
         cpa_usd_max=100,
         cpa_model="per_signup",
         notes_es="Audiencia avanzada/preparadores profesionales.",
+    ),
+    # ==================================================================
+    # Automatización IA (nicho: automatización IA para inmobiliarias)
+    # Afiliados con comisión RECURRENTE = la columna vertebral del nicho.
+    # ==================================================================
+    AffiliateProgram(
+        id="make",
+        display_name="Make.com (Automatización no-code)",
+        category="automation_saas",
+        landing_url="https://www.make.com/",
+        affiliate_url_template="https://www.make.com/en/register?pc=tucanal&{utm}",
+        cpa_usd_min=20,
+        cpa_usd_max=200,
+        cpa_model="recurring",
+        recurring_months=12,
+        notes_es=(
+            "35% comisión durante 12 meses. Se muestra en pantalla en cada "
+            "tutorial = conversión natural."
+        ),
+    ),
+    AffiliateProgram(
+        id="n8n_cloud",
+        display_name="n8n Cloud (Automatización open-source)",
+        category="automation_saas",
+        landing_url="https://n8n.io/",
+        affiliate_url_template="https://n8n.io/?ref=tucanal&{utm}",
+        cpa_usd_min=15,
+        cpa_usd_max=150,
+        cpa_model="recurring",
+        recurring_months=12,
+        notes_es="30% durante 12 meses. OJO: prohíbe ads pagados. Núcleo del nicho.",
+    ),
+    AffiliateProgram(
+        id="elevenlabs",
+        display_name="ElevenLabs (Voz IA)",
+        category="ai_tool",
+        landing_url="https://elevenlabs.io/",
+        affiliate_url_template="https://elevenlabs.io/?from=tucanal&{utm}",
+        cpa_usd_min=10,
+        cpa_usd_max=120,
+        cpa_model="recurring",
+        recurring_months=12,
+        cookie_days=90,
+        notes_es="22% durante 12 meses. Coherente: tu propio canal usa ElevenLabs.",
+    ),
+    AffiliateProgram(
+        id="lovable",
+        display_name="Lovable (App builder con IA)",
+        category="ai_tool",
+        landing_url="https://lovable.dev/",
+        affiliate_url_template="https://lovable.dev/?via=tucanal&{utm}",
+        cpa_usd_min=10,
+        cpa_usd_max=100,
+        cpa_model="recurring",
+        recurring_months=12,
+        notes_es="20% durante 12 meses. Para tutoriales de crear apps/landings con IA.",
+    ),
+    AffiliateProgram(
+        id="hostinger_vps",
+        display_name="Hostinger VPS (self-hosting n8n)",
+        category="hosting_vps",
+        landing_url="https://www.hostinger.com/vps-hosting",
+        affiliate_url_template="https://www.hostinger.com/?REFERRALCODE=tucanal&{utm}",
+        cpa_usd_min=40,
+        cpa_usd_max=120,
+        cpa_model="per_signup",
+        notes_es="40-60% pago ÚNICO (no recurrente). Para videos de n8n self-hosted en VPS.",
+    ),
+    AffiliateProgram(
+        id="gohighlevel",
+        display_name="GoHighLevel (CRM + automatización agencias)",
+        category="crm_realestate",
+        landing_url="https://www.gohighlevel.com/",
+        affiliate_url_template="https://www.gohighlevel.com/?fp_ref=tucanal&{utm}",
+        cpa_usd_min=40,
+        cpa_usd_max=480,
+        cpa_model="recurring",
+        recurring_months=12,
+        notes_es="40% recurrente. CRM usado por agencias/inmobiliarias. Ticket alto.",
     ),
 ]
 

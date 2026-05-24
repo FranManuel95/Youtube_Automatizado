@@ -1,0 +1,97 @@
+# Perfil DEFINITIVO del canal.
+# Nicho ganador tras barrido íntegro del mercado (33 categorías) + 4 deep-dives
+# + validación con YouTube Data API (6 scans reales):
+#   - 0 big-fish en automatización IA vertical (hueco real verificado)
+#   - demanda demostrada (Santi Munoz 41k, 6.449 views/video)
+#   - afiliados recurrentes (Make 35%, n8n 30%, ElevenLabs 22% — 12 meses)
+#   - faceless screencast nativo (la pantalla ES el contenido)
+#   - riesgo YMYL nulo
+
+id: automatizacion_ia_inmobiliaria
+display_name: "Automatización IA para Inmobiliarias"
+parent_niche: "IA aplicada a verticales de servicios (español)"
+
+keyword_triggers:
+  - "automatización inmobiliaria"
+  - "automatizacion inmobiliaria"
+  - "CRM inmobiliario"
+  - "leads inmobiliaria"
+  - "agente IA inmobiliaria"
+  - "n8n inmobiliaria"
+  - "captación de leads"
+  - "real estate automation"
+  - "chatbot inmobiliario"
+  - "seguimiento de clientes"
+
+# Queries validadas con scans reales (0 big-fish confirmado)
+search_queries:
+  - "automatización IA inmobiliaria n8n"
+  - "captación leads inmobiliaria IA"
+  - "agente IA atención cliente inmobiliaria"
+  - "CRM inmobiliario automatización chatbot"
+
+tags:
+  - "automatización inmobiliaria"
+  - "IA para inmobiliarias"
+  - "n8n inmobiliaria"
+  - "captación leads IA"
+  - "CRM inmobiliario"
+  - "chatbot inmobiliario"
+  - "agente IA real estate"
+  - "automatizar seguimiento clientes"
+  - "Make automation inmobiliaria"
+  - "prospección inmobiliaria IA"
+
+hashtags:
+  - "#AutomatizacionIA"
+  - "#Inmobiliaria"
+  - "#n8n"
+  - "#IAparaNegocios"
+
+disclaimer: |
+  Contenido educativo sobre herramientas de automatización e IA. Los precios, funciones y APIs de las herramientas cambian con frecuencia; verifica las condiciones actuales en la documentación oficial antes de implementar. No garantizamos resultados de negocio concretos.
+
+official_sources:
+  - name: "n8n Documentation"
+    url: "https://docs.n8n.io"
+  - name: "Make.com Help Center"
+    url: "https://www.make.com/en/help"
+  - name: "Anthropic Docs (Claude API)"
+    url: "https://docs.anthropic.com"
+  - name: "OpenAI Platform Docs"
+    url: "https://platform.openai.com/docs"
+
+mla_target_markets:
+  primary: "ES-Global"
+  secondary:
+    - "ES-MX"
+    - "ES-CO"
+    - "ES-AR"
+
+youtube_category: "science_technology"
+yellow_icon_keywords:
+  - "gana millones con IA"
+  - "automatiza todo y no trabajes"
+  - "reemplaza a tus empleados"
+  - "100% pasivo garantizado"
+  - "hazte rico con agentes IA"
+
+# Afiliados resueltos desde el catálogo (monetization). Comisión recurrente
+# = la columna vertebral del nicho.
+affiliate_focus:
+  - id: "make"
+    rationale: "35% recurrente 12 meses. Se muestra en pantalla en cada tutorial = conversión natural."
+  - id: "n8n_cloud"
+    rationale: "30% recurrente 12 meses. Núcleo del nicho de automatización."
+  - id: "gohighlevel"
+    rationale: "40% recurrente. CRM usado por agencias/inmobiliarias, ticket alto."
+  - id: "elevenlabs"
+    rationale: "22% recurrente 12m. Coherente: el propio canal usa voz IA."
+  - id: "hostinger_vps"
+    rationale: "Pago único 40-60% para videos de n8n self-hosted."
+
+leadgen_channels:
+  - "Productos digitales propios (plantillas n8n/Make, Gumroad)"
+  - "Membresía/comunidad (Skool/Discord, plantillas mensuales)"
+  - "Mini-curso 'monta y vende este sistema a inmobiliarias'"
+  - "Servicios de implantación a inmobiliarias (high-ticket)"

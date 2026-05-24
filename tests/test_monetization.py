@@ -36,6 +36,28 @@ def test_catalog_has_critical_programs():
         assert required in ids, f"Falta programa crítico: {required}"
 
 
+def test_catalog_has_automation_programs():
+    """Nicho definitivo: automatización IA para inmobiliarias."""
+    ids = {p.id for p in AFFILIATE_CATALOG}
+    for required in ["make", "n8n_cloud", "elevenlabs", "gohighlevel", "hostinger_vps"]:
+        assert required in ids, f"Falta afiliado de automatización: {required}"
+
+
+def test_recurring_programs_declare_months():
+    for p in AFFILIATE_CATALOG:
+        if p.cpa_model == "recurring":
+            assert p.recurring_months > 0, f"{p.id} recurrente sin recurring_months"
+
+
+def test_automatizacion_inmobiliaria_profile_resolves_affiliates():
+    profile = load_profile("automatizacion_ia_inmobiliaria")
+    programs = programs_for_profile(profile)
+    ids = [p.id for p in programs]
+    assert "make" in ids
+    assert "n8n_cloud" in ids
+    assert "gohighlevel" in ids
+
+
 def test_get_program_returns_correct_one():
     p = get_program("self_financial")
     assert p.id == "self_financial"
