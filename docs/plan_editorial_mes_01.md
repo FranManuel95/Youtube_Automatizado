@@ -1,20 +1,15 @@
 # Plan editorial — Mes 1 · Canal "Automatización IA para negocios"
 
+> **⚠ SUPERSEDIDO en cadencia por `docs/PLAN_OPERATIVO.md`** (documento
+> canónico): la cadencia operativa es **1 vídeo/semana** (la defendible
+> según el deep-research anti-purga), no 2/semana. Los 8 vídeos de este
+> calendario siguen siendo válidos como cola editorial — se consumen en
+> 8 semanas en vez de 4.
+
 - **Nicho**: automatizacion_ia_inmobiliaria (foco inicial) → expandir a multi-vertical en mes 2+
-- **Cadencia**: 2 videos/semana (8 en el mes). El algoritmo premia consistencia
+- **Cadencia**: 1 video/semana (ver PLAN_OPERATIVO.md). El algoritmo premia consistencia, y >3/sem templated es el patrón purgado
 - **Formato**: faceless screencast + voz IA (Eleven v3)
 - **Objetivo mes 1**: NO facturar. Construir email list + dejar que el algoritmo clasifique el canal + medir qué ángulo pega
-
-> ⚠ **Requisito de tiempo real**: este plan exige ~8-12h/semana (2 videos
-> con screencast + montaje). Si solo dispones de 0-2h/semana, este plan NO
-> es ejecutable — no lo intentes a medias: el algoritmo castiga la
-> inconsistencia más que la baja cadencia. **Modo ligero alternativo**
-> (~2-3h/sem): 1 video cada 2 semanas en formato *showcase* (demo del
-> workflow ya montado, sin tutorial paso a paso) = 4 videos en 2 meses.
-> Expectativas en modo ligero: la mitad de tracción en el doble de tiempo;
-> primera facturación realista mes 4-6, no mes 2-3. Si ni eso es viable,
-> la opción de menor esfuerzo es publicar las plantillas n8n en Gumroad
-> sin canal (esfuerzo de una tarde, ingresos ocasionales).
 
 ## Principio rector (por qué NO hay 8 guiones escritos aquí)
 
