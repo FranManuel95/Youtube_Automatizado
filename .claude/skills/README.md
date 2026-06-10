@@ -7,7 +7,9 @@ Skills de Claude Code específicas para este pipeline. Se cargan automáticament
 | Skill | Función |
 |---|---|
 | `anti-ai-slop` | Audita guiones/videos antes de publicar. Aplica los 3 pilares de humanización. |
-| `niche-validator` | Valida un nicho con framework 4S, checklist y tabla RPM. |
+| `fact-check-datos` | Verifica datos/cifras de un guion contra fuente PRIMARIA antes de producir. BLOQUEANTE. |
+| `niche-validator` | Valida un nicho con framework 4S + scan empírico con YouTube Data API. |
+| `interpretar-scan` | Reglas de decisión para leer las tablas de `competitive scan` / `outliers`. |
 | `thumbnail-checklist` | Audita o diseña miniaturas 4K con regla de 3 elementos y pattern interrupt. |
 | `monetization-appeal` | Redacta apelaciones siguiendo el protocolo 24h + 4 puntos. |
 

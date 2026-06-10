@@ -1,9 +1,15 @@
-"""Catálogo curado de programas de afiliados para US-Hispanic finanzas.
+"""Catálogo curado de programas de afiliados (multi-nicho).
 
-Datos verificados con investigación externa 2026 (Tapfiliate, Awin,
-programas oficiales de los vendors). Los CPA son rangos típicos
-reportados por creadores del nicho — ÚSALOS SOLO COMO REFERENCIA y
-verifica al firmar.
+⚠️ ADVERTENCIA SOBRE LA FIABILIDAD DE ESTOS DATOS:
+
+1. **Los CPA son ESTIMACIONES** de investigación con agentes (2026), no
+   contratos verificados. Verifica las condiciones reales al registrarte
+   en cada programa antes de citar cifras en contenido o proyecciones.
+2. **Los `affiliate_url_template` son formatos PLACEHOLDER inventados.**
+   La estructura real del enlace la entrega el dashboard de cada programa
+   al darte de alta (a menudo vía Impact, PartnerStack, FirstPromoter...).
+   NUNCA publiques estos templates tal cual: sustituye la URL completa
+   por tu enlace real de afiliado y conserva solo los parámetros UTM.
 
 Para añadir un programa nuevo: añade un `AffiliateProgram` a la lista
 `AFFILIATE_CATALOG` y referéncialo desde el `affiliate_focus` del perfil

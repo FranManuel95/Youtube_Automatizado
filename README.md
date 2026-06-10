@@ -1,105 +1,76 @@
-# Youtube Automatizado · Pipeline IA 2026
+# Youtube Automatizado · Pipeline de producción asistida
 
-Sistema de **automatización avanzada de canales de YouTube** basado en la
-estrategia 2026 documentada en `/docs`. El objetivo no es generar videos
-sueltos, sino construir **propiedades digitales** rentables, diversificadas y
-resilientes frente a los filtros anti "AI Slop" de la plataforma.
+Pipeline en Python para producir un canal de YouTube **faceless** (voz IA +
+screencast) con el máximo de automatización **sin cruzar la línea que YouTube
+penaliza** (contenido 100% IA sin intervención humana). Automatiza guion →
+audio → packaging → tracking; deja como manual el screencast, el montaje y la
+revisión humana.
 
-## Objetivos estratégicos (resumen de los 7 informes)
+> **Nicho activo**: *Automatización IA para inmobiliarias*
+> (`assets/niche_profiles/automatizacion_ia_inmobiliaria.yaml`), elegido tras
+> barrido de mercado de 33 categorías + validación con YouTube Data API.
+> Ver `CLAUDE.md` § "Estado estratégico actual".
 
-1. **Selección de nicho** con framework de las 4 S (Streaming, Searching,
-   Shopping, Scrolling) y detección de *outliers* y *gaps*.
-2. **Ingeniería de guiones** con hooks "3 Points / Open Loop", bucles de
-   curiosidad y paradoja emocional. Retención objetivo > 80% a los 30s.
-3. **Audio cinematográfico** con ElevenLabs *Multilingual v2* y *Expressive
-   Speech*; doblaje multi-idioma orientado al mercado US-Hispanic (RPM x4).
-4. **Visuales consistentes** con Nano Banana + Seedance 2.0, *Reference
-   Sheets*, *Storyboard 3x3* y prompts JSON para forzar fotorrealismo.
-5. **Edición de alto CTR** con regla de 3 segundos, miniaturas 4K y *pattern
-   interrupts*. Competimos en el Living Room contra Netflix.
-6. **Escalado y seguridad**: red de 5-10 canales (5×$500 > 1×$2500), MLA,
-   Back Catalog con Dynamic Ad Insertion, protocolo de apelación 24h.
-7. **Auditoría continua** con Ask Studio e Inspiration Tab.
+## Qué hace hoy (funcional, 139+ tests)
 
-## Stack técnico
+| Comando | Función |
+|---------|---------|
+| `yt-auto info` | Estado del entorno y APIs configuradas |
+| `yt-auto pipeline run "<tema>"` | Crea un VideoProject y separa etapas automáticas vs manuales |
+| `yt-auto pipeline status [id]` | Estado de un proyecto |
+| `yt-auto competitive scan --query "..."` | Top canales reales de un nicho (YouTube Data API v3) |
+| `yt-auto competitive outliers <channel_id>` | Videos outlier de un canal (≥3x mediana) |
+| `yt-auto script prompt/ingest` | Prompt maestro de guion + parseo de respuesta |
+| `yt-auto audio plan <script.json>` | Plan de locución por bloques |
+| `yt-auto audio synth <plan.json>` | Síntesis real con ElevenLabs (retry, cuota, idempotente) |
+| `yt-auto audio voices --remote` | Voces de tu cuenta ElevenLabs |
+| `yt-auto editing plan` / `publish prep` | Timeline + metadata YouTube con afiliados/UTMs |
+| `yt-auto analytics retention` | Detección de retention leaks desde CSV |
 
-| Capa | Herramienta |
-|------|-------------|
-| Ideación / Auditoría | Claude Sonnet 4.6 + Claude Opus 4.7 (Vision) |
-| Investigación profunda | Google Gemini Deep Research, NotebookLM |
-| Locución | ElevenLabs `eleven_multilingual_v2` |
-| Imagen | Nano Banana (prompt JSON) |
-| Video | Seedance 2.0 (multi-reference, 720p / 15s clips) |
-| Edición | CapCut / Filmora (manual sobre clips IA) |
-| Publicación | YouTube Data API v3 + Multi-language Audio |
-
-## Estructura del repositorio
+## Módulos
 
 ```
-.
-├── src/yt_auto/        # paquete Python con módulos por etapa
-│   ├── niche/          # 1. selección de nicho
-│   ├── scripts/        # 2. guiones
-│   ├── audio/          # 3. locución
-│   ├── visuals/        # 4. imagen + video
-│   ├── editing/        # 5. montaje + packaging
-│   ├── publishing/     # 6. subida + MLA
-│   ├── analytics/      # 7. auditoría
-│   ├── config.py       # carga de .env via pydantic-settings
-│   └── cli.py          # CLI `yt-auto`
-├── assets/             # reference sheets, storyboards, outfits (git-ignored)
-├── output/             # audio, visuales y videos generados (git-ignored)
-├── docs/               # informes estratégicos en texto plano
-├── tests/              # tests con pytest
-├── notebooks/          # exploración
-├── pyproject.toml
-├── .env.example
-└── CLAUDE.md           # guía operativa para Claude Code
+src/yt_auto/
+├── niche/         # 1. auditorías de nicho (prompts + ingest)
+├── scripts/       # 2. guiones (ScriptReport, hooks, loops)
+├── audio/         # 3. locución ElevenLabs (cliente httpx real + plan)
+├── visuals/       # 4. plan visual
+├── editing/       # 5. timeline, subtítulos, DAI anchors
+├── publishing/    # 6. metadata + perfiles de nicho YAML + checklist
+├── analytics/     # 7. retention parser + Ask Studio
+├── compliance/    # disclosure IA, citas obligatorias, log edición humana
+├── monetization/  # catálogo afiliados, UTMs, bloque Recursos
+├── competitive/   # YouTube Data API v3 (scan, outliers, cuota)
+└── pipeline/      # orquestador: VideoProject + automático vs manual
 ```
 
 ## Puesta en marcha
 
 ```bash
-# 1. Clonar y entrar al repo
 git checkout claude/setup-dev-environment-Qa16G
-
-# 2. Crear entorno virtual e instalar
-python3 -m venv .venv
-source .venv/bin/activate
 pip install -e ".[dev]"
-
-# 3. Configurar credenciales
-cp .env.example .env
-# editar .env con tus claves de Anthropic / Gemini / ElevenLabs / YouTube
-
-# 4. Verificar el entorno
+cp .env.example .env   # rellenar ELEVENLABS_API_KEY, YOUTUBE_API_KEY, etc.
 yt-auto info
+python -m pytest -q    # 139+ tests, sin red real
 ```
 
-## Comandos del CLI
+## Artefactos del primer video (piloto 01)
 
-```bash
-yt-auto info                              # estado del entorno
-yt-auto niche "neurodivergencia adultos"  # investigar nicho (stub)
-yt-auto script "tema" --duration-min 12   # generar guion (stub)
-yt-auto audio path/guion.md               # sintetizar locución (stub)
-yt-auto visuals path/storyboard.json      # renderizar visuales (stub)
-yt-auto publish path/video.mp4            # subir a YouTube (stub)
-```
-
-> Estado actual: **scaffold**. Los comandos imprimen `TODO`. La lógica se
-> implementará iterativamente respetando la documentación de `/docs`.
+- Guion (datos verificados NAR/HBR/MIT): `docs/scripts-archive/piloto-01-*`
+- Packaging (descripción + thumbnail brief): `docs/publishing-archive/piloto-01-packaging.md`
+- Lead magnet (workflow n8n importable): `assets/lead_magnets/inmobiliaria_lead_agent_n8n.json`
+- Plan editorial y runbook: `docs/plan_editorial_mes_01.md`, `docs/runbook_produccion_video01.md`
 
 ## Reglas operativas críticas
 
-- **Anti AI-Slop**: ningún guion se publica sin edición humana. Cada release
-  debe pasar el *Marco de Tres Pilares para la Humanización* (dialectos,
-  autoridad real, refinamiento manual).
-- **Likeness Detection**: declarar el uso de IA y evitar deepfakes de marcas
-  o personas reales sin autorización.
-- **Apelaciones**: protocolo de 24h, nunca apelar en caliente.
-- **Diversificación**: el portafolio debe poder perder un canal sin colapsar.
+- **Anti AI-Slop**: nada se publica sin edición humana documentada
+  (`compliance.HumanReviewLog`) y sin pasar la skill `anti-ai-slop`.
+- **Fact-check**: todo dato/estadística de un guion se verifica contra fuente
+  primaria antes de producir (skill `fact-check-datos`).
+- **Disclosure IA**: declarar contenido sintético en YouTube Studio siempre.
+- **Estimaciones ≠ hechos**: los CPAs del catálogo de afiliados y las tablas
+  RPM son investigación de agentes, no contratos verificados (ver CLAUDE.md).
 
 ## Licencia
 
-Proyecto propietario. Uso interno del equipo.
+Proyecto propietario. Uso interno.

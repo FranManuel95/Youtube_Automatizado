@@ -25,6 +25,7 @@ YouTube "hunde" (sinks) el alcance del contenido inauténtico. Esta skill es la 
 ### Pilar 2 - Aportación de autoridad real
 
 - [ ] ¿Incluye al menos 2 datos verificables (estudios, cifras, fuentes nombradas)?
+- [ ] ¿Esos datos han pasado la skill `fact-check-datos` (verificación contra fuente PRIMARIA)? Un dato "plausible" sin verificar NO cuenta como autoridad — ver el caso del "78%" en el guion piloto 01.
 - [ ] ¿Hay experiencias en primera persona o anécdotas concretas?
 - [ ] ¿Aporta un ángulo que la competencia ignora (gap de mercado)?
 - [ ] ¿La estructura cumple "3 Points / Open Loop" en el título e introduce un bucle abierto?

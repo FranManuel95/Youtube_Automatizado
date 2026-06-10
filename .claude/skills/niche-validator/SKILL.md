@@ -30,6 +30,17 @@ Si no los tienes, PÍDELOS antes de validar:
 
 Un nicho rentable encaja en al menos 2 cuadrantes. Si solo encaja en Scrolling, advierte: RPM bajo, alto volumen requerido.
 
+## Validación empírica con la API (hacer SIEMPRE primero)
+
+Desde que existe el módulo `competitive/`, la validación NO se hace solo a
+ojo: ejecuta `yt-auto competitive scan --query "..."` con 2-3 queries del
+tema (requiere `YOUTUBE_API_KEY`) e interpreta la tabla con la skill
+`interpretar-scan`. Los datos reales de la API tienen prioridad sobre
+cualquier estimación de agentes o blogs. Lección de este proyecto: las
+cifras trianguladas de canales benchmark resultaron exageradas hasta 10x
+respecto a la API (caso Felipe Padilla: "30-80k subs" estimados → 4.260
+reales).
+
 ## Checklist de validación (todos deben ser SÍ)
 
 - [ ] **Demanda confirmada**: ¿hay ≥ 3 videos del tema con >100k vistas en el último año?
@@ -41,6 +52,10 @@ Un nicho rentable encaja en al menos 2 cuadrantes. Si solo encaja en Scrolling, 
 Si falla 1: avisar. Si fallan 2 o más: BLOQUEAR y proponer pivote.
 
 ## Tabla de RPM estimado (finanzas/tech/bienestar premium)
+
+> ⚠ Rangos procedentes de blogs del sector (no de YouTube oficial). Úsalos
+> como orden de magnitud, no como hechos. El RPM real solo lo da tu propio
+> YouTube Studio tras publicar.
 
 | Mercado | RPM | Driver |
 |---|---|---|

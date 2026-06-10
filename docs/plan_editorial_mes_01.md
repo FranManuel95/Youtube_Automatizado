@@ -5,6 +5,17 @@
 - **Formato**: faceless screencast + voz IA (Eleven v3)
 - **Objetivo mes 1**: NO facturar. Construir email list + dejar que el algoritmo clasifique el canal + medir qué ángulo pega
 
+> ⚠ **Requisito de tiempo real**: este plan exige ~8-12h/semana (2 videos
+> con screencast + montaje). Si solo dispones de 0-2h/semana, este plan NO
+> es ejecutable — no lo intentes a medias: el algoritmo castiga la
+> inconsistencia más que la baja cadencia. **Modo ligero alternativo**
+> (~2-3h/sem): 1 video cada 2 semanas en formato *showcase* (demo del
+> workflow ya montado, sin tutorial paso a paso) = 4 videos en 2 meses.
+> Expectativas en modo ligero: la mitad de tracción en el doble de tiempo;
+> primera facturación realista mes 4-6, no mes 2-3. Si ni eso es viable,
+> la opción de menor esfuerzo es publicar las plantillas n8n en Gumroad
+> sin canal (esfuerzo de una tarde, ingresos ocasionales).
+
 ## Principio rector (por qué NO hay 8 guiones escritos aquí)
 
 Escribir 8 guiones completos antes de publicar el primero es desperdicio. El video 1 te dará datos reales (CTR, retención, qué tema engancha) que cambiarán los siguientes. Regla: **escribe el guion N+1 después de ver los datos del video N.** Este plan da la DIRECCIÓN (títulos + ángulos); los guiones se escriben en serie con aprendizajes.
