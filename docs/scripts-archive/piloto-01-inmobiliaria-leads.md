@@ -58,29 +58,23 @@ Cuatro piezas. Ninguna requiere saber programar. Vamos a montarlas en pantalla.
 
 ## [SECCIÓN 3 · Montaje paso a paso (el core) · 4.5 min]
 
-> [PANTALLA: screencast real de n8n. Cada sub-paso se muestra construyéndose en vivo. Zoom en los puntos clave.]
+> [PANTALLA: workflow COMPLETO ya montado en n8n. Recorrido con zoom por cada pieza — formato showcase: no se construye en vivo, se muestra el sistema terminado por dentro.]
 
-Abro n8n. Si no lo tienes, en la descripción te dejo cómo instalarlo gratis en tu ordenador o en un servidor por unos pocos euros al mes —ahí uso Hostinger, te dejo el enlace.
+Este es el sistema completo, funcionando, dentro de n8n. Ocho cajas conectadas. Vamos a recorrerlo pieza por pieza para que entiendas exactamente qué hace cada una — y al final te lo llevas tal cual está, como plantilla.
 
-**Paso uno: el disparador.** Añado un nodo "Webhook". Esto crea una dirección única a la que tu formulario o tu WhatsApp envían el mensaje del cliente. Copio esa dirección. [PANTALLA: copiar webhook URL.] Ya tenemos la puerta de entrada.
+**Pieza uno: la puerta de entrada.** [PANTALLA: zoom al nodo Webhook.] Este primer nodo es un Webhook: una dirección única a la que tu formulario web o tu WhatsApp envían el mensaje del cliente en el momento en que lo escribe. No hay que programar nada: n8n te da la dirección y la pegas en tu formulario.
 
-**Paso dos: conectar la IA.** Añado el nodo de modelo de lenguaje. Pego mi clave de API —te muestro dónde se consigue, es gratis empezar. Y aquí está la magia: en el campo de instrucciones, le escribo al modelo quién es. Mira esto:
-
-> [PANTALLA: escribir el system prompt en el nodo.]
+**Pieza dos: el cerebro.** [PANTALLA: abrir el nodo de IA y mostrar el campo de instrucciones.] Aquí está la magia de verdad. Este nodo conecta con el modelo de inteligencia artificial, y lo importante no es la conexión — es lo que le decimos. Mira las instrucciones que tiene escritas:
 
 "Eres el asistente de una inmobiliaria. Cuando llegue un mensaje de un posible cliente, responde de forma cálida y profesional en español. Identifica: qué tipo de inmueble busca, su presupuesto, y su zona. Si da esos tres datos, ofrécele tres horarios para una visita. Si falta información, pregúntala con amabilidad. Nunca inventes propiedades que no existen."
 
-Esa última frase es clave y es parte del sello de calidad: le prohibimos a la IA inventar. Esto evita el problema número uno de los chatbots malos.
+Fíjate en la última frase, porque es la diferencia entre un sistema serio y un chatbot malo: le prohibimos a la IA inventar. Sin esa instrucción, el problema número uno de estos agentes es que se inventan pisos que no existen.
 
-**Paso tres: la decisión.** Añado un nodo "Switch". Esto es un cruce de caminos: si la IA marcó el lead como "caliente", va por un camino; si necesita seguimiento, por otro. [PANTALLA: configurar las dos ramas.]
+**Pieza tres: el cruce de caminos.** [PANTALLA: zoom al nodo Switch y sus dos ramas.] Este nodo decide: si la IA marcó el lead como "calificado" —tiene tipo, presupuesto y zona— va por la rama de arriba. Si falta información, va por la de abajo y simplemente le pregunta al cliente lo que falta.
 
-**Paso cuatro: las acciones finales.** En la rama "caliente", conecto dos nodos: uno que crea el evento en Google Calendar con la visita, y otro que guarda el contacto. Aquí puedes usar un CRM especializado como GoHighLevel —el que usan muchas agencias, te dejo el enlace— o algo tan simple como una hoja de cálculo para empezar.
+**Pieza cuatro: las acciones.** [PANTALLA: zoom a los nodos de Calendar y notificación.] En la rama calificada pasan dos cosas a la vez: se crea el evento de la visita en el calendario, y le llega un aviso al agente humano: "Nuevo lead calificado, visita reservada". Aquí puedes enchufar un CRM como GoHighLevel —el que usan muchas agencias, te dejo el enlace abajo— o empezar con algo tan simple como una hoja de cálculo.
 
-Y un último nodo: una notificación al agente humano por WhatsApp o email que dice "Nuevo lead calificado, visita reservada para el jueves a las 18h". El humano se despierta con la visita ya agendada.
-
-> [PANTALLA: vista completa del workflow terminado, todas las cajas conectadas.]
-
-Esto es todo el sistema. Ocho nodos. Cero código.
+[PANTALLA: vista general del workflow completo otra vez.] Eso es todo. Ocho nodos, cero código, y un sistema que trabaja mientras tú no estás. Si quieres montarlo tú mismo desde cero también puedes —n8n es gratis instalándolo en tu ordenador, o por unos pocos euros al mes en un servidor; te dejo cómo en la descripción.
 
 ---
 
